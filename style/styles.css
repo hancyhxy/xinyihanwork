@@ -251,6 +251,33 @@ body {
     aspect-ratio: 16/10;
     overflow: hidden;
     position: relative;
+    background-color: var(--light-gray);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: var(--transition);
+}
+
+/* Alternative display mode for better coverage */
+.project-image.cover-mode img {
+    object-fit: cover;
+}
+
+/* For images that need full container coverage without distortion */
+.project-image.fill-mode {
+    aspect-ratio: auto;
+    min-height: 200px;
+}
+
+.project-image.fill-mode img {
+    object-fit: contain;
+    height: auto;
+    min-height: 200px;
 }
 
 .placeholder-image {
@@ -495,6 +522,15 @@ body {
     
     .project-card.featured {
         grid-column: span 1;
+    }
+    
+    /* Maintain image aspect ratio on mobile */
+    .project-image {
+        aspect-ratio: 16/10;
+    }
+    
+    .project-image img {
+        object-fit: contain;
     }
     
     .project-row {
