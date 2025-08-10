@@ -1,0 +1,249 @@
+// gallery/KOL Growth Strategy/index.html
+// This file creates the project detail page for KOL Growth Strategy case study.
+// It showcases the social media growth strategy from 0 to 50,000+ fans on Xiaohongshu platform.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOL Growth Strategy - Xinyi Han</title>
+    <link rel="icon" type="image/x-icon" href="../../logo/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="../../logo/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../logo/favicon-32x32.png">
+    <link rel="stylesheet" href="../../style/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .project-hero {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .project-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+        
+        .project-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .project-date {
+            font-size: var(--font-size-base);
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+        
+        .content-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .section-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: var(--spacing-xs);
+        }
+        
+        .subsection-title {
+            font-size: var(--font-size-lg);
+            font-weight: 500;
+            margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+            color: var(--primary-color);
+        }
+        
+        .content-text {
+            font-size: var(--font-size-base);
+            line-height: 1.7;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .project-image {
+            width: 100%;
+            max-width: 800px;
+            margin: var(--spacing-md) auto;
+            display: block;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .image-grid img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .highlight-text {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .conversion-flow {
+            background-color: var(--light-gray);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-md) 0;
+            text-align: center;
+        }
+        
+        .flow-arrow {
+            font-size: var(--font-size-lg);
+            margin: 0 var(--spacing-sm);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: var(--font-size-xl);
+            }
+            
+            .project-content {
+                padding: var(--spacing-lg) var(--spacing-sm);
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="nav-header">
+        <div class="container">
+            <div class="nav-left">
+                <h1 class="name">XINYI HAN</h1>
+                <p class="title">UX DESIGNER & INTERACTION DESIGNER</p>
+            </div>
+            <nav class="nav-right">
+                <a href="../../index.html#info" class="nav-link">INFO</a>
+                <a href="../../index.html#contact" class="nav-link">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="../../index.html" class="back-link">← Back to Portfolio</a>
+            <img src="./public/album.png" alt="Project Overview" class="project-image" style="max-width: 600px; margin-bottom: var(--spacing-md);">
+            <h1 class="project-title">Social Media: From 0 to 50,000+ Fans</h1>
+            <h2 class="project-subtitle">— A Case Study on Xiaohongshu</h2>
+            <p class="project-date">2021.11</p>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-content">
+        <!-- Overview Section -->
+        <section class="content-section">
+            <h3 class="section-title">Overview</h3>
+            <h4 class="subsection-title">Everyday life as a fashion runway</h4>
+            <p class="content-text">
+                Created the Xiaohongshu account Xiao Han Student Reports, gained over 200k followers in 2 years, specializing in daily fashion and style sharing. Collaborated with various brands to launch products, including Adidas, Uniqlo, Vans, etc. Earned a commercial return of about 100,000 USD.
+            </p>
+            
+            <div class="image-grid">
+                <img src="./public/contentdata.png" alt="Content Data Analysis" class="project-image">
+                <img src="./public/workflow.png" alt="Content Workflow" class="project-image">
+            </div>
+        </section>
+
+        <!-- Data Tracking Section -->
+        <section class="content-section">
+            <h3 class="section-title">Data Tracking Each Post</h3>
+            <p class="content-text">
+                I identified a new demand among women for athletic wear that integrates with the rhythm of daily life, blending into everyday casual outfits, not just for fitness. Consequently, I set the scenes in representative locations like 'supermarkets,' 'urban street views,' and 'cycling,' capturing leisure-style pairings that blur the lines between sportswear and everyday wear. The post successfully garnered 5,000 interactions.
+            </p>
+        </section>
+
+        <!-- Growth Strategy Section -->
+        <section class="content-section">
+            <h3 class="section-title">Growth Strategy</h3>
+            <p class="content-text">
+                The three stages of social media conversion:
+            </p>
+            
+            <div class="conversion-flow">
+                <span class="highlight-text">Discovery</span>
+                <span class="flow-arrow">→</span>
+                <span class="highlight-text">Conversion</span>
+                <span class="flow-arrow">→</span>
+                <span class="highlight-text">Fandom</span>
+            </div>
+
+            <div class="image-grid">
+                <img src="./public/discoverypool.png" alt="Discovery Pool Strategy" class="project-image">
+                <img src="./public/conversation.png" alt="Conversion Strategy" class="project-image">
+                <img src="./public/fandom.png" alt="Fandom Building Strategy" class="project-image">
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <footer class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-left">
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/xinyihan" class="social-link">LinkedIn</a>
+                        <a href="https://instagram.com/xiaohanstudentreports" class="social-link">Instagram</a>
+                        <a href="https://github.com/xinyihan" class="social-link">Github</a>
+                        <a href="../../doc/resume/cv.md" class="social-link">Resume</a>
+                        <a href="mailto:xinyi.han0816@outlook.com" class="social-link">Email</a>
+                    </div>
+                </div>
+                
+                <div class="contact-center">
+                    <p class="contact-text">
+                        Reach out to collaborate,<br>
+                        chat, or learn more.
+                    </p>
+                    <a href="mailto:xinyi.han0816@outlook.com" class="email-link">Send me an email</a>
+                </div>
+                
+                <div class="contact-right">
+                    <p class="location">Sydney, Australia</p>
+                    <p class="time" id="current-time">12:30:53 AM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../style/script.js"></script>
+</body>
+</html>
