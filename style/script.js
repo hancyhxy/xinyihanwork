@@ -23,11 +23,12 @@ class PortfolioManager {
             });
         });
 
-        // Project card hover effects
+        // Project card hover effects and click handling
         const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach(card => {
+        projectCards.forEach((card, index) => {
             card.addEventListener('mouseenter', this.handleCardHover.bind(this));
             card.addEventListener('mouseleave', this.handleCardLeave.bind(this));
+            card.addEventListener('click', (e) => this.handleCardClick.bind(this)(e, index));
         });
 
         // Project row interactions
@@ -112,6 +113,27 @@ class PortfolioManager {
         
         if (image) {
             image.style.transform = 'scale(1)';
+        }
+    }
+
+    handleCardClick(e, cardIndex) {
+        e.preventDefault();
+        
+        // First card (index 0) should open City Jazz page
+        if (cardIndex === 0) {
+            // Open City Jazz page in new tab
+            window.open('gallery/cityjazz/index.html', '_blank');
+        } else {
+            // Handle other project cards (placeholder for future functionality)
+            const card = e.currentTarget;
+            const projectName = card.querySelector('h3').textContent;
+            console.log(`Project clicked: ${projectName}`);
+            
+            // Add click feedback
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+            }, 150);
         }
     }
 

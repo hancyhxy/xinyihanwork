@@ -224,6 +224,29 @@ body {
     grid-column: span 2;
 }
 
+.project-card.clickable {
+    position: relative;
+}
+
+.project-card.clickable::after {
+    content: "Click to view";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.project-card.clickable:hover::after {
+    opacity: 1;
+}
+
 .project-image {
     aspect-ratio: 16/10;
     overflow: hidden;
