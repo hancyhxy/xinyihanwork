@@ -76,8 +76,9 @@ class PortfolioManager {
         const projectsTable = document.querySelector('.projects-table');
         if (!projectsTable) return;
         
-        // Clear existing content
-        projectsTable.innerHTML = '';
+        // Clear existing content but keep the header
+        const existingRows = projectsTable.querySelectorAll('.project-row');
+        existingRows.forEach(row => row.remove());
         
         // Sort projects by date (newest first)
         const sortedProjects = [...this.projectData].sort((a, b) => 
@@ -90,11 +91,10 @@ class PortfolioManager {
             row.className = 'project-row';
             
             const year = new Date(project.date).getFullYear();
-            const dotClass = this.getClassificationDotClass(project.classification);
             
             row.innerHTML = `
                 <span class="year">${year}</span>
-                <span class="project-name">${project['project name']} <span class="classification-dot ${dotClass}">●</span></span>
+                <span class="project-name">${project['project name']}</span>
                 <span class="project-tag">${project.tag}</span>
                 <span class="company">${project.company}</span>
             `;

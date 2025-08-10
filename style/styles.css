@@ -372,6 +372,21 @@ body {
     margin-top: var(--spacing-lg);
 }
 
+.table-header {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px 150px;
+    gap: var(--spacing-md);
+    align-items: center;
+    padding: var(--spacing-md);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-sm);
+}
+
 .project-row {
     display: grid;
     grid-template-columns: 80px 1fr 200px 150px;
