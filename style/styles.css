@@ -367,7 +367,7 @@ body {
 
 .table-header {
     display: grid;
-    grid-template-columns: 80px 1fr 200px 150px;
+    grid-template-columns: 80px minmax(200px, 2fr) minmax(180px, 1.5fr) minmax(120px, 1fr);
     gap: var(--spacing-md);
     align-items: center;
     padding: var(--spacing-md);
@@ -382,7 +382,7 @@ body {
 
 .project-row {
     display: grid;
-    grid-template-columns: 80px 1fr 200px 150px;
+    grid-template-columns: 80px minmax(200px, 2fr) minmax(180px, 1.5fr) minmax(120px, 1fr);
     gap: var(--spacing-md);
     align-items: center;
     padding: var(--spacing-md);
