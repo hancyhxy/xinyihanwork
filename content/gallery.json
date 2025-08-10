@@ -1,0 +1,21 @@
+[
+  {
+    "date": "2021-11-01",
+    "project name": "KOL Growth Strategy",
+    "tag": "Social Media, User Growth",
+    "classification": "Social Media",
+    "coverImageUrl": "./gallery/KOL Growth Strategy/public/album.png",
+    "projectUrl": "./gallery/KOL Growth Strategy/index.html",
+    "company": "Red Note"
+  },
+  {
+    "date": "2024-03-15",
+    "project name": "City Jazz",
+    "tag": "HTML, Creative Coding",
+    "classification": "Design Work",
+    "coverImageUrl": "gallery/cityjazz/public/albumcover.png",
+    "projectUrl": "./gallery/cityjazz/index.html",
+    "company": "-"
+  }
+]
+ 

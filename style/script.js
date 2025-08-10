@@ -5,13 +5,115 @@
 class PortfolioManager {
     constructor() {
         this.currentView = 'gallery';
+        this.projectData = [];
         this.init();
     }
 
-    init() {
+    async init() {
+        await this.loadProjectData();
+        this.renderViews();
         this.setupEventListeners();
         this.startClock();
         this.animateOnLoad();
+    }
+
+    async loadProjectData() {
+        try {
+            const response = await fetch('./content/gallery.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            this.projectData = await response.json();
+            console.log('Project data loaded:', this.projectData);
+        } catch (error) {
+            console.error('Failed to load project data:', error);
+            this.projectData = [];
+        }
+    }
+
+    renderViews() {
+        this.renderGalleryView();
+        this.renderIndexView();
+    }
+
+    renderGalleryView() {
+        const galleryGrid = document.querySelector('.gallery-grid');
+        if (!galleryGrid) return;
+        
+        // Clear existing content
+        galleryGrid.innerHTML = '';
+        
+        // Render each project as a card
+        this.projectData.forEach((project, index) => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            if (project.projectUrl) {
+                card.classList.add('clickable');
+            }
+            
+            card.innerHTML = `
+                <div class="project-image">
+                    ${project.coverImageUrl ? 
+                        `<img src="${project.coverImageUrl}" alt="${project['project name']}" />` :
+                        `<div class="placeholder-image"></div>`
+                    }
+                </div>
+                <div class="project-info">
+                    <h3>${project['project name']}</h3>
+                    <p>${project.tag}</p>
+                </div>
+            `;
+            
+            // Store project data on the element for click handling
+            card.dataset.projectUrl = project.projectUrl || '';
+            card.dataset.projectIndex = index;
+            
+            galleryGrid.appendChild(card);
+        });
+    }
+
+    renderIndexView() {
+        const projectsTable = document.querySelector('.projects-table');
+        if (!projectsTable) return;
+        
+        // Clear existing content
+        projectsTable.innerHTML = '';
+        
+        // Sort projects by date (newest first)
+        const sortedProjects = [...this.projectData].sort((a, b) => 
+            new Date(b.date) - new Date(a.date)
+        );
+        
+        // Render each project as a table row
+        sortedProjects.forEach((project, index) => {
+            const row = document.createElement('div');
+            row.className = 'project-row';
+            
+            const year = new Date(project.date).getFullYear();
+            const status = this.getProjectStatus(project);
+            
+            row.innerHTML = `
+                <span class="year">${year}</span>
+                <span class="project-name">${project['project name']} ●</span>
+                <span class="project-type">${project.classification}</span>
+                <span class="company">${project.company}</span>
+                <span class="status">${status}</span>
+            `;
+            
+            // Store project data on the element for click handling
+            row.dataset.projectUrl = project.projectUrl || '';
+            row.dataset.projectIndex = index;
+            
+            projectsTable.appendChild(row);
+        });
+    }
+
+    getProjectStatus(project) {
+        // Determine project status based on company and other factors
+        if (project.company === '-') return 'Personal';
+        if (project.company === 'Red Note') return 'Case Study';
+        if (project.classification === 'Design Work') return 'Creative';
+        return 'Case Study';
     }
 
     setupEventListeners() {
@@ -23,19 +125,37 @@ class PortfolioManager {
             });
         });
 
-        // Project card hover effects and click handling
-        const projectCards = document.querySelectorAll('.project-card');
-        projectCards.forEach((card, index) => {
-            card.addEventListener('mouseenter', this.handleCardHover.bind(this));
-            card.addEventListener('mouseleave', this.handleCardLeave.bind(this));
-            card.addEventListener('click', (e) => this.handleCardClick.bind(this)(e, index));
-        });
+        // Project card hover effects and click handling (using event delegation)
+        const galleryGrid = document.querySelector('.gallery-grid');
+        if (galleryGrid) {
+            galleryGrid.addEventListener('mouseenter', (e) => {
+                if (e.target.closest('.project-card')) {
+                    this.handleCardHover(e);
+                }
+            }, true);
+            galleryGrid.addEventListener('mouseleave', (e) => {
+                if (e.target.closest('.project-card')) {
+                    this.handleCardLeave(e);
+                }
+            }, true);
+            galleryGrid.addEventListener('click', (e) => {
+                const card = e.target.closest('.project-card');
+                if (card) {
+                    this.handleCardClick(e, card);
+                }
+            });
+        }
 
-        // Project row interactions
-        const projectRows = document.querySelectorAll('.project-row');
-        projectRows.forEach(row => {
-            row.addEventListener('click', this.handleProjectClick.bind(this));
-        });
+        // Project row interactions (using event delegation)
+        const projectsTable = document.querySelector('.projects-table');
+        if (projectsTable) {
+            projectsTable.addEventListener('click', (e) => {
+                const row = e.target.closest('.project-row');
+                if (row) {
+                    this.handleProjectClick(e, row);
+                }
+            });
+        }
 
         // Smooth scrolling for navigation links
         const navLinks = document.querySelectorAll('.nav-link');
@@ -116,33 +236,40 @@ class PortfolioManager {
         }
     }
 
-    handleCardClick(e, cardIndex) {
+    handleCardClick(e, card) {
         e.preventDefault();
         
-        // First card (index 0) should open City Jazz page
-        if (cardIndex === 0) {
-            // Open City Jazz page in new tab
-            window.open('gallery/cityjazz/index.html', '_blank');
+        const projectUrl = card.dataset.projectUrl;
+        const projectIndex = parseInt(card.dataset.projectIndex);
+        const project = this.projectData[projectIndex];
+        
+        if (projectUrl) {
+            // Open project page in new tab
+            window.open(projectUrl, '_blank');
         } else {
-            // Handle other project cards (placeholder for future functionality)
-            const card = e.currentTarget;
-            const projectName = card.querySelector('h3').textContent;
-            console.log(`Project clicked: ${projectName}`);
-            
-            // Add click feedback
-            card.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                card.style.transform = 'scale(1)';
-            }, 150);
+            // Handle projects without URLs (show console message)
+            console.log(`Project clicked: ${project['project name']}`);
         }
+        
+        // Add click feedback
+        card.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            card.style.transform = 'scale(1)';
+        }, 150);
     }
 
-    handleProjectClick(e) {
-        const row = e.currentTarget;
-        const projectName = row.querySelector('.project-name').textContent;
+    handleProjectClick(e, row) {
+        const projectUrl = row.dataset.projectUrl;
+        const projectIndex = parseInt(row.dataset.projectIndex);
+        const project = this.projectData[projectIndex];
         
-        // Simulate project navigation (in a real app, this would navigate to project detail)
-        console.log(`Navigating to project: ${projectName}`);
+        if (projectUrl) {
+            // Open project page in new tab
+            window.open(projectUrl, '_blank');
+        } else {
+            // Handle projects without URLs (show console message)
+            console.log(`Navigating to project: ${project['project name']}`);
+        }
         
         // Add click feedback
         row.style.transform = 'scale(0.98)';
@@ -257,19 +384,6 @@ class PortfolioManager {
     }
 
     animateOnLoad() {
-        // Stagger animation for project cards
-        const cards = document.querySelectorAll('.project-card');
-        cards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            
-            setTimeout(() => {
-                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 100);
-        });
-
         // Animate hero text
         const heroText = document.querySelector('.hero-text');
         if (heroText) {
@@ -282,6 +396,25 @@ class PortfolioManager {
                 heroText.style.transform = 'translateY(0)';
             }, 300);
         }
+
+        // Animate project cards after they are rendered
+        setTimeout(() => {
+            this.animateProjectCards();
+        }, 100);
+    }
+
+    animateProjectCards() {
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
     }
 
     // Utility method for smooth animations
