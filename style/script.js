@@ -318,12 +318,12 @@ class PortfolioManager {
             header.style.boxShadow = 'none';
         }
 
-        // Parallax effect for hero section (subtle)
-        const heroSection = document.querySelector('.hero-section');
-        if (heroSection) {
-            const speed = scrolled * 0.5;
-            heroSection.style.transform = `translateY(${speed}px)`;
-        }
+        // Parallax effect for hero section (subtle) - REMOVED to fix sticky text issue
+        // const heroSection = document.querySelector('.hero-section');
+        // if (heroSection) {
+        //     const speed = scrolled * 0.5;
+        //     heroSection.style.transform = `translateY(${speed}px)`;
+        // }
     }
 
     handleKeyPress(e) {
