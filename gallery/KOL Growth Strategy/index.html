@@ -14,9 +14,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         .project-hero {
-            padding: var(--spacing-xl) 0;
+            padding: 0;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hero-image {
+            width: 100vw;
+            height: 72vh;
+            object-fit: cover;
+            margin-left: calc(-50vw + 50%);
+            margin-bottom: var(--spacing-lg);
         }
         
         .project-title {
@@ -110,20 +118,67 @@
             margin: 0 var(--spacing-sm);
         }
         
-        .back-link {
-            display: inline-block;
-            margin-bottom: var(--spacing-md);
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-size: var(--font-size-sm);
-            transition: var(--transition);
+        
+        .project-brief {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            margin: var(--spacing-lg) auto var(--spacing-xl);
+            max-width: 800px;
+            border: 1px solid var(--border-color);
         }
         
-        .back-link:hover {
+        .brief-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .brief-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+        
+        .brief-label {
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--secondary-color);
+            text-align: right;
+        }
+        
+        .brief-content {
+            font-size: var(--font-size-base);
             color: var(--primary-color);
+            font-weight: 400;
         }
         
         @media (max-width: 768px) {
+            .hero-image {
+                height: 48vh;
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .brief-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+            
+            .brief-label {
+                font-size: var(--font-size-sm);
+            }
+            
+            .brief-content {
+                font-size: var(--font-size-sm);
+            }
+            
+            .project-brief {
+                max-width: 90%;
+                margin: var(--spacing-md) auto var(--spacing-lg);
+            }
+            
             .project-title {
                 font-size: var(--font-size-xl);
             }
@@ -145,8 +200,33 @@
     <!-- Project Hero Section -->
     <section class="project-hero">
         <div class="container">
-            <a href="../../index.html" class="back-link">← Back to Portfolio</a>
-            <img src="./public/album.png" alt="Project Overview" class="project-image" style="max-width: 600px; margin-bottom: var(--spacing-md);">
+            <img src="./public/album.png" alt="Project Overview" class="hero-image">
+            
+            <!-- Project Brief Info -->
+            <div class="project-brief">
+                <div class="brief-grid">
+                    <div class="brief-item">
+                        <div class="brief-label">Date</div>
+                        <div class="brief-content">2021-11-01</div>
+                    </div>
+                    
+                    <div class="brief-item">
+                        <div class="brief-label">Project Name</div>
+                        <div class="brief-content">KOL Growth Strategy</div>
+                    </div>
+                    
+                    <div class="brief-item">
+                        <div class="brief-label">Tag</div>
+                        <div class="brief-content">Social Media, User Growth</div>
+                    </div>
+                    
+                    <div class="brief-item">
+                        <div class="brief-label">Company</div>
+                        <div class="brief-content">Red Note</div>
+                    </div>
+                </div>
+            </div>
+            
             <h1 class="project-title">Social Media: From 0 to 50,000+ Fans</h1>
             <h2 class="project-subtitle">— A Case Study on Xiaohongshu</h2>
             <p class="project-date">2021.11</p>
