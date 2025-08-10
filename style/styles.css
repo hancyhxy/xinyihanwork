@@ -192,13 +192,6 @@ body {
     font-weight: 500;
 }
 
-.filter-tag:nth-child(1) {
-    color: #6366f1; /* Design Work color - indigo */
-}
-
-.filter-tag:nth-child(2) {
-    color: #ec4899; /* Social Media color - pink */
-}
 
 /* Gallery View */
 .gallery-view {
@@ -424,22 +417,26 @@ body {
     color: var(--secondary-color);
 }
 
-/* Classification dot colors */
+/* Classification dot styles */
 .classification-dot {
-    font-size: var(--font-size-sm);
-    margin-left: 4px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
 }
 
 .dot-design-work {
-    color: #6366f1; /* Indigo color for Design Work */
+    background-color: #6366f1; /* Indigo color for Design Work */
 }
 
 .dot-social-media {
-    color: #ec4899; /* Pink color for Social Media */
+    background-color: #ec4899; /* Pink color for Social Media */
 }
 
 .dot-default {
-    color: var(--secondary-color); /* Default gray color */
+    background-color: var(--secondary-color); /* Default gray color */
 }
 
 /* Contact Section */

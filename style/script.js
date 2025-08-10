@@ -91,10 +91,14 @@ class PortfolioManager {
             row.className = 'project-row';
             
             const year = new Date(project.date).getFullYear();
+            const dotClass = this.getClassificationDotClass(project.classification);
             
             row.innerHTML = `
                 <span class="year">${year}</span>
-                <span class="project-name">${project['project name']}</span>
+                <span class="project-name">
+                    ${project['project name']}
+                    <span class="classification-dot ${dotClass}"></span>
+                </span>
                 <span class="project-tag">${project.tag}</span>
                 <span class="company">${project.company}</span>
             `;
@@ -108,7 +112,7 @@ class PortfolioManager {
     }
 
     getClassificationDotClass(classification) {
-        switch (classification) {
+        switch(classification) {
             case 'Design Work':
                 return 'dot-design-work';
             case 'Social Media':
