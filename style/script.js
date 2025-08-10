@@ -90,14 +90,13 @@ class PortfolioManager {
             row.className = 'project-row';
             
             const year = new Date(project.date).getFullYear();
-            const status = this.getProjectStatus(project);
+            const dotClass = this.getClassificationDotClass(project.classification);
             
             row.innerHTML = `
                 <span class="year">${year}</span>
-                <span class="project-name">${project['project name']} ●</span>
-                <span class="project-type">${project.classification}</span>
+                <span class="project-name">${project['project name']} <span class="classification-dot ${dotClass}">●</span></span>
+                <span class="project-tag">${project.tag}</span>
                 <span class="company">${project.company}</span>
-                <span class="status">${status}</span>
             `;
             
             // Store project data on the element for click handling
@@ -108,13 +107,17 @@ class PortfolioManager {
         });
     }
 
-    getProjectStatus(project) {
-        // Determine project status based on company and other factors
-        if (project.company === '-') return 'Personal';
-        if (project.company === 'Red Note') return 'Case Study';
-        if (project.classification === 'Design Work') return 'Creative';
-        return 'Case Study';
+    getClassificationDotClass(classification) {
+        switch (classification) {
+            case 'Design Work':
+                return 'dot-design-work';
+            case 'Social Media':
+                return 'dot-social-media';
+            default:
+                return 'dot-default';
+        }
     }
+
 
     setupEventListeners() {
         // Tab switching functionality
@@ -429,7 +432,7 @@ class PortfolioManager {
 
     // Method to add new project dynamically (for future use)
     addProject(projectData) {
-        const { name, type, year, company, status, featured = false } = projectData;
+        const { name, tag, year, company, classification, featured = false } = projectData;
         
         if (this.currentView === 'gallery') {
             this.addProjectCard(projectData);
@@ -470,12 +473,13 @@ class PortfolioManager {
         const row = document.createElement('div');
         row.className = 'project-row';
         
+        const dotClass = this.getClassificationDotClass(projectData.classification);
+        
         row.innerHTML = `
             <span class="year">${projectData.year}</span>
-            <span class="project-name">${projectData.name} ●</span>
-            <span class="project-type">${projectData.type}</span>
+            <span class="project-name">${projectData.name} <span class="classification-dot ${dotClass}">●</span></span>
+            <span class="project-tag">${projectData.tag}</span>
             <span class="company">${projectData.company}</span>
-            <span class="status">${projectData.status}</span>
         `;
         
         table.appendChild(row);

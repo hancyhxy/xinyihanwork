@@ -192,6 +192,14 @@ body {
     font-weight: 500;
 }
 
+.filter-tag:nth-child(1) {
+    color: #6366f1; /* Design Work color - indigo */
+}
+
+.filter-tag:nth-child(2) {
+    color: #ec4899; /* Social Media color - pink */
+}
+
 /* Gallery View */
 .gallery-view {
     padding: var(--spacing-xl) 0;
@@ -366,7 +374,7 @@ body {
 
 .project-row {
     display: grid;
-    grid-template-columns: 80px 1fr 200px 150px 150px;
+    grid-template-columns: 80px 1fr 200px 150px;
     gap: var(--spacing-md);
     align-items: center;
     padding: var(--spacing-md);
@@ -391,7 +399,7 @@ body {
     font-weight: 500;
 }
 
-.project-row .project-type {
+.project-row .project-tag {
     font-size: var(--font-size-sm);
     color: var(--secondary-color);
 }
@@ -401,10 +409,22 @@ body {
     color: var(--secondary-color);
 }
 
-.project-row .status {
+/* Classification dot colors */
+.classification-dot {
     font-size: var(--font-size-sm);
-    color: var(--secondary-color);
-    text-align: right;
+    margin-left: 4px;
+}
+
+.dot-design-work {
+    color: #6366f1; /* Indigo color for Design Work */
+}
+
+.dot-social-media {
+    color: #ec4899; /* Pink color for Social Media */
+}
+
+.dot-default {
+    color: var(--secondary-color); /* Default gray color */
 }
 
 /* Contact Section */
@@ -536,10 +556,6 @@ body {
     .project-row {
         grid-template-columns: 1fr;
         gap: var(--spacing-xs);
-        text-align: left;
-    }
-    
-    .project-row .status {
         text-align: left;
     }
     
