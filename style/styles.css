@@ -81,6 +81,17 @@ body {
     margin-bottom: 4px;
 }
 
+.nav-left .name .name-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-left .name .name-link:hover {
+    color: var(--accent-color);
+}
+
 .nav-left .title {
     font-size: var(--font-size-sm);
     color: var(--secondary-color);

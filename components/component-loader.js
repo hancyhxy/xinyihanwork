@@ -16,6 +16,7 @@ class ComponentLoader {
         return {
             isSubPage,
             componentsPath: isSubPage ? '../../components/' : './components/',
+            homeLink: isSubPage ? '../../index.html' : './index.html',
             infoLink: isSubPage ? '../../index.html#info' : '#info',
             contactLink: isSubPage ? '../../index.html#contact' : '#contact',
             resumeLink: isSubPage ? '../../doc/resume/cv.md' : '/doc/resume/cv.md'
@@ -33,6 +34,7 @@ class ComponentLoader {
             let html = await response.text();
             
             // Replace placeholders with appropriate paths
+            html = html.replace('{{HOME_LINK}}', this.pathConfig.homeLink);
             html = html.replace('{{INFO_LINK}}', this.pathConfig.infoLink);
             html = html.replace('{{CONTACT_LINK}}', this.pathConfig.contactLink);
             html = html.replace('{{RESUME_LINK}}', this.pathConfig.resumeLink);

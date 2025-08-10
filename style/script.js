@@ -540,8 +540,8 @@ class AnimationManager {
     }
 }
 
-// Initialize the portfolio when the DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize the portfolio when components are loaded
+function initializePortfolio() {
     // Check if all required elements exist
     const requiredElements = ['.nav-header', '.hero-section', '.gallery-view'];
     const missingElements = requiredElements.filter(selector => !document.querySelector(selector));
@@ -556,6 +556,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.animationManager = new AnimationManager();
     
     console.log('Portfolio initialized successfully');
+}
+
+// Listen for components loaded event
+document.addEventListener('componentsLoaded', initializePortfolio);
+
+// Fallback: Initialize when DOM is loaded if components are already loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit for components to load, then initialize
+    setTimeout(() => {
+        if (!window.portfolioManager) {
+            initializePortfolio();
+        }
+    }, 100);
 });
 
 // Global utility functions
