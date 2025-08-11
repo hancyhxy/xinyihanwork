@@ -13,18 +13,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        .project-hero {
+        .hero-image-container {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
             padding: 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .hero-image {
-            width: 100vw;
+            width: 100%;
             height: 72vh;
             object-fit: cover;
-            margin-left: calc(-50vw + 50%);
-            margin-bottom: 0px;
+            display: block;
+        }
+        
+        .project-brief-container {
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #ffffff;
         }
         
         .project-title {
@@ -120,15 +128,15 @@
         
         
         .project-brief {
-            padding: var(--spacing-sm) 0;
-            margin: 0;
-            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
         }
         
         .brief-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-md);
+            gap: var(--spacing-lg);
             text-align: left;
         }
         
@@ -155,12 +163,19 @@
         @media (max-width: 768px) {
             .hero-image {
                 height: 48vh;
-                margin-bottom: 0px;
+            }
+            
+            .project-brief-container {
+                padding: var(--spacing-sm) 0;
+            }
+            
+            .project-brief {
+                padding: 0 var(--spacing-sm);
             }
             
             .brief-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: var(--spacing-sm);
+                gap: var(--spacing-md);
                 text-align: left;
             }
             
@@ -171,11 +186,6 @@
             .brief-content {
                 font-size: var(--font-size-sm);
                 font-weight: 500;
-            }
-            
-            .project-brief {
-                padding: var(--spacing-sm) 0;
-                margin: 0;
             }
             
             .project-title {
@@ -196,12 +206,14 @@
     <!-- Navigation Header -->
     <div data-component="header"></div>
 
-    <!-- Project Hero Section -->
-    <section class="project-hero">
+    <!-- Hero Image Section -->
+    <section class="hero-image-container">
+        <img src="./public/album.png" alt="Project Overview" class="hero-image">
+    </section>
+    
+    <!-- Project Brief Section -->
+    <section class="project-brief-container">
         <div class="container">
-            <img src="./public/album.png" alt="Project Overview" class="hero-image">
-            
-            <!-- Project Brief Info -->
             <div class="project-brief">
                 <div class="brief-grid">
                     <div class="brief-item">
@@ -225,7 +237,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
 
