@@ -104,3 +104,6 @@ Personal information updates should be made directly in `index.html`. Reference 
 - Implements staggered animations to prevent jank
 - Lazy-loads animations using `setTimeout` for performance
 - Minimal external dependencies (only Google Fonts)
+- 
+## important
+dont not use python to test, i will use liveserver to test

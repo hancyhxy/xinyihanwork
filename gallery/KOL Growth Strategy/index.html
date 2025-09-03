@@ -55,9 +55,11 @@
         }
         
         .project-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: var(--spacing-xl) var(--spacing-md);
+            /* Content container: centered with predictable width */
+            max-width: 1140px;
+            margin: 180px auto 120px;
+            /* Follow the contentcontainer idea: fixed side padding */
+            padding: 0 clamp(16px, 3vw, 30px);
         }
         
         .content-section {
@@ -88,24 +90,27 @@
         
         .project-image {
             width: 100%;
-            max-width: 800px;
-            margin: var(--spacing-md) auto;
+            max-width: 100%;
+            margin: var(--spacing-lg) 0;
             display: block;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            /* remove shadow for a cleaner look */
+            box-shadow: none;
         }
         
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-md);
-            margin: var(--spacing-md) 0;
+            /* one image per row on this page */
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
         }
         
         .image-grid img {
             width: 100%;
             border-radius: var(--border-radius);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            /* remove shadow */
+            box-shadow: none;
         }
         
         .highlight-text {
@@ -126,11 +131,39 @@
             margin: 0 var(--spacing-sm);
         }
         
+        /* Two-column layout styles */
+        .two-column-section {
+            display: grid;
+            grid-template-columns: minmax(200px, 240px) 1fr;
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+            align-items: flex-start;
+        }
+        
+        .column-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            color: var(--primary-color);
+            line-height: 1.2;
+            position: sticky;
+            top: var(--spacing-lg);
+        }
+        
+        .column-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .column-content .subsection-title {
+            margin-top: 0;
+        }
+        
         
         .project-brief {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 var(--spacing-md);
+            padding: 0 30px;
         }
         
         .brief-grid {
@@ -160,6 +193,70 @@
             font-weight: 500;
         }
         
+        /* Large screens: optimize content width and spacing */
+        @media (min-width: 1200px) {
+            .project-content {
+                max-width: 1140px;
+                margin: 180px auto 120px;
+                padding: 0 30px;
+            }
+            
+            .two-column-section {
+                gap: calc(var(--spacing-2xl) * 1.5);
+            }
+            
+            .column-title {
+                font-size: calc(var(--font-size-2xl) * 1.1);
+            }
+        }
+        
+        /* Extra large screens: maintain readability while using space */
+        @media (min-width: 1600px) {
+            .project-content {
+                max-width: 1140px;
+                margin: 180px auto 120px;
+                padding: 0 30px;
+            }
+            
+            .two-column-section {
+                grid-template-columns: minmax(260px, 300px) 1fr;
+                gap: calc(var(--spacing-2xl) * 1.8);
+            }
+        }
+        
+        /* Medium screens: balanced layout */
+        @media (max-width: 1199px) and (min-width: 993px) {
+            .project-content {
+                max-width: 1000px;
+                margin: 140px auto 110px;
+                padding: 0 24px;
+            }
+            
+            .two-column-section {
+                grid-template-columns: minmax(180px, 220px) 1fr;
+                gap: var(--spacing-xl);
+            }
+        }
+        
+        /* Small desktop/large tablet screens */
+        @media (max-width: 992px) and (min-width: 769px) {
+            .project-content {
+                max-width: 900px;
+                margin: 120px auto 96px;
+                padding: 0 20px;
+            }
+            
+            .two-column-section {
+                grid-template-columns: minmax(160px, 200px) 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .column-title {
+                font-size: var(--font-size-xl);
+            }
+        }
+        
+        /* Tablet screens */
         @media (max-width: 768px) {
             .hero-image {
                 height: 48vh;
@@ -170,7 +267,8 @@
             }
             
             .project-brief {
-                padding: 0 var(--spacing-sm);
+                max-width: 900px;
+                padding: 0 20px;
             }
             
             .brief-grid {
@@ -193,11 +291,41 @@
             }
             
             .project-content {
-                padding: var(--spacing-lg) var(--spacing-sm);
+                max-width: 100%;
+                margin: 96px auto 80px;
+                padding: 0 var(--spacing-sm);
             }
             
             .image-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .two-column-section {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .column-title {
+                font-size: var(--font-size-xl);
+                position: static;
+                margin-bottom: var(--spacing-sm);
+            }
+        }
+        
+        /* Mobile screens */
+        @media (max-width: 480px) {
+            .project-content {
+                margin: 72px auto 64px;
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .hero-image {
+                height: 42vh;
+            }
+            
+            .brief-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
             }
         }
     </style>
@@ -250,46 +378,58 @@
         </section>
 
         <!-- Overview Section -->
-        <section class="content-section">
-            <h3 class="section-title">Overview</h3>
-            <h4 class="subsection-title">Everyday life as a fashion runway</h4>
-            <p class="content-text">
-                Created the Xiaohongshu account Xiao Han Student Reports, gained over 200k followers in 2 years, specializing in daily fashion and style sharing. Collaborated with various brands to launch products, including Adidas, Uniqlo, Vans, etc. Earned a commercial return of about 100,000 USD.
-            </p>
-            
-            <div class="image-grid">
-                <img src="./public/contentdata.png" alt="Content Data Analysis" class="project-image">
-                <img src="./public/workflow.png" alt="Content Workflow" class="project-image">
+        <section class="two-column-section">
+            <div class="column-title">Overview</div>
+            <div class="column-content">
+                <div>
+                    <h4 class="subsection-title">Everyday life as a fashion runway</h4>
+                    <p class="content-text">
+                        Created the Xiaohongshu account Xiao Han Student Reports, gained over 200k followers in 2 years, specializing in daily fashion and style sharing. Collaborated with various brands to launch products, including Adidas, Uniqlo, Vans, etc. Earned a commercial return of about 100,000 USD.
+                    </p>
+                </div>
+                
+                <div class="image-grid">
+                    <img src="./public/contentdata.png" alt="Content Data Analysis" class="project-image">
+                    <img src="./public/workflow.png" alt="Content Workflow" class="project-image">
+                </div>
             </div>
         </section>
 
         <!-- Data Tracking Section -->
-        <section class="content-section">
-            <h3 class="section-title">Data Tracking Each Post</h3>
-            <p class="content-text">
-                I identified a new demand among women for athletic wear that integrates with the rhythm of daily life, blending into everyday casual outfits, not just for fitness. Consequently, I set the scenes in representative locations like 'supermarkets,' 'urban street views,' and 'cycling,' capturing leisure-style pairings that blur the lines between sportswear and everyday wear. The post successfully garnered 5,000 interactions.
-            </p>
+        <section class="two-column-section">
+            <div class="column-title">Data Tracking</div>
+            <div class="column-content">
+                <div>
+                    <p class="content-text">
+                        I identified a new demand among women for athletic wear that integrates with the rhythm of daily life, blending into everyday casual outfits, not just for fitness. Consequently, I set the scenes in representative locations like 'supermarkets,' 'urban street views,' and 'cycling,' capturing leisure-style pairings that blur the lines between sportswear and everyday wear. The post successfully garnered 5,000 interactions.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- Growth Strategy Section -->
-        <section class="content-section">
-            <h3 class="section-title">Growth Strategy</h3>
-            <p class="content-text">
-                The three stages of social media conversion:
-            </p>
-            
-            <div class="conversion-flow">
-                <span class="highlight-text">Discovery</span>
-                <span class="flow-arrow">→</span>
-                <span class="highlight-text">Conversion</span>
-                <span class="flow-arrow">→</span>
-                <span class="highlight-text">Fandom</span>
-            </div>
+        <section class="two-column-section">
+            <div class="column-title">Growth Strategy</div>
+            <div class="column-content">
+                <div>
+                    <p class="content-text">
+                        The three stages of social media conversion:
+                    </p>
+                    
+                    <div class="conversion-flow">
+                        <span class="highlight-text">Discovery</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="highlight-text">Conversion</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="highlight-text">Fandom</span>
+                    </div>
+                </div>
 
-            <div class="image-grid">
-                <img src="./public/discoverypool.png" alt="Discovery Pool Strategy" class="project-image">
-                <img src="./public/conversation.png" alt="Conversion Strategy" class="project-image">
-                <img src="./public/fandom.png" alt="Fandom Building Strategy" class="project-image">
+                <div class="image-grid">
+                    <img src="./public/discoverypool.png" alt="Discovery Pool Strategy" class="project-image">
+                    <img src="./public/conversation.png" alt="Conversion Strategy" class="project-image">
+                    <img src="./public/fandom.png" alt="Fandom Building Strategy" class="project-image">
+                </div>
             </div>
         </section>
     </div>

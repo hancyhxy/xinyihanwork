@@ -45,4 +45,7 @@ pids
 .env.test.local
 .env.production.local
 
-doc/
+# Ignore temporary files in doc/improvelog/
+doc/improvelog/*.png
+doc/improvelog/*.jpg
+doc/improvelog/*.jpeg

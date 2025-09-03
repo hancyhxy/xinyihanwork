@@ -3,9 +3,6 @@
 ![album](./public/album.png)
 
 # Social Media: From 0 to 50,000+ Fans
-## — A Case Study on Xiaohongshu
-
-*2021.11*
 
 ---
 
