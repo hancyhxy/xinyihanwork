@@ -567,13 +567,22 @@ body {
         grid-column: span 1;
     }
     
-    /* Maintain image aspect ratio on mobile */
+    /* Optimize image display for mobile - remove fixed aspect ratio */
     .project-image {
-        aspect-ratio: 16/10;
+        aspect-ratio: unset;
+        height: auto;
+        min-height: 200px;
+        max-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .project-image img {
         object-fit: contain;
+        width: 100%;
+        height: auto;
+        max-height: 400px;
     }
     
     .project-row {
@@ -610,6 +619,16 @@ body {
     
     .gallery-grid {
         gap: var(--spacing-sm);
+    }
+    
+    /* Further optimize image display for very small screens */
+    .project-image {
+        min-height: 180px;
+        max-height: 350px;
+    }
+    
+    .project-image img {
+        max-height: 350px;
     }
     
     .project-info {
