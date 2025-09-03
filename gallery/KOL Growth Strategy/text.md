@@ -6,6 +6,14 @@
 
 ---
 
+### Project Brief
+- Date: 2021-11-01
+- Project Name: KOL Growth Strategy
+- Tag: Social Media, User Growth
+- Company: Red Note
+
+---
+
 ### Overview
 #### Everyday life as a fashion runway
 
@@ -15,19 +23,11 @@ Created the Xiaohongshu account Xiao Han Student Reports, gained over 200k follo
 
 ![workflow](./public/workflow.png)
 
-layout: 
-
 ---
 
-### Data Tracking Each Post
+### Data Tracking
 
-I identified a new demand among women for athletic wear that integrates with the rhythm of daily life, blending into everyday casual outfits, not just for fitness. Consequently, I set the scenes in representative locations like ’supermarkets,’ ’urban street views,’ and ’cycling,’ capturing leisure-style pairings that blur the lines between sportswear and everyday wear. The post successfully garnered 5,000 interactions.
-
-![discoverypool](./public/discoverypool.png)
-
-![conversion](./public/conversion.png)
-
-![fandom](./public/fandom.png)
+I identified a new demand among women for athletic wear that integrates with the rhythm of daily life, blending into everyday casual outfits, not just for fitness. Consequently, I set the scenes in representative locations like 'supermarkets,' 'urban street views,' and 'cycling,' capturing leisure-style pairings that blur the lines between sportswear and everyday wear. The post successfully garnered 5,000 interactions.
 
 ---
 
@@ -36,3 +36,9 @@ I identified a new demand among women for athletic wear that integrates with the
 The three stages of social media conversion:
 
 **Discovery → Conversion → Fandom**
+
+![discoverypool](./public/discoverypool.png)
+
+![conversation](./public/conversation.png)
+
+![fandom](./public/fandom.png)

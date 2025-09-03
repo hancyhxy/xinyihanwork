@@ -258,8 +258,17 @@
         
         /* Tablet screens */
         @media (max-width: 768px) {
+            /* Avoid horizontal overflow on mobile */
+            .hero-image-container {
+                width: 100%;
+                margin-left: 0;
+                overflow: hidden;
+            }
+
             .hero-image {
                 height: 48vh;
+                /* Show more of the top area on mobile */
+                object-position: center top;
             }
             
             .project-brief-container {
@@ -321,6 +330,7 @@
             
             .hero-image {
                 height: 42vh;
+                object-position: center top;
             }
             
             .brief-grid {
