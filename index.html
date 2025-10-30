@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Xinyi Han - UX Designer Portfolio</title>
     <link rel="icon" type="image/x-icon" href="logo/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="logo/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="logo/favicon-32x32.png">
     <link rel="stylesheet" href="style/styles.css">
+    <link rel="preload" href="content/gallery.json" as="fetch" crossorigin>
+    <script>
+        // Cache-bust only the gallery.json fetches so homepage picks up updates immediately
+        (function() {
+            const originalFetch = window.fetch;
+            window.fetch = function(resource, init) {
+                try {
+                    let url = typeof resource === 'string' ? resource : (resource && resource.url ? resource.url : '');
+                    if (typeof url === 'string' && url.indexOf('content/gallery.json') !== -1) {
+                        const sep = url.indexOf('?') === -1 ? '?' : '&';
+                        const tsParam = 'ts=' + Date.now();
+                        const newUrl = url + sep + tsParam;
+                        if (typeof resource === 'string') {
+                            return originalFetch(newUrl, init);
+                        } else {
+                            const newRequest = new Request(newUrl, resource);
+                            return originalFetch(newRequest, init);
+                        }
+                    }
+                } catch (e) {
+                    // If anything goes wrong, fall back to original fetch
+                }
+                return originalFetch(resource, init);
+            };
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -49,6 +78,42 @@
         <div class="container">
             <div class="gallery-grid">
                 <!-- Project cards will be dynamically loaded here -->
+                <noscript>
+                    <!-- Static fallback generated from content/gallery.json -->
+                    <div class="project-card">
+                        <a href="gallery/KOL-Growth-Strategy/index.html">
+                            <div class="project-image">
+                                <img src="gallery/KOL-Growth-Strategy/public/album.png" alt="KOL Growth Strategy" />
+                            </div>
+                            <div class="project-info">
+                                <h3>KOL Growth Strategy</h3>
+                                <p>Social Media, User Growth</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a href="gallery/city-jazz/index.html">
+                            <div class="project-image">
+                                <img src="gallery/city-jazz/public/jazzpop1.png" alt="City Jazz" />
+                            </div>
+                            <div class="project-info">
+                                <h3>City Jazz</h3>
+                                <p>HTML, Creative Coding</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-card">
+                        <a href="gallery/my-friends-are-my-power-station/index.html">
+                            <div class="project-image">
+                                <img src="gallery/my-friends-are-my-power-station/public/thesis_wholeview.png" alt="My friends are my power station" />
+                            </div>
+                            <div class="project-info">
+                                <h3>My friends are my power station</h3>
+                                <p>Installation, Urban Culture</p>
+                            </div>
+                        </a>
+                    </div>
+                </noscript>
             </div>
         </div>
     </section>
@@ -71,7 +136,7 @@
     <!-- Contact Section -->
     <div data-component="footer"></div>
 
-    <script src="components/component-loader.js"></script>
-    <script src="style/script.js"></script>
+    <script defer src="components/component-loader.js"></script>
+    <script defer src="style/script.js"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@
     "project name": "KOL Growth Strategy",
     "tag": "Social Media, User Growth",
     "classification": "Social Media",
-    "coverImageUrl": "./gallery/KOL Growth Strategy/public/album.png",
-    "projectUrl": "./gallery/KOL Growth Strategy/index.html",
+    "coverImageUrl": "gallery/KOL-Growth-Strategy/public/album.png",
+    "projectUrl": "gallery/KOL-Growth-Strategy/index.html",
     "company": "Red Note"
   },
   {
@@ -13,18 +13,18 @@
     "project name": "City Jazz",
     "tag": "HTML, Creative Coding",
     "classification": "Design Work",
-    "coverImageUrl": "gallery/cityjazz/public/albumcover.png",
-    "projectUrl": "./gallery/cityjazz/index.html",
+    "coverImageUrl": "gallery/city-jazz/public/jazzpop1.png",
+    "projectUrl": "gallery/city-jazz/index.html",
     "company": "-"
   },
   {
-    "date": "2025-01-01",
-    "project name": "New Project Placeholder",
-    "tag": "Design, Placeholder",
+    "date": "2020-05-30",
+    "project name": "My friends are my power station",
+    "tag": "Installation, Urban Culture",
     "classification": "Design Work",
-    "coverImageUrl": "./gallery/new-project/public/album.png",
-    "projectUrl": "./gallery/new-project/index.html",
-    "company": "-"
+    "coverImageUrl": "gallery/my-friends-are-my-power-station/public/thesis_wholeview.png",
+    "projectUrl": "gallery/my-friends-are-my-power-station/index.html",
+    "company": "Parsons School of Design"
   }
 ]
  
