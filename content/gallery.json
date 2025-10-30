@@ -16,6 +16,15 @@
     "coverImageUrl": "gallery/cityjazz/public/albumcover.png",
     "projectUrl": "./gallery/cityjazz/index.html",
     "company": "-"
+  },
+  {
+    "date": "2025-01-01",
+    "project name": "New Project Placeholder",
+    "tag": "Design, Placeholder",
+    "classification": "Design Work",
+    "coverImageUrl": "./gallery/new-project/public/album.png",
+    "projectUrl": "./gallery/new-project/index.html",
+    "company": "-"
   }
 ]
  
