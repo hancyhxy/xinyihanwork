@@ -167,7 +167,8 @@
         
         .brief-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            /* Proportional columns: Date 0.8fr, Name 1.5fr, Tag 1.2fr, Company 1.2fr */
+            grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr);
             gap: var(--spacing-lg);
             text-align: left;
         }
@@ -190,6 +191,7 @@
             font-size: var(--font-size-base);
             color: var(--primary-color);
             font-weight: 500;
+            overflow-wrap: anywhere;
         }
         
         /* Large screens: optimize content width and spacing */
