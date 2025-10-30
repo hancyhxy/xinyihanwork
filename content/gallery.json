@@ -1,5 +1,14 @@
 [
   {
+    "date": "2019-12-30",
+    "project name": "Design Museum Tour as a Game",
+    "tag": "Experience Design, Museum Interaction",
+    "classification": "Design Work",
+    "coverImageUrl": "gallery/gamify-museum- experience/public/album.png",
+    "projectUrl": "gallery/gamify-museum- experience/index.html",
+    "company": "Brooklyn Museum, Parsons"
+  },
+  {
     "date": "2021-11-01",
     "project name": "KOL Growth Strategy",
     "tag": "Social Media, User Growth",
@@ -27,4 +36,3 @@
     "company": "Parsons School of Design"
   }
 ]
- 
