@@ -114,9 +114,22 @@
         
         .image-grid img {
             width: 100%;
+            height: auto;
             border-radius: var(--border-radius);
             /* remove shadow */
             box-shadow: none;
+        }
+        
+        /* Ensure all non-hero images keep aspect ratio by using width:100% and height:auto */
+        .project-content img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+        
+        /* Override global .project-image fixed aspect-ratio on this page */
+        .project-content img.project-image {
+            aspect-ratio: auto;
         }
         
         .highlight-text {
