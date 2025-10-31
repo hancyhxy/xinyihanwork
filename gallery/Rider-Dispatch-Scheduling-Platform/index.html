@@ -9,7 +9,7 @@
     <meta property="og:title" content="Rider Dispatch & Scheduling Platform">
     <meta property="og:description" content="Operations platform for local delivery stations: assign riders, track in real-time, and visualize routes.">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="./public/cover.svg">
+    <meta property="og:image" content="./public/cover.png">
     <link rel="icon" type="image/x-icon" href="../../logo/favicon.ico">
     <link rel="icon" type="image/svg+xml" href="../../logo/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="../../logo/favicon-32x32.png">
@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         .hero-image-container { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0; display: flex; align-items: center; }
-        .hero-image { width: 100%; aspect-ratio: 2/1; object-fit: cover; display: block; }
+        .hero-image { width: 100%; height: auto; display: block; }
 
         .project-brief-container { padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); background-color: #ffffff; }
         .project-title { font-size: var(--font-size-2xl); font-weight: 600; margin-bottom: var(--spacing-sm); line-height: 1.2; }
@@ -27,7 +27,7 @@
         .content-section { margin-bottom: var(--spacing-2xl); }
         .subsection-title { font-size: var(--font-size-lg); font-weight: 500; margin: var(--spacing-md) 0 var(--spacing-sm) 0; color: var(--primary-color); }
         .content-text { font-size: var(--font-size-base); line-height: 1.7; color: var(--primary-color); margin-bottom: var(--spacing-md); }
-        .project-image { width: 100%; max-width: 100%; margin: var(--spacing-lg) 0; display: block; border-radius: var(--border-radius); box-shadow: none; }
+        .project-image { width: 100%; height: auto; max-width: 100%; margin: var(--spacing-lg) 0; display: block; border-radius: var(--border-radius); box-shadow: none; }
         .image-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); margin: var(--spacing-lg) 0; }
         .image-grid img { width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: none; }
 
@@ -47,7 +47,7 @@
         @media (max-width: 992px) and (min-width: 769px) { .project-content { max-width: 900px; margin: 120px auto 96px; padding: 0 20px; } .two-column-section { grid-template-columns: minmax(160px, 200px) 1fr; gap: var(--spacing-lg); } .column-title { font-size: var(--font-size-xl); } }
         @media (max-width: 768px) {
             .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
-            .hero-image { aspect-ratio: 2/1; object-position: center top; }
+            .hero-image { height: auto; }
             .project-brief-container { padding: var(--spacing-sm) 0; }
             .project-brief { max-width: 900px; padding: 0 20px; }
             .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; }
@@ -59,7 +59,7 @@
             .two-column-section { grid-template-columns: 1fr; gap: var(--spacing-md); }
             .column-title { font-size: var(--font-size-xl); position: static; margin-bottom: var(--spacing-sm); }
         }
-        @media (max-width: 480px) { .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); } .hero-image { aspect-ratio: 2/1; object-position: center top; } .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); } }
+        @media (max-width: 480px) { .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); } .hero-image { height: auto; } .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); } }
     </style>
     </head>
 <body>
@@ -67,7 +67,7 @@
 
     <!-- Hero Image Section -->
     <section class="hero-image-container">
-        <img src="./public/cover.svg" alt="Rider Dispatch & Scheduling cover" class="hero-image">
+        <img src="./public/cover.png" alt="Rider Dispatch & Scheduling cover" class="hero-image">
     </section>
 
     <!-- Project Brief Section -->
@@ -110,10 +110,10 @@
             <div class="column-content">
                 <p class="content-text">While TikTok’s front-end experience focused on users’ desire-driven orders, the backend needed an equally powerful delivery infrastructure. I led the design of a dispatch and scheduling platform for local delivery stations — helping managers assign riders efficiently, track orders in real-time, and visualize delivery routes. This platform empowered on-ground logistics, mirroring B2B systems like Zendesk or Salesforce Workspaces but tailored for TikTok’s ecosystem.</p>
                 <h4 class="subsection-title">Suggested Visuals</h4>
-                <div class="image-grid">
-                    <img class="project-image" src="./public/dashboard.svg" alt="Platform dashboard overview">
-                    <img class="project-image" src="./public/map-dispatch.svg" alt="Map-based rider dispatch interface">
-                </div>
+                <ul class="content-text">
+                    <li>Platform dashboard overview</li>
+                    <li>Map-based rider dispatch interface</li>
+                </ul>
             </div>
         </section>
 
@@ -121,6 +121,7 @@
         <section class="two-column-section">
             <div class="column-title">2. Challenge</div>
             <div class="column-content">
+                <img class="project-image" src="./public/personarider.png" alt="Rider persona">
                 <p class="content-text">TikTok’s delivery network was expanding rapidly, yet local dispatch relied on manual coordination through chat groups or spreadsheets. This led to:</p>
                 <ul class="content-text">
                     <li>Slow response during peak hours</li>
@@ -147,15 +148,13 @@
                         <li>Rider View: Real-time status, route, capacity</li>
                         <li>Smart Scheduling: Reassignment suggestions based on proximity and workload</li>
                     </ul>
+                    <img class="project-image" src="./public/mvp.png" alt="MVP of platform architecture">
                 </div>
                 <div>
                     <h4 class="subsection-title">3️⃣ Interface &amp; Interaction Design</h4>
                     <p class="content-text">Adopted a “command-center” UI layout with priority color tags and drag-to-assign actions. Enabled real-time updates with minimal cognitive load for dispatchers.</p>
                 </div>
-                <div class="image-grid">
-                    <img class="project-image" src="./public/flow.svg" alt="Flow of dispatch logic">
-                    <img class="project-image" src="./public/before-after.svg" alt="Before vs After efficiency visualization">
-                </div>
+                <!-- Removed deprecated SVG images; replaced with MVP image above -->
             </div>
         </section>
 
@@ -163,6 +162,7 @@
         <section class="two-column-section">
             <div class="column-title">4. Outcome</div>
             <div class="column-content">
+                <img class="project-image" src="./public/outcome.png" alt="Outcome highlights">
                 <ul class="content-text">
                     <li>Reduced average dispatch time per order</li>
                     <li>Improved rider utilization and delivery punctuality</li>
