@@ -1,4 +1,4 @@
-![web&app.pairings](./public/web&app.pairings.png)
+![cover](./public/cover.png)
 # Re-Architecting Alibaba Help Center for Global Consistency
 
 ### Project Brief
