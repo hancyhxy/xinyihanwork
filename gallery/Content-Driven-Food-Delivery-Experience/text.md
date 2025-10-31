@@ -5,7 +5,7 @@
 - Date: 2023
 - Project Name: Content-Driven Food Delivery Experience
 - Tag: Content Commerce, UX Flow, Incentive Design
-- Company: TikTok Local Life
+- Company: TikTok, Local Life
 
 ### Overview
 

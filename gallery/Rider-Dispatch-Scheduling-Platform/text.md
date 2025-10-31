@@ -5,7 +5,7 @@
 - Date: 2023
 - Project Name: Rider Dispatch & Scheduling Platform
 - Tag: B2B Platform, Operations Design, Efficiency Optimization
-- Company: TikTok Local Life
+- Company: TikTok, Local Life
 
 
 ### Overview
