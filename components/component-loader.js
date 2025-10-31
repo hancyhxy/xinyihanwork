@@ -17,11 +17,10 @@ class ComponentLoader {
             isSubPage,
             componentsPath: isSubPage ? '../../components/' : './components/',
             homeLink: isSubPage ? '../../index.html' : './index.html',
-            // Use root-relative path so it works from any page
-            infoLink: '/doc/xinyi_han_resume.pdf',
+            // Page-aware relative paths so it works from home and gallery pages
+            infoLink: isSubPage ? '../../doc/xinyi_han_resume.pdf' : './doc/xinyi_han_resume.pdf',
             contactLink: isSubPage ? '../../index.html#contact' : '#contact',
-            // Footer Resume link uses the same PDF
-            resumeLink: '/doc/xinyi_han_resume.pdf'
+            resumeLink: isSubPage ? '../../doc/xinyi_han_resume.pdf' : './doc/xinyi_han_resume.pdf'
         };
     }
 
