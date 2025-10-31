@@ -44,4 +44,14 @@
     "projectUrl": "gallery/ Re-Architecting-Alibaba-Help-Center-for-Global-Consistency/index.html",
     "company": "Alibaba, Taobao"
   }
+  ,
+  {
+    "date": "2023-01-01",
+    "project name": "Rider Dispatch & Scheduling Platform",
+    "tag": "B2B Platform, Operations Design, Efficiency Optimization",
+    "classification": "Design Work",
+    "coverImageUrl": "gallery/Rider-Dispatch-Scheduling-Platform/public/cover.png",
+    "projectUrl": "gallery/Rider-Dispatch-Scheduling-Platform/index.html",
+    "company": "TikTok Local Life"
+  }
 ]
