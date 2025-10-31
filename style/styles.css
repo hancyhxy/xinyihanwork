@@ -566,7 +566,7 @@ body {
     .project-card.featured {
         grid-column: span 1;
     }
-    
+
     /* Optimize image display for mobile - remove fixed aspect ratio */
     .project-image {
         aspect-ratio: unset;
@@ -600,11 +600,33 @@ body {
     .contact-right {
         text-align: center;
     }
-    
+
     .social-links {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    /* Index view: hide header labels and prevent horizontal scroll on mobile */
+    .index-view .table-header {
+        display: none;
+    }
+    .index-view,
+    .index-view .container,
+    .projects-table,
+    .project-row {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    .project-row span {
+        min-width: 0;
+    }
+    .project-row .project-name,
+    .project-row .project-tag,
+    .project-row .company {
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 }
 
