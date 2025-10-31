@@ -40,8 +40,7 @@ Each level is marked by a checkpoint, encouraging reflection, discovery, and par
 
 This structure transforms the museum into a narrative journey — from attention to embodiment, from creation to community.
 By the time visitors reach the top floor, they complete a loop between personal experience and collective meaning.
-
-![floorplan](./public/floor-plan.png)
+![workscene](./public/workscene.png)
 
 ###System Overview: Journey Map
 
@@ -53,12 +52,13 @@ Floor	Theme	Technology	Experience
 3F	Mimic Gesture	Projector, Camera, Sensor	Embodied Learning, Expression
 4F	Build Your Room	3D Model Game	Deep Exploration, Personalization
 5F	Power of People	Object Recognition, Motion Effect	Social Interaction, Community
-
+![floor](./public/floor.png)
 ![journeymap](./public/journeymap.png)
+![experiencewhole](./public/experiencewhole.jpg)
+
 
 ###Layered Game Experiences
 1F–2F — “Zoom In & Out”
-
 ####Concept:
 Visitors start their journey by exploring the details of art and material. Inspired by the museum’s historical collections, this floor invites a slow and sensory start.
 
