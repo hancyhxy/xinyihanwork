@@ -17,9 +17,11 @@ class ComponentLoader {
             isSubPage,
             componentsPath: isSubPage ? '../../components/' : './components/',
             homeLink: isSubPage ? '../../index.html' : './index.html',
-            infoLink: isSubPage ? '../../index.html#info' : '#info',
+            // Use root-relative path so it works from any page
+            infoLink: '/doc/xinyi_han_resume.pdf',
             contactLink: isSubPage ? '../../index.html#contact' : '#contact',
-            resumeLink: isSubPage ? '../../doc/resume/cv.md' : '/doc/resume/cv.md'
+            // Footer Resume link uses the same PDF
+            resumeLink: '/doc/xinyi_han_resume.pdf'
         };
     }
 

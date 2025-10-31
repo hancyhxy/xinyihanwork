@@ -164,10 +164,13 @@ class PortfolioManager {
             });
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for in-page navigation links only (href starts with '#')
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', this.handleNavClick.bind(this));
+            const href = (link.getAttribute('href') || '').trim();
+            if (href.startsWith('#')) {
+                link.addEventListener('click', this.handleNavClick.bind(this));
+            }
         });
 
         // Email link interaction
@@ -286,10 +289,11 @@ class PortfolioManager {
     }
 
     handleNavClick(e) {
-        e.preventDefault();
-        const target = e.target.getAttribute('href');
-        
+        const link = e.currentTarget;
+        const target = (link.getAttribute('href') || '').trim();
+        // Only intercept in-page hash links
         if (target.startsWith('#')) {
+            e.preventDefault();
             const element = document.querySelector(target);
             if (element) {
                 element.scrollIntoView({ 
