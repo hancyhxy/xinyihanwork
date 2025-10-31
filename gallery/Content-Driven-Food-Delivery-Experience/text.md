@@ -6,7 +6,6 @@
 - Project Name: Content-Driven Food Delivery Experience
 - Tag: Content Commerce, UX Flow, Incentive Design
 - Company: TikTok Local Life
-- Role: Product Manager
 
 ### Overview
 

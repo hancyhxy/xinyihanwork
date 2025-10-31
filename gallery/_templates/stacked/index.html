@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} - Xinyi Han</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="./public/cover.png">
+    <link rel="icon" type="image/x-icon" href="../../logo/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="../../logo/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../logo/favicon-32x32.png">
+    <link rel="stylesheet" href="../../style/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .hero-image-container {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 2/1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-brief-container {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #ffffff;
+        }
+        .project-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+        .project-subtitle { font-size: var(--font-size-lg); color: var(--secondary-color); margin-bottom: var(--spacing-sm); }
+        .project-date { font-size: var(--font-size-base); color: var(--secondary-color); font-style: italic; }
+
+        .project-content {
+            max-width: 1140px;
+            margin: 180px auto 120px;
+            padding: 0 clamp(16px, 3vw, 30px);
+        }
+        .content-section { margin-bottom: var(--spacing-2xl); }
+        .section-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: var(--spacing-xs);
+        }
+        .subsection-title { font-size: var(--font-size-lg); font-weight: 500; margin: var(--spacing-md) 0 var(--spacing-sm) 0; color: var(--primary-color); }
+        .content-text { font-size: var(--font-size-base); line-height: 1.7; color: var(--primary-color); margin-bottom: var(--spacing-md); }
+
+        .project-image { width: 100%; max-width: 100%; margin: var(--spacing-lg) 0; display: block; border-radius: var(--border-radius); box-shadow: none; }
+        .image-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); margin: var(--spacing-lg) 0; }
+
+        .project-brief { max-width: 1140px; margin: 0 auto; padding: 0 30px; }
+        .brief-grid { display: grid; grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr); gap: var(--spacing-lg); text-align: left; }
+        .brief-item { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+        .brief-label { font-size: 12px; font-weight: 400; color: #999999; text-align: left; margin-bottom: 4px; }
+        .brief-content { font-size: var(--font-size-base); color: var(--primary-color); font-weight: 500; overflow-wrap: anywhere; }
+
+        /* Large screens */
+        @media (min-width: 1200px) {
+            .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; }
+        }
+        /* Extra large screens */
+        @media (min-width: 1600px) {
+            .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; }
+        }
+        /* Medium screens */
+        @media (max-width: 1199px) and (min-width: 993px) {
+            .project-content { max-width: 1000px; margin: 140px auto 110px; padding: 0 24px; }
+        }
+        /* Small desktop/large tablet */
+        @media (max-width: 992px) and (min-width: 769px) {
+            .project-content { max-width: 900px; margin: 120px auto 96px; padding: 0 20px; }
+        }
+        /* Tablet */
+        @media (max-width: 768px) {
+            .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
+            .hero-image { aspect-ratio: 2/1; object-position: center top; }
+            .project-brief-container { padding: var(--spacing-sm) 0; }
+            .project-brief { max-width: 900px; padding: 0 20px; }
+            .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; }
+            .brief-label { font-size: 11px; }
+            .brief-content { font-size: var(--font-size-sm); font-weight: 500; }
+            .project-title { font-size: var(--font-size-xl); }
+            .project-content { max-width: 100%; margin: 96px auto 80px; padding: 0 var(--spacing-sm); }
+        }
+        /* Mobile */
+        @media (max-width: 480px) {
+            .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); }
+            .hero-image { aspect-ratio: 2/1; object-position: center top; }
+            .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); }
+        }
+    </style>
+    </head>
+<body>
+    <div data-component="header"></div>
+
+    <section class="hero-image-container">
+        <img src="./public/cover.png" alt="{{TITLE}} cover" class="hero-image">
+    </section>
+
+    <section class="project-brief-container">
+        <div class="container">
+            <div class="project-brief">
+                <div class="brief-grid">
+                    <div class="brief-item">
+                        <div class="brief-label">Date</div>
+                        <div class="brief-content">{{DATE}}</div>
+                    </div>
+                    <div class="brief-item">
+                        <div class="brief-label">Project Name</div>
+                        <div class="brief-content">{{TITLE}}</div>
+                    </div>
+                    <div class="brief-item">
+                        <div class="brief-label">Tag</div>
+                        <div class="brief-content">{{TAG}}</div>
+                    </div>
+                    <div class="brief-item">
+                        <div class="brief-label">Company</div>
+                        <div class="brief-content">{{COMPANY}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-content">
+        <section class="content-section">
+            <h1 class="project-title">{{TITLE}}</h1>
+            <p class="content-text">Replace with your content here. You can add paragraphs and optional images below.</p>
+            <!-- Optional image stack
+            <div class="image-grid">
+                <img src="./public/example-1.png" alt="example 1" class="project-image">
+                <img src="./public/example-2.png" alt="example 2" class="project-image">
+                <img src="./public/example-3.png" alt="example 3" class="project-image">
+            </div>
+            -->
+        </section>
+    </div>
+
+    <div data-component="footer"></div>
+    <script src="../../components/component-loader.js"></script>
+    <script src="../../style/script.js"></script>
+</body>
+</html>

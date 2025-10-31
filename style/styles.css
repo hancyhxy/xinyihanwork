@@ -259,14 +259,14 @@ body {
     opacity: 1;
 }
 
-.project-image {
+.gallery-view .project-image {
     aspect-ratio: 16/9;
     overflow: hidden;
     position: relative;
     background-color: var(--light-gray);
 }
 
-.project-image img {
+.gallery-view .project-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -276,17 +276,17 @@ body {
 }
 
 /* Alternative display mode for better coverage */
-.project-image.cover-mode img {
+.gallery-view .project-image.cover-mode img {
     object-fit: cover;
 }
 
 /* For images that need full container coverage without distortion */
-.project-image.fill-mode {
+.gallery-view .project-image.fill-mode {
     aspect-ratio: auto;
     min-height: 200px;
 }
 
-.project-image.fill-mode img {
+.gallery-view .project-image.fill-mode img {
     object-fit: contain;
     height: auto;
     min-height: 200px;
@@ -361,6 +361,13 @@ body {
     font-size: var(--font-size-sm);
     color: var(--secondary-color);
     font-weight: 400;
+}
+
+/* Project pages: ensure body images keep natural aspect ratio */
+.project-content img.project-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
 }
 
 /* Index View */
@@ -567,8 +574,8 @@ body {
         grid-column: span 1;
     }
 
-    /* Optimize image display for mobile - remove fixed aspect ratio */
-    .project-image {
+    /* Optimize gallery card image display for mobile */
+    .gallery-view .project-image {
         aspect-ratio: unset;
         height: auto;
         min-height: 200px;
@@ -578,7 +585,7 @@ body {
         justify-content: center;
     }
     
-    .project-image img {
+    .gallery-view .project-image img {
         object-fit: contain;
         width: 100%;
         height: auto;
@@ -643,13 +650,13 @@ body {
         gap: var(--spacing-sm);
     }
     
-    /* Further optimize image display for very small screens */
-    .project-image {
+    /* Further optimize gallery card image display for very small screens */
+    .gallery-view .project-image {
         min-height: 180px;
         max-height: 350px;
     }
     
-    .project-image img {
+    .gallery-view .project-image img {
         max-height: 350px;
     }
     

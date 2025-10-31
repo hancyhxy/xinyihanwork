@@ -26,6 +26,7 @@
     "projectUrl": "gallery/city-jazz/index.html",
     "company": "-"
   },
+  
   {
     "date": "2020-05-30",
     "project name": "My friends are my power station",
@@ -62,5 +63,14 @@
     "coverImageUrl": "gallery/Content-Driven-Food-Delivery-Experience/public/cover.png",
     "projectUrl": "gallery/Content-Driven-Food-Delivery-Experience/index.html",
     "company": "TikTok Local Life"
+  },
+  {
+    "date": "2023-01-01",
+    "project name": "Farmer Coffee Logo",
+    "tag": "Visual Identity Design",
+    "classification": "Design Work",
+    "coverImageUrl": "gallery/Farmer-Coffee-Logo/public/cover.png",
+    "projectUrl": "gallery/Farmer-Coffee-Logo/index.html",
+    "company": "Farmer Coffee"
   }
 ]
