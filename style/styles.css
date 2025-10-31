@@ -260,7 +260,7 @@ body {
 }
 
 .project-image {
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9;
     overflow: hidden;
     position: relative;
     background-color: var(--light-gray);
