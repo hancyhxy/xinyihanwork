@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content-Driven Food Delivery Experience - Xinyi Han</title>
+    <meta name="description" content="TikTok Local Life | Food Delivery via Live & Short Video. Order First, Then Schedule Delivery — bridging content engagement with food delivery conversion.">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="Content-Driven Food Delivery Experience">
+    <meta property="og:description" content="Order First, Then Schedule Delivery — converting content-driven desire into real food orders.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="./public/cover.png">
+    <link rel="icon" type="image/x-icon" href="../../logo/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="../../logo/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../logo/favicon-32x32.png">
+    <link rel="stylesheet" href="../../style/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .hero-image-container { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0; display: flex; align-items: center; }
+        .hero-image { width: 100%; height: auto; display: block; }
+
+        .project-brief-container { padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); background-color: #ffffff; }
+        .project-title { font-size: var(--font-size-2xl); font-weight: 600; margin-bottom: var(--spacing-sm); line-height: 1.2; }
+        .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 clamp(16px, 3vw, 30px); }
+        .content-section { margin-bottom: var(--spacing-2xl); }
+        .subsection-title { font-size: var(--font-size-lg); font-weight: 500; margin: var(--spacing-md) 0 var(--spacing-sm) 0; color: var(--primary-color); }
+        .content-text { font-size: var(--font-size-base); line-height: 1.7; color: var(--primary-color); margin-bottom: var(--spacing-md); }
+        .project-image { width: 100%; height: auto; max-width: 100%; margin: var(--spacing-lg) 0; display: block; border-radius: var(--border-radius); box-shadow: none; }
+        .image-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); margin: var(--spacing-lg) 0; }
+        .image-grid img { width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: none; }
+
+        /* Ensure all images keep aspect ratio and auto-adjust height */
+        img { max-width: 100%; height: auto; display: block; }
+        .hero-image, .project-image, .image-grid img { width: 100%; height: auto !important; }
+
+        .two-column-section { display: grid; grid-template-columns: minmax(200px, 240px) 1fr; gap: var(--spacing-2xl); margin-bottom: var(--spacing-2xl); align-items: flex-start; }
+        .column-title { font-size: var(--font-size-2xl); font-weight: 600; color: var(--primary-color); line-height: 1.2; position: sticky; top: var(--spacing-lg); }
+        .column-content { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+
+        .project-brief { max-width: 1140px; margin: 0 auto; padding: 0 30px; }
+        .brief-grid { display: grid; grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr); gap: var(--spacing-lg); text-align: left; }
+        .brief-label { font-size: 12px; font-weight: 400; color: #999999; text-align: left; margin-bottom: 4px; }
+        .brief-content { font-size: var(--font-size-base); color: var(--primary-color); font-weight: 500; overflow-wrap: anywhere; }
+
+        /* Responsive */
+        @media (min-width: 1200px) { .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; } .two-column-section { gap: calc(var(--spacing-2xl) * 1.5); } .column-title { font-size: calc(var(--font-size-2xl) * 1.1); } }
+        @media (min-width: 1600px) { .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; } .two-column-section { grid-template-columns: minmax(260px, 300px) 1fr; gap: calc(var(--spacing-2xl) * 1.8); } }
+        @media (max-width: 1199px) and (min-width: 993px) { .project-content { max-width: 1000px; margin: 140px auto 110px; padding: 0 24px; } .two-column-section { grid-template-columns: minmax(180px, 220px) 1fr; gap: var(--spacing-xl); } }
+        @media (max-width: 992px) and (min-width: 769px) { .project-content { max-width: 900px; margin: 120px auto 96px; padding: 0 20px; } .two-column-section { grid-template-columns: minmax(160px, 200px) 1fr; gap: var(--spacing-lg); } .column-title { font-size: var(--font-size-xl); } }
+        @media (max-width: 768px) {
+            .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
+            .hero-image { height: auto; }
+            .project-brief-container { padding: var(--spacing-sm) 0; }
+            .project-brief { max-width: 900px; padding: 0 20px; }
+            .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; }
+            .brief-label { font-size: 11px; }
+            .brief-content { font-size: var(--font-size-sm); font-weight: 500; }
+            .project-title { font-size: var(--font-size-xl); }
+            .project-content { max-width: 100%; margin: 96px auto 80px; padding: 0 var(--spacing-sm); }
+            .image-grid { grid-template-columns: 1fr; }
+            .two-column-section { grid-template-columns: 1fr; gap: var(--spacing-md); }
+            .column-title { font-size: var(--font-size-xl); position: static; margin-bottom: var(--spacing-sm); }
+        }
+        @media (max-width: 480px) { .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); } .hero-image { height: auto; } .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); } }
+    </style>
+    </head>
+<body>
+    <div data-component="header"></div>
+
+    <!-- Hero Image Section -->
+    <section class="hero-image-container">
+        <img src="./public/cover.png" alt="Content-Driven Food Delivery Experience cover" class="hero-image">
+    </section>
+
+    <!-- Project Brief Section -->
+    <section class="project-brief-container">
+        <div class="container">
+            <div class="project-brief">
+                <div class="brief-grid">
+                    <div class="brief-item">
+                        <div class="brief-label">Date</div>
+                        <div class="brief-content">2023</div>
+                    </div>
+                    <div class="brief-item">
+                        <div class="brief-label">Project Name</div>
+                        <div class="brief-content">Content-Driven Food Delivery Experience</div>
+                    </div>
+                    <div class="brief-item">
+                        <div class="brief-label">Tag</div>
+                        <div class="brief-content">Content Commerce, UX Flow, Incentive Design</div>
+                    </div>
+                    <div class="brief-item">
+                        <div class="brief-label">Company</div>
+                        <div class="brief-content">TikTok Local Life</div>
+                    </div>
+                    <div class="brief-item">
+                        <div class="brief-label">Role</div>
+                        <div class="brief-content">Product Manager</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <div class="project-content">
+        <!-- Project Title -->
+        <section class="content-section">
+            <h1 class="project-title">Content-Driven Food Delivery Experience</h1>
+            <p class="content-text">TikTok Local Life | Food Delivery via Live &amp; Short Video</p>
+        </section>
+
+        <!-- 1. Overview -->
+        <section class="two-column-section">
+            <div class="column-title">1. Overview</div>
+            <div class="column-content">
+                <p class="content-text">TikTok’s Local Life team aimed to reinvent how people discover and order food — not through static restaurant lists, but through emotion-driven content. Users could watch short videos or join live streams from merchants, feel inspired, and place an order directly within the content interface.</p>
+                <p class="content-text">I led the product design for the new <em>“Order First, Then Schedule Delivery”</em> experience — an innovative mechanism that bridges content engagement and food delivery conversion.</p>
+                <h4 class="subsection-title">Suggested Visuals</h4>
+                <ul class="content-text">
+                    <li>Flow diagram: “User watches Live → Collects Voucher → Redeems Later → Delivery”</li>
+                    <li>Screenshot mock of live-stream with “Order Now” or “Collect Voucher” overlay</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 2. Challenge -->
+        <section class="two-column-section">
+            <div class="column-title">2. Challenge</div>
+            <div class="column-content">
+                <p class="content-text">Traditional delivery apps rely on intent-based behavior (search → compare → order). However, TikTok’s content ecosystem operates on impulse and inspiration — users are emotionally triggered but rarely hungry right now.</p>
+                <p class="content-text"><em>How can we capture users’ desire in the content moment, and convert it into real consumption later?</em></p>
+                <h4 class="subsection-title">Suggested Visuals</h4>
+                <ul class="content-text">
+                    <li>Comparison chart: “Intent-driven vs Emotion-driven funnel”</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Process -->
+        <section class="two-column-section">
+            <div class="column-title">3. Process</div>
+            <div class="column-content">
+                <div>
+                    <h4 class="subsection-title">1️⃣ Mapping the Cross-Domain Flow</h4>
+                    <ul class="content-text">
+                        <li>Live content vouchers</li>
+                        <li>User voucher wallet</li>
+                        <li>Delivery ordering flow</li>
+                    </ul>
+                    <img class="project-image" src="./public/flow.png" alt="High-level flow: Live → Voucher → Wallet → Order → Delivery">
+                </div>
+                <div>
+                    <h4 class="subsection-title">2️⃣ Designing the ‘Order Later’ System</h4>
+                    <p class="content-text">We created a feature allowing users to collect and store discounted meal vouchers during a live session, and later redeem them when placing food orders. This turned “ephemeral emotion” into “stored intent,” extending the lifecycle of engagement.</p>
+                    <img class="project-image" src="./public/voucher-lifecycle.png" alt="Voucher lifecycle diagram">
+                </div>
+                <div>
+                    <h4 class="subsection-title">3️⃣ A/B Testing Conversion Triggers</h4>
+                    <p class="content-text">Tested different redemption reminders (push, in-feed cards) to optimize timing for conversion. Result: increased live-to-order retention and overall GMV uplift (confidential).</p>
+                    <img class="project-image" src="./public/abtest.png" alt="A/B test card layout examples">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Outcome -->
+        <section class="two-column-section">
+            <div class="column-title">4. Outcome</div>
+            <div class="column-content">
+                <ul class="content-text">
+                    <li>Improved post-live order conversion and repeat user rate</li>
+                    <li>Established a reusable framework for other verticals (beauty, retail)</li>
+                    <li>Demonstrated TikTok’s potential to link “content → intent → transaction”</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 5. Reflection -->
+        <section class="two-column-section">
+            <div class="column-title">5. Reflection</div>
+            <div class="column-content">
+                <p class="content-text">This project taught me how to merge UX empathy with business mechanism thinking — understanding not only what users feel but how to capture that moment sustainably.</p>
+            </div>
+        </section>
+    </div>
+
+    <div data-component="footer"></div>
+
+    <script src="../../components/component-loader.js"></script>
+    <script src="../../style/script.js"></script>
+</body>
+</html>
