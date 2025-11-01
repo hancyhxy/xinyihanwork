@@ -5,11 +5,12 @@
 ### Project Brief
 - Date: Dec 2021 – Mar 2022
 - Project Name: Enhancing E-commerce Replies with Warmth and Personalization
-- Tag: UX Design, NLP, BART Transformer, Text Style Transfer, Real-time Tone Optimization, Conversational AI, E-commerce
-- Company: Team Innovation Proposal
+- Tag: NLP, Real-time Tone Optimization, Conversational AI
+- Company: Alibaba, Team Innovation Proposal
 
 AI-Powered Language Style Transfer for Customer Service
 
+  
 ### Overview
 In e-commerce chat scenarios, tone matters as much as accuracy. Yet most customer-service agents—especially newcomers—struggle to adapt their language style to different users (elderly, children, professionals, etc.).
 This project proposed an AI-driven plug-in that dynamically adjusts tone, empathy level, and language warmth during real-time conversations, helping agents communicate naturally and consistently.
@@ -19,12 +20,17 @@ This project proposed an AI-driven plug-in that dynamically adjusts tone, empath
 - Switching between communication styles (e.g., formal → friendly) is time-consuming.
 - Existing NLP tools (Grammarly, Outwrite) optimize grammar, not emotional expression—especially in Chinese conversational language.
 
+![vs](./public/vs.png)
+![compare](./public/compare.png)
+
+
 ### Opportunity Insight
 As chat-based customer service becomes universal, emotional intelligence in text communication is becoming a core differentiator.
 Our goal was to make empathy scalable through intelligent tone adaptation.
 
 ### Solution
 A real-time tone optimization plug-in that corrects and personalizes responses as agents type.
+![cover](./public/cover.png)
 
 ### Service Mode Setup
 - Audience: Elderly / Children / Women / Men
@@ -55,11 +61,4 @@ While typing, agents can click the icon “A” to instantly review tone. The AI
 - Enabled consistent brand voice across multilingual service environments.
 - Provided groundwork for commercial AI tone-transfer APIs in customer service.
 
-### Keywords
-- UX Design
-- NLP
-- BART Transformer
-- Text Style Transfer
-- Real-time Tone Optimization
-- Conversational AI
-- E-commerce
+

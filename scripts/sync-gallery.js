@@ -34,8 +34,8 @@ function htmlEscape(s) {
 }
 
 function normalizeHeaderTitle(title) {
-  // Remove leading numbering like "01.", "1.", "1)" etc.
-  return String(title).trim().replace(/^\s*\d+\s*[\.|\)]\s*/, '').trim();
+  // Keep headings exactly as authored in Markdown (no auto-stripping)
+  return String(title).trim();
 }
 
 function parseMarkdown(md) {
@@ -149,13 +149,11 @@ function parseMarkdown(md) {
 }
 
 function renderTwoColumn(sections) {
-  let n = 0;
   const out = [];
   for (const sec of sections) {
-    n += 1;
     const title = normalizeHeaderTitle(sec.title);
     out.push('<section class="two-column-section">');
-    out.push(`  <div class="column-title">${n}. ${htmlEscape(title)}</div>`);
+    out.push(`  <div class="column-title">${htmlEscape(title)}</div>`);
     out.push('  <div class="column-content">');
     for (const item of sec.content) {
       if (item.type === 'p') out.push(`    <p class="content-text">${htmlEscape(item.text)}</p>`);
@@ -244,4 +242,3 @@ if (require.main === module) {
 }
 
 module.exports = { syncGallery, parseMarkdown };
-
