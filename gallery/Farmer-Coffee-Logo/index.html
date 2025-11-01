@@ -47,11 +47,7 @@
         .project-image { width: 100%; max-width: 100%; margin: var(--spacing-lg) 0; display: block; border-radius: var(--border-radius); box-shadow: none; }
         .image-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); margin: var(--spacing-lg) 0; }
 
-        .project-brief { max-width: 1140px; margin: 0 auto; padding: 0 30px; }
-        .brief-grid { display: grid; grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr); gap: var(--spacing-lg); text-align: left; }
-        .brief-item { display: flex; flex-direction: column; gap: var(--spacing-xs); }
-        .brief-label { font-size: 12px; font-weight: 400; color: #999999; text-align: left; margin-bottom: 4px; }
-        .brief-content { font-size: var(--font-size-base); color: var(--primary-color); font-weight: 500; overflow-wrap: anywhere; }
+        /* brief styles are centralized in global CSS */
 
         @media (min-width: 1200px) { .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; } }
         @media (min-width: 1600px) { .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; } }
@@ -61,14 +57,11 @@
             .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
             .hero-image { aspect-ratio: 2/1; object-position: center top; }
             .project-brief-container { padding: var(--spacing-sm) 0; }
-            .project-brief { max-width: 900px; padding: 0 20px; }
-            .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; }
-            .brief-label { font-size: 11px; }
-            .brief-content { font-size: var(--font-size-sm); font-weight: 500; }
+            /* brief styles are centralized in global CSS */
             .project-title { font-size: var(--font-size-xl); }
             .project-content { max-width: 100%; margin: 96px auto 80px; padding: 0 var(--spacing-sm); }
         }
-        @media (max-width: 480px) { .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); } .hero-image { aspect-ratio: 2/1; object-position: center top; } .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); } }
+        @media (max-width: 480px) { .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); } .hero-image { aspect-ratio: 2/1; object-position: center top; } }
     </style>
     </head>
 <body>
@@ -80,26 +73,7 @@
 
     <section class="project-brief-container">
         <div class="container">
-            <div class="project-brief">
-                <div class="brief-grid">
-                    <div class="brief-item">
-                        <div class="brief-label">Date</div>
-                        <div class="brief-content">2018-05-30</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Project Name</div>
-                        <div class="brief-content">Farmer Coffee Logo Design</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Tag</div>
-                        <div class="brief-content">Visua Identitty Design</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Company</div>
-                        <div class="brief-content">Farmer Coffee</div>
-                    </div>
-                </div>
-            </div>
+            <div data-component="project-info"></div>
         </div>
     </section>
 
@@ -148,6 +122,7 @@
 
     <div data-component="footer"></div>
     <script src="../../components/component-loader.js"></script>
+    <script src="../../components/project-info.js"></script>
     <script src="../../style/script.js"></script>
 </body>
 </html>

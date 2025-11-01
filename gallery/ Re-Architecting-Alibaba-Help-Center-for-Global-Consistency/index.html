@@ -179,40 +179,7 @@
         }
         
         
-        .project-brief {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-        
-        .brief-grid {
-            display: grid;
-            /* Proportional columns: Date 0.8fr, Name 1.5fr, Tag 1.2fr, Company 1.2fr */
-            grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr);
-            gap: var(--spacing-lg);
-            text-align: left;
-        }
-        
-        .brief-item {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-xs);
-        }
-        
-        .brief-label {
-            font-size: 12px;
-            font-weight: 400;
-            color: #999999;
-            text-align: left;
-            margin-bottom: 4px;
-        }
-        
-        .brief-content {
-            font-size: var(--font-size-base);
-            color: var(--primary-color);
-            font-weight: 500;
-            overflow-wrap: anywhere;
-        }
+        /* brief styles are centralized in global CSS */
         
         /* Large screens: optimize content width and spacing */
         @media (min-width: 1200px) {
@@ -297,25 +264,7 @@
                 padding: var(--spacing-sm) 0;
             }
             
-            .project-brief {
-                max-width: 900px;
-                padding: 0 20px;
-            }
-            
-            .brief-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--spacing-md);
-                text-align: left;
-            }
-            
-            .brief-label {
-                font-size: 11px;
-            }
-            
-            .brief-content {
-                font-size: var(--font-size-sm);
-                font-weight: 500;
-            }
+            /* brief styles are centralized in global CSS */
             
             .project-title {
                 font-size: var(--font-size-xl);
@@ -356,10 +305,7 @@
                 object-position: center top;
             }
             
-            .brief-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-sm);
-            }
+            /* brief styles are centralized in global CSS */
         }
     </style>
 </head>
@@ -375,29 +321,7 @@
     <!-- Project Brief Section -->
     <section class="project-brief-container">
         <div class="container">
-            <div class="project-brief">
-                <div class="brief-grid">
-                    <div class="brief-item">
-                        <div class="brief-label">Date</div>
-                        <div class="brief-content">2022.02</div>
-                    </div>
-                    
-                    <div class="brief-item">
-                        <div class="brief-label">Project Name</div>
-                        <div class="brief-content">Re-Architecting Alibaba Help Center for Global Consistency</div>
-                    </div>
-                    
-                    <div class="brief-item">
-                        <div class="brief-label">Tag</div>
-                        <div class="brief-content">Localization Strategy, Information Architecture</div>
-                    </div>
-                    
-                    <div class="brief-item">
-                        <div class="brief-label">Company</div>
-                        <div class="brief-content">Alibaba</div>
-                    </div>
-                </div>
-            </div>
+            <div data-component="project-info"></div>
         </div>
     </section>
 
@@ -584,6 +508,7 @@
     <div data-component="footer"></div>
 
     <script src="../../components/component-loader.js"></script>
+    <script src="../../components/project-info.js"></script>
     <script src="../../style/script.js"></script>
 </body>
 </html>

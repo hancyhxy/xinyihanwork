@@ -36,18 +36,15 @@
         .column-title { font-size: var(--font-size-2xl); font-weight: 600; color: var(--primary-color); line-height: 1.2; position: sticky; top: var(--spacing-lg); }
         .column-content { display: flex; flex-direction: column; gap: var(--spacing-lg); }
 
-        .project-brief { max-width: 1140px; margin: 0 auto; padding: 0 30px; }
-        .brief-grid { display: grid; grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr); gap: var(--spacing-lg); text-align: left; }
-        .brief-label { font-size: 12px; font-weight: 400; color: #999999; text-align: left; margin-bottom: 4px; }
-        .brief-content { font-size: var(--font-size-base); color: var(--primary-color); font-weight: 500; overflow-wrap: anywhere; }
+        /* brief styles are centralized in global CSS */
 
         /* Responsive */
         @media (min-width: 1200px) { .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; } .two-column-section { gap: calc(var(--spacing-2xl) * 1.5); } .column-title { font-size: calc(var(--font-size-2xl) * 1.1); } }
         @media (min-width: 1600px) { .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; } .two-column-section { grid-template-columns: minmax(260px, 300px) 1fr; gap: calc(var(--spacing-2xl) * 1.8); } }
         @media (max-width: 1199px) and (min-width: 993px) { .project-content { max-width: 1000px; margin: 140px auto 110px; padding: 0 24px; } .two-column-section { grid-template-columns: minmax(180px, 220px) 1fr; gap: var(--spacing-xl); } }
         @media (max-width: 992px) and (min-width: 769px) { .project-content { max-width: 900px; margin: 120px auto 96px; padding: 0 20px; } .two-column-section { grid-template-columns: minmax(160px, 200px) 1fr; gap: var(--spacing-lg); } .column-title { font-size: var(--font-size-xl); } }
-        @media (max-width: 768px) { .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; } .project-brief-container { padding: var(--spacing-sm) 0; } .project-brief { max-width: 900px; padding: 0 20px; } .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; } .project-title { font-size: var(--font-size-xl); } .project-content { max-width: 100%; margin: 96px auto 80px; padding: 0 var(--spacing-sm); } .two-column-section { grid-template-columns: 1fr; gap: var(--spacing-md); } .column-title { font-size: var(--font-size-xl); position: static; margin-bottom: var(--spacing-sm); } }
-        @media (max-width: 480px) { .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); } .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); } }
+        @media (max-width: 768px) { .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; } .project-brief-container { padding: var(--spacing-sm) 0; } .project-title { font-size: var(--font-size-xl); } .project-content { max-width: 100%; margin: 96px auto 80px; padding: 0 var(--spacing-sm); } .two-column-section { grid-template-columns: 1fr; gap: var(--spacing-md); } .column-title { font-size: var(--font-size-xl); position: static; margin-bottom: var(--spacing-sm); } }
+        @media (max-width: 480px) { .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); } }
     </style>
     </head>
 <body>
@@ -59,26 +56,7 @@
 
     <section class="project-brief-container">
         <div class="container">
-            <div class="project-brief">
-                <div class="brief-grid">
-                    <div class="brief-item">
-                        <div class="brief-label">Date</div>
-                        <div class="brief-content">{{DATE}}</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Project Name</div>
-                        <div class="brief-content">{{TITLE}}</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Tag</div>
-                        <div class="brief-content">{{TAG}}</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Company</div>
-                        <div class="brief-content">{{COMPANY}}</div>
-                    </div>
-                </div>
-            </div>
+            <div data-component="project-info"></div>
         </div>
     </section>
 
@@ -110,6 +88,7 @@
 
     <div data-component="footer"></div>
     <script src="../../components/component-loader.js"></script>
+    <script src="../../components/project-info.js"></script>
     <script src="../../style/script.js"></script>
 </body>
 </html>

@@ -57,6 +57,27 @@ class ProjectInfoManager {
         return null;
     }
 
+    normalizeProjectPathFromUrl(projectUrl) {
+        if (!projectUrl || typeof projectUrl !== 'string') return null;
+        try {
+            let url = projectUrl.trim();
+            // Remove any protocol/host if present
+            url = url.replace(/^https?:\/\/[^/]+/, '');
+            // Normalize leading characters
+            url = url.replace(/^\.\//, '');
+            url = url.replace(/^\/+/, '');
+            // Remove leading gallery/ if present
+            url = url.replace(/^gallery\//, '');
+            // Remove trailing index.html or index.htm
+            url = url.replace(/\/index\.html?$/i, '');
+            // Remove trailing slashes
+            url = url.replace(/\/$/, '');
+            return decodeURIComponent(url);
+        } catch {
+            return null;
+        }
+    }
+
     findProjectByPath(projectFolderName) {
         if (!this.projectData) {
             console.log('Project Info - No project data available');
@@ -67,8 +88,7 @@ class ProjectInfoManager {
         console.log('Project Info - Available projects:', this.projectData.map(p => p['project name']));
 
         const foundProject = this.projectData.find(project => {
-            const projectUrl = project.projectUrl;
-            const projectPath = projectUrl.replace('./gallery/', '').replace('/index.html', '');
+            const projectPath = this.normalizeProjectPathFromUrl(project.projectUrl);
             console.log('Project Info - Comparing:', projectPath, 'with', projectFolderName);
             return projectPath === projectFolderName;
         });

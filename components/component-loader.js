@@ -71,6 +71,7 @@ class ComponentLoader {
     async loadAllComponents() {
         const headerPlaceholder = document.querySelector('[data-component="header"]');
         const footerPlaceholder = document.querySelector('[data-component="footer"]');
+        const projectInfoPlaceholder = document.querySelector('[data-component="project-info"]');
 
         const promises = [];
         
@@ -80,6 +81,11 @@ class ComponentLoader {
         
         if (footerPlaceholder) {
             promises.push(this.insertComponent('footer', '[data-component="footer"]'));
+        }
+
+        // Load project info brief if present on the page
+        if (projectInfoPlaceholder) {
+            promises.push(this.insertComponent('project-info', '[data-component="project-info"]'));
         }
 
         await Promise.all(promises);

@@ -47,19 +47,14 @@
         .two-column-section { display: grid; grid-template-columns: minmax(200px, 240px) 1fr; gap: var(--spacing-2xl); margin-bottom: var(--spacing-2xl); align-items: flex-start; }
         .column-title { font-size: var(--font-size-2xl); font-weight: 600; color: var(--primary-color); line-height: 1.2; position: sticky; top: var(--spacing-lg); }
         .column-content { display: flex; flex-direction: column; gap: var(--spacing-lg); }
-        .project-brief { max-width: 1140px; margin: 0 auto; padding: 0 30px; }
-        .brief-grid { display: grid; grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr); gap: var(--spacing-lg); text-align: left; }
-        .brief-item { display: flex; flex-direction: column; gap: var(--spacing-xs); }
-        .brief-label { font-size: 12px; font-weight: 400; color: #999999; text-align: left; margin-bottom: 4px; }
-        .brief-content { font-size: var(--font-size-base); color: var(--primary-color); font-weight: 500; overflow-wrap: anywhere; }
+        /* brief styles are centralized in global CSS */
         .conversion-flow { background-color: var(--light-gray); padding: var(--spacing-md); border-radius: var(--border-radius); margin: var(--spacing-md) 0; text-align: center; }
         .flow-arrow { font-size: var(--font-size-lg); margin: 0 var(--spacing-sm); }
         @media (max-width: 768px) {
             .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
             .hero-image { aspect-ratio: 2/1; object-position: center top; }
             .project-brief-container { padding: var(--spacing-sm) 0; }
-            .project-brief { max-width: 900px; padding: 0 20px; }
-            .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; }
+            /* brief styles are centralized in global CSS */
             .project-title { font-size: var(--font-size-xl); }
             .project-content { max-width: 100%; margin: 96px auto 80px; padding: 0 var(--spacing-sm); }
             .image-grid { grid-template-columns: 1fr; }
@@ -69,7 +64,6 @@
         @media (max-width: 480px) {
             .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); }
             .hero-image { aspect-ratio: 2/1; object-position: center top; }
-            .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); }
         }
     </style>
     <meta name="description" content="Reimagining Brooklyn Museum as a living game through spatial, interaction, and narrative design.">
@@ -87,26 +81,7 @@
     
     <section class="project-brief-container">
         <div class="container">
-            <div class="project-brief">
-                <div class="brief-grid">
-                    <div class="brief-item">
-                        <div class="brief-label">Date</div>
-                        <div class="brief-content">2018-12-30</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Project Name</div>
-                        <div class="brief-content">Design Museum Tour as a Game</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Tag</div>
-                        <div class="brief-content">Experience Design, Museum Interaction</div>
-                    </div>
-                    <div class="brief-item">
-                        <div class="brief-label">Company</div>
-                        <div class="brief-content">Brooklyn Museum, Parsons</div>
-                    </div>
-                </div>
-            </div>
+            <div data-component="project-info"></div>
         </div>
     </section>
 
@@ -291,6 +266,7 @@
     <div data-component="footer"></div>
 
     <script src="../../components/component-loader.js"></script>
+    <script src="../../components/project-info.js"></script>
     <script src="../../style/script.js"></script>
 </body>
 </html>
