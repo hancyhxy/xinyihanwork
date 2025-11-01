@@ -1,6 +1,6 @@
 # Gallery Project Workflow and Templates
 
-This guide standardizes how to add new gallery projects with two templates and consistent image behavior.
+This guide standardizes how to add new gallery projects with two templates and consistent image behavior. Now `text.md` is the single source of truth for page content and can be synced into `index.html` automatically.
 
 ## Goals
 - Two templates:
@@ -15,9 +15,9 @@ This guide standardizes how to add new gallery projects with two templates and c
 
 ## Folder Structure
 Each project lives under `gallery/<slug>/` with:
-- `index.html` — page markup using one of the templates.
-- `public/` — images (`cover.png` for hero/OG if needed, plus body images).
-- `text.md` — source content in the agreed format to replace into `index.html`.
+- `index.html` — page markup using one of the templates (contains sync markers).
+- `public/` — images (`cover.png` for hero/OG, plus body images).
+- `text.md` — source content in the agreed Markdown format. Use the sync script to inject into `index.html`.
 
 ## Choosing a Template
 - Two-column (左右结构): use for case studies and product/design narratives with sticky left titles and right content.
@@ -43,46 +43,56 @@ node scripts/new-gallery.js \
 - 脚手架会自动在 `content/gallery.json` 追加并按日期倒序排序。
 
 Then replace `gallery/<slug>/text.md` with your content and add images under `gallery/<slug>/public/`.
+If you pass `--sync` (default), content from `text.md` will be injected into `index.html` automatically.
 
 ### Option B: Manual copy
 - Copy a template folder from `gallery/_templates/<type>/` into `gallery/<slug>/`.
 - Update metadata (title, brief, meta tags) in `index.html`.
 - Replace `text.md` with your content and add images under `public/`.
+- Run: `node scripts/sync-gallery.js --slug <slug>` to inject content into `index.html` (between the SYNC markers).
 
 ## Content Authoring (text.md format)
-Use YAML frontmatter for metadata and Markdown for content:
+Use the following format (no YAML frontmatter), aligned with existing projects in `gallery/`:
 
 ```
----
-title: Project Title
-date: 2024.10
-tag: Localization Strategy, Information Architecture
-company: Alibaba
-description: One-line SEO description for meta.
-hero: ./public/cover.png
----
+![cover](./public/cover.png)
 
-# Sections
+# Project Title
 
-## 1. Section Title
+### Project Brief
+- Date: YYYY.MM
+- Project Name: Project Title
+- Tag: Tag 1, Tag 2
+- Company: Company Name
+
+### Section Title
 Paragraph text here.
 
 ![Alt text](./public/image1.png)
 
-## 2. Another Section
-More text.
+### Another Section
+More text or bullet points:
+- Point A
+- Point B
 ```
 
-Note: The site does not auto-parse `text.md`. Use it as the source of truth to paste into `index.html`, or extend the tooling to generate HTML from Markdown if needed.
+Notes:
+- Keep images in `public/` and reference as `./public/<name>.<ext>`.
+- The “Project Brief” section is ignored by the sync script (the brief at the top of the page comes from `content/gallery.json`).
 
 ## Hero Image
-- Templates include a hero image with an automatic fallback: if `./public/cover.png` is missing, a gradient placeholder renders instead.
+- Templates include a hero image with an automatic fallback: if `./public/cover.png` is missing, it switches to a fixed placeholder image at `../../logo/hero-placeholder.svg`.
 - Default hero uses `aspect-ratio: 2/1; object-fit: cover;` controlled per-page CSS.
 
 ## Body Images
 - Use `<img class="project-image" src="..." alt="...">` inside content.
 - Body images automatically keep their intrinsic ratio and resize responsively.
 - Homepage cards have an image onerror fallback that shows a placeholder if the file is missing.
+
+## Syncing Content
+- Automatic (via scaffolder): `--sync` is on by default in `scripts/new-gallery.js`.
+- Manual: `node scripts/sync-gallery.js --slug <slug>` or `node scripts/sync-gallery.js --dir gallery/<slug> --type two-column|stacked`.
+- The script replaces the HTML between `<!-- SYNC:CONTENT-START -->` and `<!-- SYNC:CONTENT-END -->` in `index.html`.
 
 ## Tips
 - Use `kebab-case` for the `<slug>` folder names (the script auto-slugifies and removes spaces/illegal chars).

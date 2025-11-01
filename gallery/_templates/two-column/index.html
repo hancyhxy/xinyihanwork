@@ -52,7 +52,7 @@
     <div data-component="header"></div>
 
     <section class="hero-image-container">
-        <img src="./public/cover.png" alt="{{TITLE}} cover" class="hero-image" onerror="this.onerror=null; this.remove(); this.closest('.hero-image-container').classList.add('hero-fallback');">
+        <img src="./public/cover.png" alt="{{TITLE}} cover" class="hero-image" onerror="this.onerror=null; this.src='../../logo/hero-placeholder.svg';">
     </section>
 
     <section class="project-brief-container">
@@ -61,30 +61,21 @@
         </div>
     </section>
 
-    <div class="project-content">
+    <div class="project-content" data-layout="two-column">
         <section class="content-section">
             <h1 class="project-title">{{TITLE}}</h1>
         </section>
 
-        <!-- Example two-column sections -->
+        <!-- SYNC:CONTENT-START -->
+        <!-- This block is auto-generated from text.md. Do not edit directly. -->
         <section class="two-column-section">
-            <div class="column-title">01. Overview</div>
+            <div class="column-title">1. Overview</div>
             <div class="column-content">
-                <p class="content-text">Replace with your content from text.md</p>
-                <img class="project-image" src="./public/body-1.png" alt="Example image 1">
+                <p class="content-text">Replace with your content here. You can add paragraphs and optional images below.</p>
+                <img class="project-image" src="./public/body-1.png" alt="Example 1">
             </div>
         </section>
-
-        <section class="two-column-section">
-            <div class="column-title">02. Details</div>
-            <div class="column-content">
-                <p class="content-text">Replace with your content from text.md</p>
-                <div class="image-grid">
-                    <img class="project-image" src="./public/body-2.png" alt="Example image 2">
-                    <img class="project-image" src="./public/body-3.png" alt="Example image 3">
-                </div>
-            </div>
-        </section>
+        <!-- SYNC:CONTENT-END -->
     </div>
 
     <div data-component="footer"></div>

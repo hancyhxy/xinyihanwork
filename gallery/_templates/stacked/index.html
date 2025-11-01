@@ -105,7 +105,7 @@
     <div data-component="header"></div>
 
     <section class="hero-image-container">
-        <img src="./public/cover.png" alt="{{TITLE}} cover" class="hero-image" onerror="this.onerror=null; this.remove(); this.closest('.hero-image-container').classList.add('hero-fallback');">
+        <img src="./public/cover.png" alt="{{TITLE}} cover" class="hero-image" onerror="this.onerror=null; this.src='../../logo/hero-placeholder.svg';">
     </section>
 
     <section class="project-brief-container">
@@ -114,18 +114,19 @@
         </div>
     </section>
 
-    <div class="project-content">
+    <div class="project-content" data-layout="stacked">
         <section class="content-section">
             <h1 class="project-title">{{TITLE}}</h1>
-            <p class="content-text">Replace with your content here. You can add paragraphs and optional images below.</p>
-            <!-- Optional image stack
-            <div class="image-grid">
-                <img src="./public/example-1.png" alt="example 1" class="project-image">
-                <img src="./public/example-2.png" alt="example 2" class="project-image">
-                <img src="./public/example-3.png" alt="example 3" class="project-image">
-            </div>
-            -->
         </section>
+
+        <!-- SYNC:CONTENT-START -->
+        <!-- This block is auto-generated from text.md. Do not edit directly. -->
+        <section class="content-section">
+            <h2 class="section-title">Intro</h2>
+            <p class="content-text">Replace with your content here. You can add paragraphs and optional images below.</p>
+            <img class="project-image" src="./public/body-1.png" alt="Example 1">
+        </section>
+        <!-- SYNC:CONTENT-END -->
     </div>
 
     <div data-component="footer"></div>

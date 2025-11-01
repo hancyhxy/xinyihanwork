@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const path = require('path');
+let syncModule = null;
 
 function parseArgs(argv) {
   const args = {};
@@ -96,6 +97,7 @@ function main() {
   const description = args.description || '';
   const classification = args.classification || 'UX/Product';
   const updateJson = args['update-json'] !== 'false';
+  const doSync = args['sync'] !== 'false';
 
   if (!slug) {
     console.error('Error: --slug is required');
@@ -173,6 +175,17 @@ function main() {
     } catch (e) {
       console.error('Failed to update content/gallery.json:', e.message);
       process.exit(1);
+    }
+  }
+
+  // Optionally sync content from text.md into index.html
+  if (doSync) {
+    try {
+      if (!syncModule) syncModule = require(path.join(__dirname, 'sync-gallery.js'));
+      const res = syncModule.syncGallery(outDir, type);
+      console.log(`Synced content into index.html (${res.layout}) with ${res.sections} sections.`);
+    } catch (e) {
+      console.error('Warning: Failed to sync content into index.html:', e.message);
     }
   }
 
