@@ -40,6 +40,7 @@ Each level is marked by a checkpoint, encouraging reflection, discovery, and par
 
 This structure transforms the museum into a narrative journey — from attention to embodiment, from creation to community.
 By the time visitors reach the top floor, they complete a loop between personal experience and collective meaning.
+
 ![workscene](./public/workscene.png)
 
 ###System Overview: Journey Map

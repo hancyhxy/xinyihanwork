@@ -19,8 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         .hero-image-container { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0; display: flex; align-items: center; }
-        /* Default: natural ratio hero. To fix ratio, add aspect-ratio + object-fit. */
-        .hero-image { width: 100%; height: auto; display: block; }
+        /* Standardize hero at 2:1 ratio across pages */
+        .hero-image { width: 100%; aspect-ratio: 2/1; object-fit: cover; display: block; }
 
         .project-brief-container { padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--border-color); background-color: #ffffff; }
         .project-title { font-size: var(--font-size-2xl); font-weight: 600; margin-bottom: var(--spacing-sm); line-height: 1.2; }
@@ -113,4 +113,3 @@
     <script src="../../style/script.js"></script>
 </body>
 </html>
-

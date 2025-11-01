@@ -151,6 +151,46 @@ body {
     margin: 0;
 }
 
+/* Project Pages: Global hero + brief styles */
+.hero-image-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+.project-brief-container {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #ffffff;
+}
+
+.project-brief {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.brief-grid {
+    display: grid;
+    grid-template-columns: minmax(120px, 0.8fr) minmax(320px, 1.5fr) minmax(180px, 1.2fr) minmax(200px, 1.2fr);
+    gap: var(--spacing-lg);
+    text-align: left;
+}
+
+.brief-item { display: flex; flex-direction: column; gap: var(--spacing-xs); }
+.brief-label { font-size: 12px; font-weight: 400; color: #999999; text-align: left; margin-bottom: 4px; }
+.brief-content { font-size: var(--font-size-base); color: var(--primary-color); font-weight: 500; overflow-wrap: anywhere; }
+
 /* Projects Navigation */
 .projects-nav {
     padding: var(--spacing-lg) 0;
@@ -558,6 +598,15 @@ body {
         padding: 0 var(--spacing-sm);
     }
     
+    /* Project pages hero/brief responsive */
+    .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
+    .hero-image { aspect-ratio: 2 / 1; object-position: center top; }
+    .project-brief-container { padding: var(--spacing-sm) 0; }
+    .project-brief { max-width: 900px; padding: 0 20px; }
+    .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; }
+    .brief-label { font-size: 11px; }
+    .brief-content { font-size: var(--font-size-sm); font-weight: 500; }
+    
     .nav-header .container {
         flex-direction: column;
         gap: var(--spacing-sm);
@@ -657,6 +706,9 @@ body {
     .hero-text {
         font-size: var(--font-size-base);
     }
+    
+    /* Project pages hero/brief small screens */
+    .brief-grid { grid-template-columns: 1fr; gap: var(--spacing-sm); }
     
     .contact-text {
         font-size: var(--font-size-lg);
