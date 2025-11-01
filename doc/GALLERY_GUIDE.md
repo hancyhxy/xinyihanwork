@@ -80,6 +80,12 @@ Notes:
 - Keep images in `public/` and reference as `./public/<name>.<ext>`.
 - The “Project Brief” section is ignored by the sync script (the brief at the top of the page comes from `content/gallery.json`).
 
+### Headings and Subheadings Support
+- Sections: use `##` or `###` for section headers. Exactly two or three `#` are recognized (e.g., `## Overview` or `### Overview`).
+- Subsections: use `####` within a section to create a styled subsection heading. These render as `<h4 class="subsection-title">…</h4>` inside the section.
+- Spacing: a space after the hashes is recommended (e.g., `### Overview`), and the parser is forgiving if the space is omitted (e.g., `###Overview`).
+- The `#` page title is ignored by the sync (the title at the top of the page is controlled by the template and metadata).
+
 ## Hero Image
 - Templates include a hero image with an automatic fallback: if `./public/cover.png` is missing, it switches to a fixed placeholder image at `../../logo/hero-placeholder.svg`.
 - Default hero uses `aspect-ratio: 2/1; object-fit: cover;` controlled per-page CSS.

@@ -6,10 +6,11 @@
 - Date: 2018.11
 - Project Name: The Museum Kit — Reframing Art through Interaction
 - Tag: Interaction Design, Museum, Experience Design
-- Company: Personal project
+- Company: -
 
 ### Overview
 This project reimagines how people engage with museum artworks.
+
 Instead of passively viewing paintings from a distance, visitors are invited to observe, question, and discover — using a small interactive viewing kit that reveals details through physical manipulation.
 
 The kit consists of a paper cube with a peephole, paired with a set of insertable black cards labeled with keywords such as “Night”, “Swing”, or “Brain.”
@@ -17,6 +18,7 @@ Each card corresponds to a specific perspective, lighting, or emotion found with
 
 ### Background
 Museums are spaces of knowledge and memory — places that help people access history through experience.
+![tech](./public/tech.png)
 However, modern visitors face three common issues:
 
 - Fragmented attention: seeing too many exhibits dilutes memory and emotion.
@@ -32,14 +34,24 @@ Research into visitor motivations and takeaways revealed that memorable experien
 - They present something novel or unexpected.
 - They evoke strong emotion.
 - They connect to later experiences or reflection.
+![cover](./public/cover.png)
+![cover2](./public/cover2.png)
 
 The Museum Kit responds to these findings by providing personalized, tangible engagement — a quiet, focused exploration where each inserted card changes what the user perceives.
 
 ### Examples
+#### Example 1
+![example1](./public/example1.png)
+![example1-2](./public/example1-2.png)
+
 Example 1 – Edward Hopper, Nighthawks (1942)
 The scene depicts a diner glowing in the quiet city night. Through the “Night” card, the viewer’s gaze narrows to a red-haired woman at the bar — her bright hair and reflective pose invite speculation about loneliness and desire. Another card highlights a shadowed man whose suit folds form an eagle-like silhouette — subtle details that shift the story from isolation to mystery.
 
+#### Example 2
 Example 2 – Jan Steen, Celebrating the Birth
+![example2](./public/example2.png)
+![example2-2](./public/example2-2.png)
+
 At first glance, the painting shows joyous family celebration. Yet through the “Swing” or “Brain” cards, the viewer notices hidden gestures — a man’s knowing smile, a pair of scissors above a baby’s head, and symbolic “horns” hinting at betrayal and irony. The kit transforms the viewing from simple observation to investigative storytelling.
 
 ### Takeaway

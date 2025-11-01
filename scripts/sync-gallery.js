@@ -73,8 +73,9 @@ function parseMarkdown(md) {
     }
 
     // H3 as section header; also handle H2 if authors use it
-    const h3 = /^###\s+(.+?)\s*$/.exec(line);
-    const h2 = /^##\s+(.+?)\s*$/.exec(line);
+    // Be forgiving about missing spaces after hashes, but ensure exact depth (no extra #)
+    const h3 = /^###(?!#)\s*(.+?)\s*$/.exec(line);
+    const h2 = /^##(?!#)\s*(.+?)\s*$/.exec(line);
     const heading = h3 || h2;
     if (heading) {
       const title = heading[1].trim();
@@ -89,6 +90,18 @@ function parseMarkdown(md) {
       if (current) flushParagraph();
       current = { title: title, content: [] };
       sections.push(current);
+      continue;
+    }
+
+    // H4 inside a section => styled subsection heading within current section
+    const h4 = /^####(?!#)\s*(.+?)\s*$/.exec(line);
+    if (h4) {
+      if (!current) {
+        current = { title: 'Section', content: [] };
+        sections.push(current);
+      }
+      flushParagraph();
+      current.content.push({ type: 'h4', text: h4[1].trim() });
       continue;
     }
 
@@ -157,6 +170,7 @@ function renderTwoColumn(sections) {
     out.push('  <div class="column-content">');
     for (const item of sec.content) {
       if (item.type === 'p') out.push(`    <p class="content-text">${htmlEscape(item.text)}</p>`);
+      else if (item.type === 'h4') out.push(`    <h4 class="subsection-title">${htmlEscape(item.text)}</h4>`);
       else if (item.type === 'ul') {
         out.push('    <ul class="content-text">');
         for (const li of item.items) out.push(`      <li>${htmlEscape(li)}</li>`);
@@ -177,6 +191,7 @@ function renderStacked(sections) {
     out.push(`  <h2 class="section-title">${htmlEscape(title)}</h2>`);
     for (const item of sec.content) {
       if (item.type === 'p') out.push(`  <p class="content-text">${htmlEscape(item.text)}</p>`);
+      else if (item.type === 'h4') out.push(`  <h4 class="subsection-title">${htmlEscape(item.text)}</h4>`);
       else if (item.type === 'ul') {
         out.push('  <ul class="content-text">');
         for (const li of item.items) out.push(`    <li>${htmlEscape(li)}</li>`);
