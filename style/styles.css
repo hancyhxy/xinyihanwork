@@ -445,6 +445,22 @@ body {
     vertical-align: middle;
 }
 
+.dot-ux-product {
+    background-color: #49B3FF; /* UX/Product */
+}
+
+.dot-experiential {
+    background-color: #7C3FFF; /* Experiential */
+}
+
+.dot-content {
+    background-color: #FD3D9A; /* Content */
+}
+
+.dot-visual {
+    background-color: #FEAF05; /* Visual */
+}
+
 .dot-design-work {
     background-color: #6366f1; /* Indigo color for Design Work */
 }

@@ -113,10 +113,20 @@ class PortfolioManager {
 
     getClassificationDotClass(classification) {
         switch(classification) {
+            // New 4-category scheme
+            case 'UX/Product':
+                return 'dot-ux-product';
+            case 'Experiential':
+                return 'dot-experiential';
+            case 'Content':
+                return 'dot-content';
+            case 'Visual':
+                return 'dot-visual';
+            // Backward compatibility with previous labels
             case 'Design Work':
-                return 'dot-design-work';
+                return 'dot-ux-product';
             case 'Social Media':
-                return 'dot-social-media';
+                return 'dot-content';
             default:
                 return 'dot-default';
         }
