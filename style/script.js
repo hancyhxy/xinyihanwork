@@ -63,6 +63,14 @@ class PortfolioManager {
                     <p>${project.tag}</p>
                 </div>
             `;
+            // Fallback if image fails to load
+            const imgEl = card.querySelector('.project-image img');
+            if (imgEl) {
+                imgEl.addEventListener('error', () => {
+                    const container = card.querySelector('.project-image');
+                    if (container) container.innerHTML = '<div class="placeholder-image"></div>';
+                }, { once: true });
+            }
             
             // Store project data on the element for click handling
             card.dataset.projectUrl = project.projectUrl || '';

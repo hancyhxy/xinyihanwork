@@ -31,10 +31,17 @@ node scripts/new-gallery.js \
   --type two-column|stacked \
   --slug your-project-slug \
   --title "Project Title" \
-  --date "YYYY.MM" \
+  --date "YYYY-MM-DD | YYYY.MM | YYYY-MM | YYYY" \
   --tag "Tag(s)" \
-  --company "Company"
+  --company "Company" \
+  --classification "UX/Product|Experiential|Content|Visual" \
+  --update-json true
 ```
+- JSON 保存日期为 ISO（YYYY-MM-DD），用于排序；
+- 页面显示为 YYYY.MM；
+- `text.md` frontmatter 的 `date` 也会写入 YYYY.MM；
+- 脚手架会自动在 `content/gallery.json` 追加并按日期倒序排序。
+
 Then replace `gallery/<slug>/text.md` with your content and add images under `gallery/<slug>/public/`.
 
 ### Option B: Manual copy
@@ -69,15 +76,26 @@ More text.
 Note: The site does not auto-parse `text.md`. Use it as the source of truth to paste into `index.html`, or extend the tooling to generate HTML from Markdown if needed.
 
 ## Hero Image
-- Default template uses natural ratio for the hero (`height: auto`).
-- If a fixed hero is desired, set `.hero-image { aspect-ratio: 2/1; object-fit: cover; }` in the page’s `<style>`.
+- Templates include a hero image with an automatic fallback: if `./public/cover.png` is missing, a gradient placeholder renders instead.
+- Default hero uses `aspect-ratio: 2/1; object-fit: cover;` controlled per-page CSS.
 
 ## Body Images
 - Use `<img class="project-image" src="..." alt="...">` inside content.
 - Body images automatically keep their intrinsic ratio and resize responsively.
+- Homepage cards have an image onerror fallback that shows a placeholder if the file is missing.
 
 ## Tips
-- Use `kebab-case` for the `<slug>` folder names.
+- Use `kebab-case` for the `<slug>` folder names (the script auto-slugifies and removes spaces/illegal chars).
 - Keep images in `public/` and reference them as `./public/<name>.<ext>`.
 - Prefer PNG/JPG; optimize image sizes before adding.
 
+## Data Model (content/gallery.json)
+- Required fields per project:
+  - `date` — ISO `YYYY-MM-DD` (used for sorting)
+  - `project name` — text
+  - `tag` — text
+  - `classification` — one of `UX/Product | Experiential | Content | Visual`
+  - `coverImageUrl` — `gallery/<slug>/public/cover.png`
+  - `projectUrl` — `gallery/<slug>/index.html`
+  - `company` — text
+- Sorting: newest first by `date`.

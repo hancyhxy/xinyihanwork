@@ -32,6 +32,7 @@
             object-fit: cover;
             display: block;
         }
+        .hero-image-container.hero-fallback { min-height: 40vh; background: linear-gradient(135deg, #a8edea, #fed6e3); }
 
         .project-brief-container {
             padding: var(--spacing-sm) 0;
@@ -104,7 +105,7 @@
     <div data-component="header"></div>
 
     <section class="hero-image-container">
-        <img src="./public/cover.png" alt="{{TITLE}} cover" class="hero-image">
+        <img src="./public/cover.png" alt="{{TITLE}} cover" class="hero-image" onerror="this.onerror=null; this.remove(); this.closest('.hero-image-container').classList.add('hero-fallback');">
     </section>
 
     <section class="project-brief-container">

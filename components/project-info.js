@@ -99,17 +99,26 @@ class ProjectInfoManager {
 
     formatProjectDate(dateString) {
         if (!dateString) return dateString;
-        
+
+        // Prefer YYYY.MM display; input kept as ISO in JSON (YYYY-MM-DD)
+        const isoMatch = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(String(dateString).trim());
+        if (isoMatch) {
+            return `${isoMatch[1]}.${isoMatch[2]}`;
+        }
+        // Handle YYYY-MM or YYYY.MM
+        const ymDash = /^([0-9]{4})-([0-9]{2})$/.exec(String(dateString).trim());
+        if (ymDash) return `${ymDash[1]}.${ymDash[2]}`;
+        const ymDot = /^([0-9]{4})\.([0-9]{2})$/.exec(String(dateString).trim());
+        if (ymDot) return `${ymDot[1]}.${ymDot[2]}`;
+
+        // Fallback to Date parsing if possible
         try {
             const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit'
-            });
-        } catch {
-            return dateString;
-        }
+            if (!isNaN(date.getTime())) {
+                return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}`;
+            }
+        } catch {}
+        return String(dateString);
     }
 
     async populateProjectInfo() {
