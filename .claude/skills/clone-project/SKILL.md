@@ -152,6 +152,40 @@ More detailed content.
 - Images: Keep in `public/` directory, reference as `./public/<name>`
 - The sync script converts Markdown to HTML and injects it between sync markers
 
+### Embedding Video
+
+Projects can include embedded video content from platforms like Vimeo or YouTube:
+
+1. **In text.md:**
+   - Add video link at any position in your content flow where you want the video to appear
+   - Use standard Markdown link format: `[Watch the installation video](https://vimeo.com/417398448)`
+   - The video will appear in the order you place it within your content sections
+
+2. **In index.html:**
+   - After running the sync script, manually add a responsive iframe embed at the corresponding position
+   - Use the `.video-embed` wrapper class (included in templates) for responsive 16:9 aspect ratio
+   - Example HTML structure:
+     ```html
+     <div class="video-embed">
+       <iframe src="https://player.vimeo.com/video/417398448?fl=pl&fe=sh"
+               title="Video description"
+               allow="autoplay; fullscreen; picture-in-picture"
+               allowfullscreen
+               loading="lazy">
+       </iframe>
+     </div>
+     ```
+
+3. **Supported platforms:**
+   - **Vimeo:** Convert link to `https://player.vimeo.com/video/VIDEO_ID`
+   - **YouTube:** Convert link to `https://www.youtube.com/embed/VIDEO_ID`
+
+4. **Reference example:**
+   - See `gallery/my-friends-are-my-power-station/` for working implementation
+   - Shows video link in `text.md` and corresponding iframe embed in `index.html`
+
+**Note:** The sync script does not automatically convert video links to iframes. You must manually insert the iframe HTML after syncing content.
+
 ## Template Information
 
 **Two-Column Template** (`assets/templates/two-column/`):

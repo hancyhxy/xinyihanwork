@@ -1,12 +1,12 @@
 ![cover](./public/cover.png)
 
-# {{TITLE}}
+# Test Project
 
 ### Project Brief
-- Date: {{DATE}}
-- Project Name: {{TITLE}}
-- Tag: {{TAG}}
-- Company: {{COMPANY}}
+- Date: 2025.01
+- Project Name: Test Project
+- Tag: Test
+- Company: Test Co
 
 ### Intro
 Replace with your content. Use images inline:

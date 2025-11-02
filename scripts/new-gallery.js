@@ -108,7 +108,7 @@ function main() {
     process.exit(1);
   }
 
-  const tplDir = path.join(__dirname, '..', 'gallery', '_templates', type);
+  const tplDir = path.join(__dirname, '..', '.claude', 'skills', 'clone-project', 'assets', 'templates', type);
   const outDir = path.join(__dirname, '..', 'gallery', slug);
 
   if (!fs.existsSync(tplDir)) {
