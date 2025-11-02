@@ -64,6 +64,7 @@
         .content-text { font-size: var(--font-size-base); line-height: 1.7; color: var(--primary-color); margin-bottom: var(--spacing-md); }
 
         .project-image { width: 100%; max-width: 100%; margin: var(--spacing-lg) 0; display: block; border-radius: var(--border-radius); box-shadow: none; }
+        .project-image-scaled { max-width: 100%; margin: var(--spacing-lg) auto; display: block; border-radius: var(--border-radius); box-shadow: none; }
         .image-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); margin: var(--spacing-lg) 0; }
 
         /* brief styles are centralized in global CSS */
@@ -92,6 +93,7 @@
             /* brief styles are centralized in global CSS */
             .project-title { font-size: var(--font-size-xl); }
             .project-content { max-width: 100%; margin: 96px auto 80px; padding: 0 var(--spacing-sm); }
+            .project-image-scaled { width: 100% !important; }
         }
         /* Mobile */
         @media (max-width: 480px) {
@@ -119,6 +121,17 @@
         </section>
 
         <!-- SYNC:CONTENT-START -->
+<section class="content-section">
+  <p class="content-text">With Newtonian mechanics alone, the celestial positions in the solar system are infinitely many solutions. Therefore, physicists have still exclaimed: "The first time to promote the results"</p>
+</section>
+
+<section class="content-section">
+  <img class="project-image-scaled" style="width: 70%;" src="./public/pic2.png" alt="Example 1">
+  <img class="project-image-scaled" style="width: 70%;" src="./public/pic3.png" alt="Example 2">
+  <img class="project-image-scaled" style="width: 70%;" src="./public/pic4.png" alt="Example 4">
+  <img class="project-image" src="./public/cover.png" alt="Example 5">
+</section>
+
 <section class="content-section">
   <h2 class="section-title">Process</h2>
   <img class="project-image" src="./public/process.png" alt="Process">
