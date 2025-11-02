@@ -11,9 +11,10 @@
 The 1 Million Program is an initiative created by musical.ly to discover and highlight creators on the platform. Through this program, musical.ly hopes to incubate emerging talent on the platform and provide them with the tools to grow their influence and share their creativity with the world. The 1Million US Audition will focus on 5 categories, and prompt participants to join by submitting their audition videos under one or multiple categories for their chance to win.
 
 ![GIF](./public/IMG_9092-6.gif)
+![cover](./public/cover.png)
 
 ### Visual System for this Global Campaign
-0.7 ![Visual System](./public/visual-system.png)
+0.7 ![Visual System](./public/vi.png)
 
 
 <!-- Video Embedding Example:

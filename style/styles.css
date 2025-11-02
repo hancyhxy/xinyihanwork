@@ -410,6 +410,25 @@ body {
     aspect-ratio: auto;
 }
 
+.project-content .project-image-scaled {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: var(--spacing-lg) 0;
+    border-radius: var(--border-radius);
+    box-shadow: none;
+}
+
+.project-content[data-layout="stacked"] .project-image-scaled {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-content[data-layout="two-column"] .project-image-scaled {
+    margin-left: 0;
+    margin-right: auto;
+}
+
 /* Index View */
 .index-view {
     padding: var(--spacing-xl) 0;
