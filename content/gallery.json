@@ -48,7 +48,7 @@
     "date": "2020-05-30",
     "project name": "My friends are my power station",
     "tag": "Installation, Urban Culture",
-    "classification": "UX/Product",
+    "classification": "Experiential",
     "coverImageUrl": "gallery/my-friends-are-my-power-station/public/thesis_wholeview.png",
     "projectUrl": "gallery/my-friends-are-my-power-station/index.html",
     "company": "Parsons School of Design"
@@ -57,10 +57,19 @@
     "date": "2019-12-30",
     "project name": "Design Museum Tour as a Game",
     "tag": "Experience Design, Museum Interaction",
-    "classification": "UX/Product",
+    "classification": "Experiential",
     "coverImageUrl": "gallery/gamify-museum- experience/public/album.png",
     "projectUrl": "gallery/gamify-museum- experience/index.html",
     "company": "Brooklyn Museum, Parsons"
+  },
+  {
+    "date": "2018-12-01",
+    "project name": "How Are Oscars Biased?",
+    "tag": "Academy Awards, Bias",
+    "classification": "Visual",
+    "coverImageUrl": "gallery/how-are-oscars-biased/public/cover.png",
+    "projectUrl": "gallery/how-are-oscars-biased/index.html",
+    "company": "-"
   },
   {
     "date": "2018-11-20",
@@ -78,15 +87,15 @@
     "classification": "Visual",
     "coverImageUrl": "gallery/solar-system-relationship/public/cover.png",
     "projectUrl": "gallery/solar-system-relationship/index.html",
-    "company": "Parsons School of Design"
+    "company": "-"
   },
   {
     "date": "2018-05-30",
     "project name": "Farmer Coffee Logo",
     "tag": "Visual Identity Design",
-    "classification": "UX/Product",
+    "classification": "Visual",
     "coverImageUrl": "gallery/Farmer-Coffee-Logo/public/cover.png",
     "projectUrl": "gallery/Farmer-Coffee-Logo/index.html",
-    "company": "Farmer Coffee"
+    "company": "Farmer Coffee Company"
   }
 ]

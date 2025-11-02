@@ -38,6 +38,21 @@ function normalizeHeaderTitle(title) {
   return String(title).trim();
 }
 
+function normalizeImageScale(raw) {
+  if (raw === null || raw === undefined || raw === '') return null;
+  const num = typeof raw === 'number' ? raw : parseFloat(String(raw).trim());
+  if (!Number.isFinite(num) || num <= 0) return null;
+  const percent = num <= 1 ? num * 100 : num;
+  return percent;
+}
+
+function formatScalePercent(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num) || num <= 0) return null;
+  const rounded = num % 1 === 0 ? num : Number(num.toFixed(2));
+  return rounded;
+}
+
 function parseMarkdown(md) {
   const lines = md.replace(/\r\n?/g, '\n').split('\n');
 
@@ -56,26 +71,43 @@ function parseMarkdown(md) {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+    const trimmed = line.trim();
 
-    // Skip cover image lines
-    const imgMatch = /^!\[([^\]]*)\]\(([^)]+)\)\s*$/.exec(line.trim());
-    if (imgMatch) {
-      const alt = (imgMatch[1] || '').toLowerCase();
-      const src = imgMatch[2] || '';
-      if (/cover/i.test(alt) || /\/public\/cover\./i.test(src)) {
+    let imageSpec = null;
+    const scaledImgMatch = /^(\d*\.?\d+)\s+!\[([^\]]*)\]\(([^)]+)\)\s*$/.exec(trimmed);
+    if (scaledImgMatch) {
+      imageSpec = {
+        alt: scaledImgMatch[2] || '',
+        src: scaledImgMatch[3] || '',
+        scale: normalizeImageScale(scaledImgMatch[1])
+      };
+    } else {
+      const plainImgMatch = /^!\[([^\]]*)\]\(([^)]+)\)\s*$/.exec(trimmed);
+      if (plainImgMatch) {
+        imageSpec = {
+          alt: plainImgMatch[1] || '',
+          src: plainImgMatch[2] || '',
+          scale: null
+        };
+      }
+    }
+
+    if (imageSpec) {
+      const altLower = imageSpec.alt.toLowerCase();
+      if (/cover/.test(altLower) || /\/public\/cover\./i.test(imageSpec.src)) {
         continue; // ignore cover image in content
       }
     }
 
     // Top-level H1 (# ) is the page title; ignore
-    if (/^#\s+/.test(line)) {
+    if (/^#\s+/.test(trimmed)) {
       continue;
     }
 
     // H3 as section header; also handle H2 if authors use it
     // Be forgiving about missing spaces after hashes, but ensure exact depth (no extra #)
-    const h3 = /^###(?!#)\s*(.+?)\s*$/.exec(line);
-    const h2 = /^##(?!#)\s*(.+?)\s*$/.exec(line);
+    const h3 = /^###(?!#)\s*(.+?)\s*$/.exec(trimmed);
+    const h2 = /^##(?!#)\s*(.+?)\s*$/.exec(trimmed);
     const heading = h3 || h2;
     if (heading) {
       const title = heading[1].trim();
@@ -94,7 +126,7 @@ function parseMarkdown(md) {
     }
 
     // H4 inside a section => styled subsection heading within current section
-    const h4 = /^####(?!#)\s*(.+?)\s*$/.exec(line);
+    const h4 = /^####(?!#)\s*(.+?)\s*$/.exec(trimmed);
     if (h4) {
       if (!current) {
         current = { title: 'Section', content: [] };
@@ -128,24 +160,29 @@ function parseMarkdown(md) {
     }
 
     // Images
-    if (imgMatch) {
+    if (imageSpec) {
       if (!current) {
         current = { title: 'Section', content: [] };
         sections.push(current);
       }
       flushParagraph();
-      current.content.push({ type: 'img', alt: imgMatch[1] || '', src: imgMatch[2] || '' });
+      current.content.push({
+        type: 'img',
+        alt: imageSpec.alt,
+        src: imageSpec.src,
+        scale: imageSpec.scale
+      });
       continue;
     }
 
     // Horizontal rule or metadata dividers: ignore
-    if (/^\s*---+\s*$/.test(line)) {
+    if (/^\s*---+\s*$/.test(trimmed)) {
       flushParagraph();
       continue;
     }
 
     // Blank line => paragraph break
-    if (/^\s*$/.test(line)) {
+    if (/^\s*$/.test(trimmed)) {
       flushParagraph();
       continue;
     }
@@ -155,7 +192,7 @@ function parseMarkdown(md) {
       current = { title: 'Section', content: [] };
       sections.push(current);
     }
-    buffer.push(line.trim());
+    buffer.push(trimmed);
   }
   if (current) flushParagraph();
   return sections;
@@ -175,7 +212,15 @@ function renderTwoColumn(sections) {
         out.push('    <ul class="content-text">');
         for (const li of item.items) out.push(`      <li>${htmlEscape(li)}</li>`);
         out.push('    </ul>');
-      } else if (item.type === 'img') out.push(`    <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+      } else if (item.type === 'img') {
+        if (item.scale) {
+          const width = formatScalePercent(item.scale);
+          const widthAttr = width !== null ? `${width}%` : '100%';
+          out.push(`    <img class="project-image-scaled" style="width: ${widthAttr}" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+        } else {
+          out.push(`    <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+        }
+      }
     }
     out.push('  </div>');
     out.push('</section>');
@@ -196,7 +241,15 @@ function renderStacked(sections) {
         out.push('  <ul class="content-text">');
         for (const li of item.items) out.push(`    <li>${htmlEscape(li)}</li>`);
         out.push('  </ul>');
-      } else if (item.type === 'img') out.push(`  <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+      } else if (item.type === 'img') {
+        if (item.scale) {
+          const width = formatScalePercent(item.scale);
+          const widthAttr = width !== null ? `${width}%` : '100%';
+          out.push(`  <img class="project-image-scaled" style="width: ${widthAttr}" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+        } else {
+          out.push(`  <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+        }
+      }
     }
     out.push('</section>');
   }

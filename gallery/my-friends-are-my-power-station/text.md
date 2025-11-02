@@ -15,6 +15,8 @@
 
 My friends are my power station. It is​ an installation about loneliness in big cities. This installation employs a large number of units of spinning wire, with statements about intimate relationships projected onto the spinning surfaces. These words, and the battery units that propel them, form a poetic, subtle, and interactive understanding of loneliness and transience. By making loneliness more visible, and shared in a public platform, this work also aims to send a central message to viewers: you are not alone.
 
+https://vimeo.com/417398448?fl=pl&fe=sh
+
 ![thesis_wholeview2](./public/thesis_wholeview2.png)
 
 ![thesis_overlay](./public/thesis_overlay.png)
