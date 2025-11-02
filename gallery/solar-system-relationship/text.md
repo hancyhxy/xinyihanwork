@@ -8,6 +8,10 @@
 - Tag: Data Visualization, Poster
 - Company: Parsons School of Design
 
+
+With Newtonian mechanics alone, the celestial positions in the solar system are infinitely many solutions.       Therefore, physicists have still exclaimed: "The first time to promote the results"
+
+
 ![Example 1](./public/pic2.png)
 ![Example 2](./public/pic3.png)
 ![Example 4](./public/pic4.png)
