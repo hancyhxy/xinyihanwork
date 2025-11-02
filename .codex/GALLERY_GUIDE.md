@@ -100,6 +100,11 @@ Notes:
 - Manual: `node scripts/sync-gallery.js --slug <slug>` or `node scripts/sync-gallery.js --dir gallery/<slug> --type two-column|stacked`.
 - The script replaces the HTML between `<!-- SYNC:CONTENT-START -->` and `<!-- SYNC:CONTENT-END -->` in `index.html`.
 
+### Embedding Video
+- Add the video link directly in `text.md`; use descriptive text like `[Watch the installation video](https://vimeo.com/your-id)`.
+- During sync, ensure `index.html` includes a matching embed block (e.g., responsive `<iframe>` pointing to `https://player.vimeo.com/...`).
+- Example — `gallery/my-friends-are-my-power-station/` uses the Vimeo link `https://vimeo.com/417398448?fl=pl&fe=sh` in `text.md` and embeds it via an `<iframe>` at `https://player.vimeo.com/video/417398448?fl=pl&fe=sh`.
+
 ## Tips
 - Use `kebab-case` for the `<slug>` folder names (the script auto-slugifies and removes spaces/illegal chars).
 - Keep images in `public/` and reference them as `./public/<name>.<ext>`.
