@@ -8,12 +8,11 @@
 - Tag: Data Visualization, Poster
 - Company: Parsons School of Design
 
-### Intro
-Replace with your content. Use images inline:
+![Example 1](./public/pic2.png)
+![Example 2](./public/pic3.png)
+![Example 4](./public/pic4.png)
+![Example 5](./public/cover.png)
 
-![Example 1](./public/body-1.png)
 
-### More Visuals
-
-![Example 2](./public/body-2.png)
-![Example 3](./public/body-3.png)
+### Process
+![Process](./public/process.png)
