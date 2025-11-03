@@ -95,6 +95,23 @@ Notes:
 - Body images automatically keep their intrinsic ratio and resize responsively.
 - Homepage cards have an image onerror fallback that shows a placeholder if the file is missing.
 
+## Video Embeds
+- Embed videos inside a `<div class="video-embed">` wrapper to maintain the responsive 16:9 aspect ratio defined by the global CSS.
+- Use `<iframe>` embeds (YouTube/Vimeo) with `loading="lazy"`, `allowfullscreen`, and the allow attributes used in `gallery/my-friends-are-my-power-station/index.html`.
+- Example:
+  ```html
+  <div class="video-embed">
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID?rel=0"
+      title="Descriptive video title"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  ```
+- Provide descriptive titles for accessibility and keep the `.video-embed` div inside the synced content region.
+
 ## Syncing Content
 - Automatic (via scaffolder): `--sync` is on by default in `scripts/new-gallery.js`.
 - Manual: `node scripts/sync-gallery.js --slug <slug>` or `node scripts/sync-gallery.js --dir gallery/<slug> --type two-column|stacked`.

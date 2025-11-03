@@ -68,6 +68,7 @@ clone-project/
    - Write content in Markdown (text.md)
    - Automatic conversion to HTML
    - Support for sections, subsections, images, lists
+   - Use the `.video-embed` wrapper with iframe embeds for any videos (see guide example)
 
 ## Usage Example
 
