@@ -91,9 +91,11 @@ https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be
 
 Analysis & Report
 ![Report](./public/report.png)
+![App](./public/app.png)
+
 
 ### Final Design
-![App](./public/app.png)
+![Digital](./public/digital.png)
 
 
 ### Scenario Video
