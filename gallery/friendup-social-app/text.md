@@ -85,12 +85,14 @@ The design ultimately enables international students to create and sustain frien
 #### Paper Prototype 
 ![Prototype](./public/prototype.png)
 
-#### Test & Report
+#### Usability Test
 Prototype Test
 https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be
 
-Analysis & Report
+ #### Usability Report
 ![Report](./public/report.png)
+
+#### High Fidelity Prototype
 ![App](./public/app.png)
 
 
