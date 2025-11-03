@@ -86,11 +86,15 @@ The design ultimately enables international students to create and sustain frien
 ![Prototype](./public/prototype.png)
 
 #### Test & Report
-[Watch the prototype test on YouTube](https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be) 
+Prototype Test
+https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be
+
+Analysis & Report
+![Report](./public/report.png)
 
 ### Final Design
-
+![App](./public/app.png)
 
 
 ### Scenario Video
-[Watch the scenario walkthrough on YouTube](https://www.youtube.com/watch?v=ErEPhlpMzvY)
+https://www.youtube.com/watch?v=ErEPhlpMzvY
