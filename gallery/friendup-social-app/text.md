@@ -5,7 +5,7 @@
 ### Project Brief
 - Date: 2025.10
 - Project Name: FriendUp
-- Tag: UX Design, Social Wellbeing, International Students, Privacy, Usability Testing
+- Tag: UX Design, Social Wellbeing, Usability Testing
 - Company: UTS
 
 ### Introduction
