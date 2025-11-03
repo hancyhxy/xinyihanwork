@@ -14,6 +14,9 @@ FriendUp is a social wellbeing app designed for international students to overco
 
 The research revealed five main concepts: difficulties in keeping friends, worries about trust and privacy, sense of loneliness, the impact of academic and professional demands on social life, and the significance of food and hobbies in forming relationships.
 
+#### Group
+![Team](./public/team.png)
+
 ### Research Insights
 
 Students face significant challenges in sustaining meaningful friendships beyond classroom interactions. While most students can initiate conversations during class or projects, these relationships often fade due to tight schedules or social anxiety.
@@ -77,11 +80,13 @@ The design ultimately enables international students to create and sustain frien
 - *Multilingual Support*: Translation tools to support international student conversations
 
 
-### Paper Prototype
+### Prototype
 
 #### Paper Prototype 
+![Prototype](./public/prototype.png)
 
 #### Test & Report
+[Watch the prototype test on YouTube](https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be) 
 
 ### Final Design
 
