@@ -14,13 +14,11 @@
 Mnemosyne is a speculative design project that uses personal food memory data to recreate artificial food and critique contemporary eating trends.
 
 ### Artificial Food Iterations
-![art1](./public/art1.png)
-![art2](./public/art2.png)
-![art3](./public/art3.png)
-![art4](./public/art4.png)
-![art5](./public/art5.png)
-![art6](./public/art6.png)
-
-### Interaction Gesture
-The gesture for audiences to reach this project is through "scanning".
-![exhibition](./public/exhibition.png)
+![rawdata](./public/rawdata.png)
+![result](./public/result.png)
+0.7 ![art1](./public/art1.png)
+0.7 ![art2](./public/art2.png)      
+0.7 ![art3](./public/art3.png)
+0.7 ![art4](./public/art4.png)
+0.7 ![art5](./public/art5.png)
+0.7 ![art6](./public/art6.png)
