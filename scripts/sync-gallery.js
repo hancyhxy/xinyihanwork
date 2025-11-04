@@ -33,6 +33,52 @@ function htmlEscape(s) {
     .replace(/>/g, '&gt;');
 }
 
+function htmlEscapeAttr(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/'/g, '&#39;');
+}
+
+function formatInlineText(text) {
+  if (text === undefined || text === null) return '';
+  const raw = String(text);
+  const urlRegex = /(https?:\/\/[\w\-._~:/?#\[\]@!$&'()*+,;=%]+)/g;
+  let lastIndex = 0;
+  const parts = [];
+  let match;
+
+  while ((match = urlRegex.exec(raw)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(htmlEscape(raw.slice(lastIndex, match.index)));
+    }
+
+    let url = match[0];
+    let trailing = '';
+    const trailingMatch = /([)\],.?!]+)$/.exec(url);
+    if (trailingMatch) {
+      trailing = trailingMatch[1];
+      url = url.slice(0, -trailing.length);
+    }
+
+    const safeHref = htmlEscapeAttr(url);
+    const safeText = htmlEscape(url);
+    parts.push(`<a href="${safeHref}" target="_blank" rel="noreferrer">${safeText}</a>${htmlEscape(trailing)}`);
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < raw.length) {
+    parts.push(htmlEscape(raw.slice(lastIndex)));
+  }
+
+  if (!parts.length) {
+    return htmlEscape(raw);
+  }
+  return parts.join('');
+}
+
 function normalizeHeaderTitle(title) {
   // Keep headings exactly as authored in Markdown (no auto-stripping)
   return String(title).trim();
@@ -206,11 +252,11 @@ function renderTwoColumn(sections) {
     out.push(`  <div class="column-title">${htmlEscape(title)}</div>`);
     out.push('  <div class="column-content">');
     for (const item of sec.content) {
-      if (item.type === 'p') out.push(`    <p class="content-text">${htmlEscape(item.text)}</p>`);
-      else if (item.type === 'h4') out.push(`    <h4 class="subsection-title">${htmlEscape(item.text)}</h4>`);
+      if (item.type === 'p') out.push(`    <p class="content-text">${formatInlineText(item.text)}</p>`);
+      else if (item.type === 'h4') out.push(`    <h4 class="subsection-title">${formatInlineText(item.text)}</h4>`);
       else if (item.type === 'ul') {
         out.push('    <ul class="content-text">');
-        for (const li of item.items) out.push(`      <li>${htmlEscape(li)}</li>`);
+        for (const li of item.items) out.push(`      <li>${formatInlineText(li)}</li>`);
         out.push('    </ul>');
       } else if (item.type === 'img') {
         if (item.scale) {
@@ -235,11 +281,11 @@ function renderStacked(sections) {
     out.push('<section class="content-section">');
     out.push(`  <h2 class="section-title">${htmlEscape(title)}</h2>`);
     for (const item of sec.content) {
-      if (item.type === 'p') out.push(`  <p class="content-text">${htmlEscape(item.text)}</p>`);
-      else if (item.type === 'h4') out.push(`  <h4 class="subsection-title">${htmlEscape(item.text)}</h4>`);
+      if (item.type === 'p') out.push(`  <p class="content-text">${formatInlineText(item.text)}</p>`);
+      else if (item.type === 'h4') out.push(`  <h4 class="subsection-title">${formatInlineText(item.text)}</h4>`);
       else if (item.type === 'ul') {
         out.push('  <ul class="content-text">');
-        for (const li of item.items) out.push(`    <li>${htmlEscape(li)}</li>`);
+        for (const li of item.items) out.push(`    <li>${formatInlineText(li)}</li>`);
         out.push('  </ul>');
       } else if (item.type === 'img') {
         if (item.scale) {
