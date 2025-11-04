@@ -618,7 +618,7 @@ body {
     }
     
     /* Project pages hero/brief responsive */
-    .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
+    .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; height: 50vw; }
     .hero-image { aspect-ratio: 2 / 1; object-position: center top; }
     .project-brief-container { padding: var(--spacing-sm) 0; }
     .project-brief { max-width: 900px; padding: 0 20px; }
