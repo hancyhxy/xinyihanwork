@@ -110,22 +110,6 @@
       <li>Fuse motion tracking, percussive audio, and GPU-generated effects so sound and visuals feel inseparable.</li>
       <li>Offer a production-grade demo that can scale into installations, remote jam sessions, or educational tools.</li>
     </ul>
-    <h4 class="subsection-title">Gesture-to-Sound Pipeline</h4>
-    <h4 class="subsection-title">Stage 1 · Hand Tracking Foundation</h4>
-    <ul class="content-text">
-      <li>MediaPipe Hands captures both hands with 21 landmarks, outputting clean skeletal overlays.</li>
-      <li>Real-time smoothing and coordinate normalization prevent jitter when hands move quickly.</li>
-    </ul>
-    <h4 class="subsection-title">Stage 2 · Drum Layout &amp; Hit Logic</h4>
-    <ul class="content-text">
-      <li>Four drums (Kick, Snare, Tom, Hi-Hat) float in ergonomic positions with hover-state hints.</li>
-      <li>A velocity threshold of 500 px/s ensures only intentional strikes trigger a sound.</li>
-    </ul>
-    <h4 class="subsection-title">Stage 3 · Audio &amp; Visual Fusion</h4>
-    <ul class="content-text">
-      <li>The Web Audio API streams low-latency drum samples with per-pad routing.</li>
-      <li>Each confirmed hit spawns particle bursts and shader pulses that echo the strike’s direction and intensity.</li>
-    </ul>
   </div>
 </section>
 <section class="two-column-section">
@@ -137,14 +121,18 @@
 <section class="two-column-section">
   <div class="column-title">User Journey</div>
   <div class="column-content">
-    <p class="content-text">First, you grant webcam and microphone permissions. Immediately, you see your hands tracked in real-time with a blue skeletal overlay - your index fingertip becomes your drumstick. As you explore, you can move your hand over the drums without triggering them. To actually play, you need to strike with intent - a fast punching motion. As you build rhythm, the entire scene responds - the background pixelates with the bass, colors shift from cool teals to warm oranges, and the visuals create an immersive musical experience.</p>
     <img class="project-image" src="./public/4-user.png" alt="Annotated user journey interface">
+    <ul class="content-text">
+      <li>First, you grant webcam and microphone permissions. Immediately, you see your hands tracked in real-time with a blue skeletal overlay your index fingertip becomes your drumstick.</li>
+      <li>As you explore, you can move your hand over the drums without triggering them. To actually play, you need to strike with intent - a fast punching motion.</li>
+      <li>As you build rhythm, the entire scene responds - the background pixelates with the bass, colors shift from cool teals to warm oranges, and the visuals create an immersive musical experience.</li>
+    </ul>
   </div>
 </section>
 <section class="two-column-section">
   <div class="column-title">Show Case</div>
   <div class="column-content">
-    <p class="content-text">Open the link to experience it 👏 (allow the camera and microphone permissions). <a href="https://hancyhxy.github.io/virtual_band/" target="_blank" rel="noreferrer">https://hancyhxy.github.io/virtual_band/</a></p>
+    <p class="content-text">Open the link to experience it 👏 (allow the camera and microphone permissions).<br><a href="https://hancyhxy.github.io/virtual_band/" target="_blank" rel="noreferrer">https://hancyhxy.github.io/virtual_band/</a></p>
   </div>
 </section>
 <section class="two-column-section">
