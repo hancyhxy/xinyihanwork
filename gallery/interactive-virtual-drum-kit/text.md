@@ -38,6 +38,5 @@ Open the link to experience it 👏 (allow the camera and microphone permissions
 https://hancyhxy.github.io/virtual_band/
 
 
-
 ### Impact, Learning & Future Potential
 ![Impact & Next Steps](./public/6-impact.png)
