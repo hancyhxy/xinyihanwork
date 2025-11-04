@@ -41,6 +41,8 @@ First, you grant webcam and microphone permissions. Immediately, you see your ha
 
 ### Show Case
 
+open the link to experience 👏 （allow the camera and microphone permissions）https://hancyhxy.github.io/virtual_band/
+
 
 ### Impact, Learning & Future Potential
 ![Impact & Next Steps](./public/6-impact.png)
