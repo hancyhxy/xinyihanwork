@@ -1,5 +1,14 @@
 [
   {
+    "date": "2025-11-01",
+    "project name": "Interactive Visual Drum Kit",
+    "tag": "Interactive Music",
+    "classification": "Experiential",
+    "coverImageUrl": "gallery/virtual-drum/public/cover.png",
+    "projectUrl": "gallery/virtual-drum/index.html",
+    "company": ""
+  },
+  {
     "date": "2025-10-01",
     "project name": "FriendUp",
     "tag": "UX Design, Social Wellbeing, Usability Testing",
