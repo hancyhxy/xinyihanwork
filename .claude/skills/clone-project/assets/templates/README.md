@@ -13,6 +13,7 @@ Notes
 - 首页卡片已内置图片加载失败回退（由 style/script.js 处理）。
 - 生成脚手架会在 public/ 放置 README.txt 说明需要替换图片。
 - 模板已包含 `.video-embed` CSS 样式，支持嵌入 Vimeo 和 YouTube 视频（参考 text.md 中的注释示例）。
+- 手机端 hero 使用固定 2:1 裁切并居中显示（aspect-ratio + object-fit: cover），请将主体信息放在安全区内。
 
 Tokens
 - {{TITLE}} {{DESCRIPTION}} {{DATE}} {{TAG}} {{COMPANY}}

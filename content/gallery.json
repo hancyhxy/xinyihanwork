@@ -4,8 +4,8 @@
     "project name": "Interactive Virtual Drum Kit",
     "tag": "Hand-gesture Recognition, P5js, Interactive Music",
     "classification": "Experiential",
-    "coverImageUrl": "gallery/interactive-visual-drum-kit/public/cover.png",
-    "projectUrl": "gallery/interactive-visual-drum-kit/index.html",
+    "coverImageUrl": "gallery/interactive-virtual-drum-kit/public/cover.png",
+    "projectUrl": "gallery/interactive-virtual-drum-kit/index.html",
     "company": "UTS"
   },
   {
@@ -79,6 +79,15 @@
     "coverImageUrl": "gallery/gamify-museum- experience/public/album.png",
     "projectUrl": "gallery/gamify-museum- experience/index.html",
     "company": "Brooklyn Museum, Parsons"
+  },
+  {
+    "date": "2019-11-01",
+    "project name": "Food Memory",
+    "tag": "speculative design, food design, sci-fi movie",
+    "classification": "Experiential",
+    "coverImageUrl": "gallery/food-memory/public/cover.png",
+    "projectUrl": "gallery/food-memory/index.html",
+    "company": "Parsons School of Design"
   },
   {
     "date": "2018-12-01",
