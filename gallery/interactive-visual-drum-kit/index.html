@@ -99,7 +99,7 @@
 <section class="two-column-section">
   <div class="column-title">Concept</div>
   <div class="column-content">
-    <p class="content-text">The Interactive Visual Drum Kit transforms a webcam and built-in microphone into a playable instrument. Players strike virtual drum pads in mid-air, triggering responsive sound and particle-rich visuals that amplify every motion. The experience is designed for quick onboarding, minimal hardware, and an expressive audiovisual feedback loop.</p>
+    <p class="content-text">My project is an Interactive Visual Drum Kit that transforms your webcam into a musical instrument. Instead of using a mouse or keyboard, you play drums by moving your hands through virtual drum pads. The system combines hand tracking with audio-reactive pixel visual effects, creating an immersive experience where every gesture produces both sound and dynamic visuals.</p>
     <h4 class="subsection-title">Experience Goals</h4>
     <ul class="content-text">
       <li>Deliver a playful, performance-ready interface that works anywhere with just a laptop.</li>
@@ -107,17 +107,17 @@
       <li>Offer a production-grade demo that can scale into installations, remote jam sessions, or educational tools.</li>
     </ul>
     <h4 class="subsection-title">Gesture-to-Sound Pipeline</h4>
-    <h4 class="subsection-title">Stage 1 · Hand Tracking Foundation</h4>
+    <p class="content-text"><strong>Stage 1 · Hand Tracking Foundation</strong></p>
     <ul class="content-text">
       <li>MediaPipe Hands captures both hands with 21 landmarks, outputting clean skeletal overlays.</li>
       <li>Real-time smoothing and coordinate normalization prevent jitter when hands move quickly.</li>
     </ul>
-    <h4 class="subsection-title">Stage 2 · Drum Layout &amp; Hit Logic</h4>
+    <p class="content-text"><strong>Stage 2 · Drum Layout &amp; Hit Logic</strong></p>
     <ul class="content-text">
       <li>Four drums (Kick, Snare, Tom, Hi-Hat) float in ergonomic positions with hover-state hints.</li>
       <li>A velocity threshold of 500 px/s ensures only intentional strikes trigger a sound.</li>
     </ul>
-    <h4 class="subsection-title">Stage 3 · Audio &amp; Visual Fusion</h4>
+    <p class="content-text"><strong>Stage 3 · Audio &amp; Visual Fusion</strong></p>
     <ul class="content-text">
       <li>The Web Audio API streams low-latency drum samples with per-pad routing.</li>
       <li>Each confirmed hit spawns particle bursts and shader pulses that echo the strike’s direction and intensity.</li>
