@@ -98,9 +98,28 @@ class ComponentLoader {
 // Global component loader instance
 window.componentLoader = new ComponentLoader();
 
+function loadGlobalEnhancements() {
+    try {
+        const scriptId = 'global-media-embeds-script';
+        if (document.getElementById(scriptId)) {
+            return;
+        }
+
+        const scriptPath = `${window.componentLoader.pathConfig.componentsPath}media-embeds.js`;
+        const scriptElement = document.createElement('script');
+        scriptElement.id = scriptId;
+        scriptElement.src = scriptPath;
+        scriptElement.defer = true;
+        document.head.appendChild(scriptElement);
+    } catch (error) {
+        console.error('ComponentLoader - Failed to load global enhancements:', error);
+    }
+}
+
 // Auto-load components when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
     await window.componentLoader.loadAllComponents();
+    loadGlobalEnhancements();
 });
 
 // Export for module usage if needed

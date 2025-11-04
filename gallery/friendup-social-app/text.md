@@ -72,12 +72,12 @@ FriendUp promotes sociability that extends beyond simply "meeting new people." I
 The design ultimately enables international students to create and sustain friendships that respect their time, privacy, and individuality in a friendly and encouraging way.
 
 #### Features
-- *Mood Check-In System*: Daily emotional tracking to understand user wellbeing
-- *Interest-Based Events*: Virtual and in-person activities around shared interests (food, study, sports, hobbies)
-- *Avatar System*: Privacy-first representation allowing gradual identity disclosure
-- *Safety Ratings*: Transparent event and participant information for confident participation
-- *Local Event Alerts*: Real-time notifications for nearby social opportunities
-- *Multilingual Support*: Translation tools to support international student conversations
+*Mood Check-In System*: Daily emotional tracking to understand user wellbeing
+*Interest-Based Events*: Virtual and in-person activities around shared interests (food, study, sports, hobbies)
+*Avatar System*: Privacy-first representation allowing gradual identity disclosure
+*Safety Ratings*: Transparent event and participant information for confident participation
+*Local Event Alerts*: Real-time notifications for nearby social opportunities
+*Multilingual Support*: Translation tools to support international student conversations
 
 
 ### Prototype
@@ -87,7 +87,7 @@ The design ultimately enables international students to create and sustain frien
 
 #### Usability Test
 Prototype Test
-https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be
+[](https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be)
 
  #### Usability Report
 ![Report](./public/report.png)
@@ -101,4 +101,4 @@ https://www.youtube.com/watch?v=FXlRv7YODmM&feature=youtu.be
 
 
 ### Scenario Video
-https://www.youtube.com/watch?v=ErEPhlpMzvY
+[](https://www.youtube.com/watch?v=ErEPhlpMzvY)

@@ -5,7 +5,7 @@
 ### Project Brief
 - Date: 2025.11
 - Project Name: Interactive Visual Drum Kit
-- Tag: Hand-gesture Recognition, P5js, Interactive Music
+- Tag: Media pipe, HTML/CSS, P5js, Interactive Music
 - Classification: Experiential
 - Company: UTS
 
@@ -33,9 +33,10 @@ The system combines hand tracking with audio-reactive pixel visual effects, crea
 
 
 ### Show Case
-https://youtu.be/A7vTR0k6ijA?si=RwsSLF3tCkNWvNvh
+[](https://youtu.be/A7vTR0k6ijA?si=RwsSLF3tCkNWvNvh)
+
 Open the link to experience it 👏 (allow the camera and microphone permissions).
-https://hancyhxy.github.io/virtual_band/
+[https://hancyhxy.github.io/virtual_band/](https://hancyhxy.github.io/virtual_band/)
 
 
 ### Impact, Learning & Future Potential
