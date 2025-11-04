@@ -19,10 +19,11 @@ The system combines hand tracking with audio-reactive pixel visual effects, crea
 - Fuse motion tracking, percussive audio, and GPU-generated effects so sound and visuals feel inseparable.
 - Offer a production-grade demo that can scale into installations, remote jam sessions, or educational tools.
 
+### Development Stage
+![Development Stage](./public/2-development.png)
 
 ### System Architecture
 ![System architecture diagram showing tracking, audio, and shader modules](./public/3-structure.png)
-
 
 ### User Journey
 ![Annotated user journey interface](./public/4-user.png)
@@ -32,6 +33,7 @@ The system combines hand tracking with audio-reactive pixel visual effects, crea
 
 
 ### Show Case
+https://youtu.be/smOsnIFD_L8?si=Qq4rpxn025AIABBf
 Open the link to experience it 👏 (allow the camera and microphone permissions).
 https://hancyhxy.github.io/virtual_band/
 
