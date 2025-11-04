@@ -619,7 +619,7 @@ body {
     
     /* Project pages hero/brief responsive */
     .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; height: 50vw; }
-    .hero-image { aspect-ratio: 2 / 1; object-position: center top; }
+    .hero-image { aspect-ratio: 2 / 1; object-position: center center; }
     .project-brief-container { padding: var(--spacing-sm) 0; }
     .project-brief { max-width: 900px; padding: 0 20px; }
     .brief-grid { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-md); text-align: left; }

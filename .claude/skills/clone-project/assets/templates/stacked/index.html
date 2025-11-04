@@ -103,8 +103,8 @@
         }
         /* Tablet */
         @media (max-width: 768px) {
-            .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; }
-            .hero-image { aspect-ratio: 2/1; object-position: center top; }
+            .hero-image-container { width: 100%; margin-left: 0; overflow: hidden; height: 50vw; }
+            .hero-image { aspect-ratio: 2/1; object-position: center center; }
             .project-brief-container { padding: var(--spacing-sm) 0; }
             /* brief styles are centralized in global CSS */
             .project-title { font-size: var(--font-size-xl); }
@@ -113,7 +113,6 @@
         /* Mobile */
         @media (max-width: 480px) {
             .project-content { margin: 72px auto 64px; padding: 0 var(--spacing-sm); }
-            .hero-image { aspect-ratio: 2/1; object-position: center top; }
         }
     </style>
     </head>
