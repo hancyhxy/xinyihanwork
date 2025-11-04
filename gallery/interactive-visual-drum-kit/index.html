@@ -100,21 +100,13 @@
   <div class="column-title">Concept</div>
   <div class="column-content">
     <p class="content-text">The Interactive Visual Drum Kit transforms a webcam and built-in microphone into a playable instrument. Players strike virtual drum pads in mid-air, triggering responsive sound and particle-rich visuals that amplify every motion. The experience is designed for quick onboarding, minimal hardware, and an expressive audiovisual feedback loop.</p>
-  </div>
-</section>
-<section class="two-column-section">
-  <div class="column-title">Experience Goals</div>
-  <div class="column-content">
+    <h4 class="subsection-title">Experience Goals</h4>
     <ul class="content-text">
       <li>Deliver a playful, performance-ready interface that works anywhere with just a laptop.</li>
       <li>Fuse motion tracking, percussive audio, and GPU-generated effects so sound and visuals feel inseparable.</li>
       <li>Offer a production-grade demo that can scale into installations, remote jam sessions, or educational tools.</li>
     </ul>
-  </div>
-</section>
-<section class="two-column-section">
-  <div class="column-title">Gesture-to-Sound Pipeline</div>
-  <div class="column-content">
+    <h4 class="subsection-title">Gesture-to-Sound Pipeline</h4>
     <h4 class="subsection-title">Stage 1 · Hand Tracking Foundation</h4>
     <ul class="content-text">
       <li>MediaPipe Hands captures both hands with 21 landmarks, outputting clean skeletal overlays.</li>
@@ -136,79 +128,24 @@
   <div class="column-title">System Architecture</div>
   <div class="column-content">
     <img class="project-image" src="./public/3-structure.png" alt="System architecture diagram showing tracking, audio, and shader modules">
-    <h4 class="subsection-title">Modular Stack</h4>
-    <ul class="content-text">
-      <li>`tracker.js` wraps MediaPipe inputs and exposes clean hand data for downstream modules.</li>
-      <li>`hitmap.js` calculates collision bounds, strike velocity, and cooldown logic per drum.</li>
-      <li>`audio.js` manages sample loading, playback envelopes, and optional microphone FFT analysis.</li>
-      <li>`sketch.js` orchestrates draw loops, particle systems, and shader uniforms on every frame.</li>
-    </ul>
-    <h4 class="subsection-title">Technical Principles</h4>
-    <ul class="content-text">
-      <li>GPU-first thinking pushes heavy lifting to WebGL shaders, keeping particles lightweight on the CPU.</li>
-      <li>Graceful fallback routes to a downsampled 2D canvas when WebGL is unavailable.</li>
-      <li>Predictable sequencing keeps the render loop locked to 60 FPS on modern browsers.</li>
-    </ul>
   </div>
 </section>
 <section class="two-column-section">
   <div class="column-title">User Journey</div>
   <div class="column-content">
-    <img class="project-image" src="./public/4-user.png" alt="Annotated user journey interface">
     <p class="content-text">First, you grant webcam and microphone permissions. Immediately, you see your hands tracked in real-time with a blue skeletal overlay - your index fingertip becomes your drumstick. As you explore, you can move your hand over the drums without triggering them. To actually play, you need to strike with intent - a fast punching motion. As you build rhythm, the entire scene responds - the background pixelates with the bass, colors shift from cool teals to warm oranges, and the visuals create an immersive musical experience.</p>
-    <h4 class="subsection-title">1. Grant Permissions</h4>
-    <ul class="content-text">
-      <li>Players enable webcam and microphone access and see a ready-state indicator.</li>
-    </ul>
-    <h4 class="subsection-title">2. See Your Hands</h4>
-    <ul class="content-text">
-      <li>A neon skeletal overlay mirrors hand movement so the system feels alive before the first hit.</li>
-    </ul>
-    <h4 class="subsection-title">3. Learn the Pads</h4>
-    <ul class="content-text">
-      <li>Subtle glow cues on hover reveal drum placement without triggering sound.</li>
-    </ul>
-    <h4 class="subsection-title">4. Strike with Intent</h4>
-    <ul class="content-text">
-      <li>Fast punches cross the velocity threshold, enlarge the drum’s outline, and play the sample instantly.</li>
-    </ul>
-    <h4 class="subsection-title">5. Jam &amp; Iterate</h4>
-    <ul class="content-text">
-      <li>Particles explode along the movement vector while shader-driven color shifts react to both gestures and audio energy.</li>
-    </ul>
+    <img class="project-image" src="./public/4-user.png" alt="Annotated user journey interface">
   </div>
 </section>
 <section class="two-column-section">
-  <div class="column-title">Visual Feedback System</div>
+  <div class="column-title">Show Case</div>
   <div class="column-content">
-    <h4 class="subsection-title">Particle Palette</h4>
-    <ul class="content-text">
-      <li>Four particle styles—Burst, Spray, Cluster, Ring—map to different playing techniques.</li>
-      <li>Shapes span squares, diamonds, crosses, and sparkles with quadratic fade-outs for clarity.</li>
-    </ul>
-    <h4 class="subsection-title">Audio-Reactive Shaders</h4>
-    <ul class="content-text">
-      <li>Bass frequencies modulate pixel size for rhythmic pulsing.</li>
-      <li>Energy levels drive palette transitions from deep blues to saturated magenta-pink hues.</li>
-      <li>Optional scanlines and posterization filters amplify the retro digital aesthetic.</li>
-    </ul>
   </div>
 </section>
 <section class="two-column-section">
-  <div class="column-title">Impact &amp; Next Steps</div>
+  <div class="column-title">Impact, Learning &amp; Future Potential</div>
   <div class="column-content">
-    <h4 class="subsection-title">Impact Today</h4>
-    <ul class="content-text">
-      <li>Makes music creation accessible with no peripherals beyond a webcam-enabled laptop.</li>
-      <li>Demonstrates a cohesive pipeline where tracking, audio, and GPU shaders reinforce one another.</li>
-      <li>Functions as a showcase piece for experiential design and real-time audiovisual systems.</li>
-    </ul>
-    <h4 class="subsection-title">Future Exploration</h4>
-    <ul class="content-text">
-      <li>Expand the drum set, add rhythm scoring, and allow recording/replay for casual players.</li>
-      <li>Introduce multiplayer networking for remote jam sessions and collaborative performances.</li>
-      <li>Explore VR/AR and full-body tracking to evolve the kit into immersive installations.</li>
-    </ul>
+    <img class="project-image" src="./public/6-impact.png" alt="Impact &amp; Next Steps">
   </div>
 </section>
 <!-- SYNC:CONTENT-END -->
