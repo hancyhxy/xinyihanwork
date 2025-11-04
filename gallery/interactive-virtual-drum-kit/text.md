@@ -33,7 +33,7 @@ The system combines hand tracking with audio-reactive pixel visual effects, crea
 
 
 ### Show Case
-https://youtu.be/smOsnIFD_L8?si=Qq4rpxn025AIABBf
+https://youtu.be/A7vTR0k6ijA?si=RwsSLF3tCkNWvNvh
 Open the link to experience it 👏 (allow the camera and microphone permissions).
 https://hancyhxy.github.io/virtual_band/
 
