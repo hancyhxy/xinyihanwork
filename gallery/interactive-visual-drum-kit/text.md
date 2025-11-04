@@ -5,8 +5,9 @@
 ### Project Brief
 - Date: 2025.11
 - Project Name: Interactive Visual Drum Kit
-- Tag: Interactive Music
-- Company: 
+- Tag: Hand-gesture Recognition, P5js, Interactive Music
+- Classification: Experiential
+- Company: UTS
 
 ### Concept
 The Interactive Visual Drum Kit transforms a webcam and built-in microphone into a playable instrument. Players strike virtual drum pads in mid-air, triggering responsive sound and particle-rich visuals that amplify every motion. The experience is designed for quick onboarding, minimal hardware, and an expressive audiovisual feedback loop.
