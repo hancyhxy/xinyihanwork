@@ -18,9 +18,9 @@ class ComponentLoader {
             componentsPath: isSubPage ? '../../components/' : './components/',
             homeLink: isSubPage ? '../../index.html' : './index.html',
             // Page-aware relative paths so it works from home and gallery pages
-            infoLink: isSubPage ? '../../doc/xinyi_han_resume.pdf' : './doc/xinyi_han_resume.pdf',
+            infoLink: isSubPage ? '../../doc/CV_XinyiHan.pdf' : './doc/CV_XinyiHan.pdf',
             contactLink: isSubPage ? '../../index.html#contact' : '#contact',
-            resumeLink: isSubPage ? '../../doc/xinyi_han_resume.pdf' : './doc/xinyi_han_resume.pdf'
+            resumeLink: isSubPage ? '../../doc/CV_XinyiHan.pdf' : './doc/CV_XinyiHan.pdf'
         };
     }
 
