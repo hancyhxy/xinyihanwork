@@ -63,6 +63,15 @@
     "company": "Red Note"
   },
   {
+    "date": "2021-06-01",
+    "project name": "Customer Service Workspace & AI Chatbot",
+    "tag": "UX Design, AI Chatbot, Customer Service",
+    "classification": "UX/Product",
+    "coverImageUrl": "gallery/customer-service-workspace-chatbot/public/cover.png",
+    "projectUrl": "gallery/customer-service-workspace-chatbot/index.html",
+    "company": "Alibaba"
+  },
+  {
     "date": "2020-05-30",
     "project name": "My friends are my power station",
     "tag": "Installation, Urban Culture",
