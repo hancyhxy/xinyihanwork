@@ -9,7 +9,7 @@
 ### Project Brief
 - Date: 2020-05-30
 - Project Name: My friends are my power station
-- Tag: Installation, Urban Culture
+- Tag: Installation, Projection Mapping, Urban Culture
 - Company: Parsons School of Design
 
 
