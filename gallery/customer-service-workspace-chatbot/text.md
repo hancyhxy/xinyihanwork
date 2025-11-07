@@ -9,15 +9,15 @@
 - Company: Alibaba
 
 ### Overview
-
+![overview](./public/overview.png)
 Designed a comprehensive customer service solution for Taobao, China's largest e-commerce platform, handling 200,000 daily inquiries from sellers and buyers. The project encompassed two interconnected systems: an agent workspace for the platform CS team and a customer-facing AI chatbot for self-service support.
 
 The dual-system approach addressed the needs of two distinct user groups while maintaining seamless integration. The agent workspace provided CS representatives with case management tools, a centralized knowledge base, and AI-assisted features to handle complex inquiries efficiently. The customer-facing chatbot enabled users to resolve common issues independently through an intelligent conversational interface.
 
 ### Challenge
-
+![approach](./public/approach.png)
+![challengeandrole](./public/challengeandrole.png)
 The scale of customer service operations on Taobao presented significant challenges:
-
 - **Volume**: Managing 200,000 daily inquiries across diverse user segments (sellers and buyers) with varying needs and complexity levels
 - **Dual User Groups**: Balancing the requirements of professional CS agents who needed powerful tools with customers who wanted simple, quick solutions
 - **Efficiency vs. Quality**: Maintaining high-quality support while reducing operational costs and response times
@@ -26,6 +26,7 @@ The scale of customer service operations on Taobao presented significant challen
 ### Process
 
 #### Agent Workspace Design
+[https://xixikf.com/](https://xixikf.com/)
 
 Built an integrated workspace combining case management, knowledge base access, and AI-assisted tools. The interface prioritized quick information retrieval and streamlined workflows to help agents resolve cases faster while maintaining service quality.
 
@@ -50,6 +51,7 @@ The conversation architecture was structured to:
 Worked closely with the NLP engineering team to develop tone customization and context-aware response systems. This collaboration ensured the chatbot could adapt its communication style based on customer sentiment, issue urgency, and conversation context.
 
 ### Outcome
+![appinall](./public/appinall.png)
 
 The integrated customer service system delivered measurable impact:
 
