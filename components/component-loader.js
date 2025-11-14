@@ -98,19 +98,43 @@ class ComponentLoader {
 // Global component loader instance
 window.componentLoader = new ComponentLoader();
 
+function injectAnalytics() {
+    const externalScriptId = 'google-analytics-external';
+    if (!document.getElementById(externalScriptId)) {
+        const gaScript = document.createElement('script');
+        gaScript.id = externalScriptId;
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZP93FH7S4W';
+        document.head.appendChild(gaScript);
+    }
+
+    const inlineScriptId = 'google-analytics-inline';
+    if (!document.getElementById(inlineScriptId)) {
+        const inlineScript = document.createElement('script');
+        inlineScript.id = inlineScriptId;
+        inlineScript.textContent = [
+            'window.dataLayer = window.dataLayer || [];',
+            'function gtag(){dataLayer.push(arguments);}',
+            "gtag('js', new Date());",
+            "gtag('config', 'G-ZP93FH7S4W');"
+        ].join('\n');
+        document.head.appendChild(inlineScript);
+    }
+}
+
 function loadGlobalEnhancements() {
     try {
         const scriptId = 'global-media-embeds-script';
-        if (document.getElementById(scriptId)) {
-            return;
+        if (!document.getElementById(scriptId)) {
+            const scriptPath = `${window.componentLoader.pathConfig.componentsPath}media-embeds.js`;
+            const scriptElement = document.createElement('script');
+            scriptElement.id = scriptId;
+            scriptElement.src = scriptPath;
+            scriptElement.defer = true;
+            document.head.appendChild(scriptElement);
         }
 
-        const scriptPath = `${window.componentLoader.pathConfig.componentsPath}media-embeds.js`;
-        const scriptElement = document.createElement('script');
-        scriptElement.id = scriptId;
-        scriptElement.src = scriptPath;
-        scriptElement.defer = true;
-        document.head.appendChild(scriptElement);
+        injectAnalytics();
     } catch (error) {
         console.error('ComponentLoader - Failed to load global enhancements:', error);
     }
