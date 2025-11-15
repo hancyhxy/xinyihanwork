@@ -112,6 +112,7 @@ body {
     letter-spacing: 0.5px;
     transition: var(--transition);
     position: relative;
+    cursor: pointer;
 }
 
 .nav-link:hover {
