@@ -12,11 +12,13 @@
 TikTok’s Local Life team aimed to reinvent how people discover and order food — not through static restaurant lists, but through emotion-driven content.
 Users could watch short videos or join live streams from merchants, feel inspired, and place an order directly within the content interface.
 I led the product design for the new “Order First, Then Schedule Delivery” experience — an innovative mechanism that bridges content engagement and food delivery conversion.
-![problem-role](./public/problem-role.png)
-### Suggested Visuals
 
+![problem-role](./public/problem-role.png)
+
+#### Suggested Visuals
 - Flow diagram: “User watches Live → Collects Voucher → Redeems Later → Delivery”
 - Screenshot mock of live-stream with “Order Now” or “Collect Voucher” overlay
+
 
 ### Challenge
 
@@ -25,12 +27,13 @@ However, TikTok’s content ecosystem operates on impulse and inspiration — us
 
 The challenge was:
 
-“How can we capture users’ desire in the content moment, and convert it into real consumption later?”
+*How can we capture users’ desire in the content moment, and convert it into real consumption later?*
+
 ![timetable](./public/timetable.png)
 
-### Suggested Visuals
-
+#### Suggested Visuals
 - Comparison chart: “Intent-driven vs Emotion-driven funnel”
+
 
 ### Process
 
@@ -40,6 +43,7 @@ Worked with commerce, live-stream, and delivery teams to align three systems:
 - Live content vouchers
 - User voucher wallet
 - Delivery ordering flow
+
 ![orderfirst](./public/orderfirst.png)
 
 #### 2️⃣ Designing the ‘Order Later’ System
