@@ -78,7 +78,12 @@ More text or bullet points:
 
 Notes:
 - Keep images in `public/` and reference as `./public/<name>.<ext>`.
-- The “Project Brief” section is ignored by the sync script (the brief at the top of the page comes from `content/gallery.json`).
+- The "Project Brief" section is ignored by the sync script (the brief at the top of the page comes from `content/gallery.json`).
+
+### Text Formatting
+- **Bold text**: Use `**text**` in markdown → renders as `<strong>text</strong>` in HTML.
+- *Italic text*: Use `*text*` in markdown → renders as `<em>text</em>` in HTML.
+- Example: `**For Users — Zero Friction Adoption**` becomes `<strong>For Users — Zero Friction Adoption</strong>`.
 
 ### Headings and Subheadings Support
 - Sections: use `##` or `###` for section headers. Exactly two or three `#` are recognized (e.g., `## Overview` or `### Overview`).
@@ -94,6 +99,36 @@ Notes:
 - Use `<img class="project-image" src="..." alt="...">` inside content.
 - Body images automatically keep their intrinsic ratio and resize responsively.
 - Homepage cards have an image onerror fallback that shows a placeholder if the file is missing.
+
+## Content Spacing Rules
+
+### Paragraph and Content Spacing
+- **Manual spacing control**: Set `.column-content { gap: 0; }` and `.content-text { margin-bottom: 0; }` to remove automatic spacing.
+- All spacing between paragraphs, lists, and images is controlled manually in the markdown file.
+- To add spacing, use blank lines in `text.md` or add `<br>` tags in HTML.
+
+### Subsection Title Spacing (####)
+- Subsection titles (`<h4 class="subsection-title">`) have built-in spacing:
+  ```css
+  .subsection-title {
+      margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+  }
+  ```
+- **Top margin**: 24px (spacing-md) - separates subsection from content above
+- **Bottom margin**: 16px (spacing-sm) - creates space between title and following content
+- This ensures visual hierarchy and readability for section breaks.
+
+### Bullet Points Styling
+- Lists should use the `content-text` class: `<ul class="content-text">`.
+- Left alignment: Apply `padding-left: 1.2em;` to align bullet points properly with surrounding text.
+- Example CSS rule:
+  ```css
+  /* Bullet point left alignment fix */
+  ul.content-text {
+      padding-left: 1.2em;
+  }
+  ```
+- This ensures bullet points are visually aligned with paragraph content and don't appear too far left.
 
 ## Video Embeds
 - Embed videos inside a `<div class="video-embed">` wrapper to maintain the responsive 16:9 aspect ratio defined by the global CSS.
