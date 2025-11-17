@@ -26,14 +26,17 @@
         .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 clamp(16px, 3vw, 30px); }
         .content-section { margin-bottom: var(--spacing-2xl); }
         .subsection-title { font-size: var(--font-size-lg); font-weight: 500; margin: var(--spacing-md) 0 var(--spacing-sm) 0; color: var(--primary-color); }
-        .content-text { font-size: var(--font-size-base); line-height: 1.7; color: var(--primary-color); margin-bottom: var(--spacing-md); }
+        .content-text { font-size: var(--font-size-base); line-height: 1.7; color: var(--primary-color); margin-bottom: 0; }
         .project-image { width: 100%; height: auto; max-width: 100%; margin: var(--spacing-lg) 0; display: block; border-radius: var(--border-radius); box-shadow: none; }
         .image-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-lg); margin: var(--spacing-lg) 0; }
         .image-grid img { width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: none; }
 
         .two-column-section { display: grid; grid-template-columns: minmax(200px, 240px) 1fr; gap: var(--spacing-2xl); margin-bottom: var(--spacing-2xl); align-items: flex-start; }
         .column-title { font-size: var(--font-size-2xl); font-weight: 600; color: var(--primary-color); line-height: 1.2; position: sticky; top: var(--spacing-lg); }
-        .column-content { display: flex; flex-direction: column; gap: var(--spacing-lg); }
+        .column-content { display: flex; flex-direction: column; gap: 0; }
+
+        /* Bullet point left alignment fix */
+        ul.content-text { padding-left: 1.2em; }
 
         /* brief styles are centralized in global CSS */
 
@@ -74,85 +77,61 @@
     <!-- Project Content -->
     <div class="project-content">
         <!-- Project Title -->
-        <section class="content-section">
-            <h1 class="project-title">Rider Dispatch &amp; Scheduling Platform</h1>
-            <p class="content-text">TikTok Local Life | Delivery Station Operations Platform</p>
-        </section>
-
-        <!-- Overview -->
-        <section class="two-column-section">
-            <div class="column-title">Overview</div>
-            <div class="column-content">
-                <p class="content-text">While TikTok’s front-end experience focused on users’ desire-driven orders, the backend needed an equally powerful delivery infrastructure. I led the design of a dispatch and scheduling platform for local delivery stations — helping managers assign riders efficiently, track orders in real-time, and visualize delivery routes. This platform empowered on-ground logistics, mirroring B2B systems like Zendesk or Salesforce Workspaces but tailored for TikTok’s ecosystem.</p>
-                <h4 class="subsection-title">Suggested Visuals</h4>
-                <ul class="content-text">
-                    <li>Platform dashboard overview</li>
-                    <li>Map-based rider dispatch interface</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Challenge -->
-        <section class="two-column-section">
-            <div class="column-title">Challenge</div>
-            <div class="column-content">
-                <img class="project-image" src="./public/personarider.png" alt="Rider persona">
-                <p class="content-text">TikTok’s delivery network was expanding rapidly, yet local dispatch relied on manual coordination through chat groups or spreadsheets. This led to:</p>
-                <ul class="content-text">
-                    <li>Slow response during peak hours</li>
-                    <li>Imbalanced workloads among riders</li>
-                    <li>Lack of visibility on route efficiency</li>
-                </ul>
-                <p class="content-text">The key problem:</p>
-                <p class="content-text"><em>How might we help delivery station managers schedule riders dynamically, balancing speed, cost, and fairness?</em></p>
-            </div>
-        </section>
-
-        <!-- Process -->
-        <section class="two-column-section">
-            <div class="column-title">Process</div>
-            <div class="column-content">
-                <div>
-                    <h4 class="subsection-title">1️⃣ System Mapping</h4>
-                    <p class="content-text">Interviewed station managers and riders to identify inefficiencies. Mapped the information flow from order generation → rider assignment → delivery tracking.</p>
-                </div>
-                <div>
-                    <h4 class="subsection-title">2️⃣ Platform Architecture</h4>
-                    <ul class="content-text">
-                        <li>Order Board: All pending orders by area/time window</li>
-                        <li>Rider View: Real-time status, route, capacity</li>
-                        <li>Smart Scheduling: Reassignment suggestions based on proximity and workload</li>
-                    </ul>
-                    <img class="project-image" src="./public/mvp.png" alt="MVP of platform architecture">
-                </div>
-                <div>
-                    <h4 class="subsection-title">3️⃣ Interface &amp; Interaction Design</h4>
-                    <p class="content-text">Adopted a “command-center” UI layout with priority color tags and drag-to-assign actions. Enabled real-time updates with minimal cognitive load for dispatchers.</p>
-                </div>
-                <!-- Removed deprecated SVG images; replaced with MVP image above -->
-            </div>
-        </section>
-
-        <!-- Outcome -->
-        <section class="two-column-section">
-            <div class="column-title">Outcome</div>
-            <div class="column-content">
-                <img class="project-image" src="./public/outcome.png" alt="Outcome highlights">
-                <ul class="content-text">
-                    <li>Reduced average dispatch time per order</li>
-                    <li>Improved rider utilization and delivery punctuality</li>
-                    <li>Provided a scalable template for other local service categories (laundry, beauty, grocery)</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Reflection -->
-        <section class="two-column-section">
-            <div class="column-title">Reflection</div>
-            <div class="column-content">
-                <p class="content-text">This project shifted my mindset from consumer UX to operational systems thinking — designing for speed, clarity, and decision support, not just aesthetic or emotion.</p>
-            </div>
-        </section>
+        <!-- SYNC:CONTENT-START -->
+<section class="two-column-section">
+  <div class="column-title">Overview</div>
+  <div class="column-content">
+    <p class="content-text">While TikTok’s front-end experience focused on users’ desire-driven orders, the backend needed an equally powerful delivery infrastructure. I led the design of a dispatch and scheduling platform for local delivery stations — helping managers assign riders efficiently, track orders in real-time, and visualize delivery routes. This platform empowered on-ground logistics, mirroring B2B systems like Zendesk or Salesforce Workspaces but tailored for TikTok's ecosystem.</p>
+  </div>
+</section>
+<section class="two-column-section">
+  <div class="column-title">Challenge</div>
+  <div class="column-content">
+    <img class="project-image" src="./public/personarider.png" alt="Rider persona">
+    <p class="content-text">TikTok's delivery network was expanding rapidly, yet local dispatch relied on manual coordination through chat groups or spreadsheets. This led to:</p>
+    <ul class="content-text">
+      <li>Slow response during peak hours</li>
+      <li>Imbalanced workloads among riders</li>
+      <li>Lack of visibility on route efficiency</li>
+    </ul>
+    <p class="content-text">The key problem:</p>
+    <p class="content-text">"How might we help delivery station managers schedule riders dynamically, balancing speed, cost, and fairness?"</p>
+  </div>
+</section>
+<section class="two-column-section">
+  <div class="column-title">Process</div>
+  <div class="column-content">
+    <h4 class="subsection-title">1. System Mapping</h4>
+    <p class="content-text">Interviewed station managers and riders to identify inefficiencies. Mapped the information flow from "order generation" → "rider assignment" → "delivery tracking."</p>
+    <h4 class="subsection-title">2. Platform Architecture</h4>
+    <ul class="content-text">
+      <li>Order Board: All pending orders by area/time window</li>
+      <li>Rider View: Real-time status, route, capacity</li>
+      <li>Smart Scheduling: Reassignment suggestions based on proximity and workload</li>
+    </ul>
+    <img class="project-image" src="./public/mvp.png" alt="mvp">
+    <h4 class="subsection-title">3. Interface &amp; Interaction Design</h4>
+    <p class="content-text">Adopted a "command-center" UI layout with priority color tags and drag-to-assign actions. Enabled real-time updates with minimal cognitive load for dispatchers.</p>
+  </div>
+</section>
+<section class="two-column-section">
+  <div class="column-title">Outcome</div>
+  <div class="column-content">
+    <img class="project-image" src="./public/outcome.png" alt="outcome">
+    <ul class="content-text">
+      <li>Reduced average dispatch time per order</li>
+      <li>Improved rider utilization and delivery punctuality</li>
+      <li>Provided a scalable template for other local service categories (laundry, beauty, grocery)</li>
+    </ul>
+  </div>
+</section>
+<section class="two-column-section">
+  <div class="column-title">Reflection</div>
+  <div class="column-content">
+    <p class="content-text">This project shifted my mindset from consumer UX to operational systems thinking — designing for speed, clarity, and decision support, not just aesthetic or emotion.</p>
+  </div>
+</section>
+<!-- SYNC:CONTENT-END -->
     </div>
 
     <div data-component="footer"></div>
