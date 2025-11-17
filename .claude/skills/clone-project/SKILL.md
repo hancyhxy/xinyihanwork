@@ -93,7 +93,7 @@ After successful creation, inform the user of the following next steps:
 
 2. **Edit Content:**
    - Update `gallery/<slug>/text.md` with actual project content
-   - Follow the Markdown format in `references/GALLERY_GUIDE.md`
+   - Follow the Markdown format in `/.claude/references/GALLERY_GUIDE.md`
    - Use `##` or `###` for section headers
    - Use `####` for subsection headers
    - Reference images as `./public/image-name.png`
@@ -229,5 +229,5 @@ Both templates include:
 - `templates/two-column/` - Two-column layout template files
 - `templates/stacked/` - Stacked layout template files
 
-### references/
-- `GALLERY_GUIDE.md` - Complete documentation of the gallery workflow and standards
+### Global references
+- `/.claude/references/GALLERY_GUIDE.md` - Complete documentation of the gallery workflow and standards
