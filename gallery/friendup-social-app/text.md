@@ -1,15 +1,8 @@
 ![cover](./public/cover.png)
 
-# FriendUp
-
-### Project Brief
-- Date: 2025.10
-- Project Name: FriendUp
-- Tag: UX Design, Social Wellbeing, Usability Testing
-- Company: UTS
+# FriendUp Map-based Social App
 
 ### Introduction
-
 FriendUp is a social wellbeing app designed for international students to overcome the challenges they face in maintaining friendships in a new environment. Through comprehensive research and official interviews, we identified real-world problems international students encounter when making and sustaining meaningful relationships.
 
 The research revealed five main concepts: difficulties in keeping friends, worries about trust and privacy, sense of loneliness, the impact of academic and professional demands on social life, and the significance of food and hobbies in forming relationships.
