@@ -54,6 +54,12 @@
         .column-title { font-size: var(--font-size-2xl); font-weight: 600; color: var(--primary-color); line-height: 1.2; position: sticky; top: var(--spacing-lg); }
         .column-content { display: flex; flex-direction: column; gap: var(--spacing-lg); }
 
+        /* Bullet point left alignment */
+        ul.content-text { padding-left: 1.2em; }
+
+        /* Reduce spacing for subsection titles that start a content block */
+        .column-content > div > h4.subsection-title:first-child { margin-top: 0; }
+
         /* brief styles are centralized in global CSS */
 
         /* Responsive */

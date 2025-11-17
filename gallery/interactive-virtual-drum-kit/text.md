@@ -13,7 +13,6 @@
 My project is an Interactive Visual Drum Kit that transforms your webcam into a musical instrument. 
 Instead of using a mouse or keyboard, you play drums by moving your hands through virtual drum pads. 
 The system combines hand tracking with audio-reactive pixel visual effects, creating an immersive experience where every gesture produces both sound and dynamic visuals.
-
 #### Experience Goals
 - Deliver a playful, performance-ready interface that works anywhere with just a laptop.
 - Fuse motion tracking, percussive audio, and GPU-generated effects so sound and visuals feel inseparable.
@@ -39,5 +38,5 @@ Open the link to experience it 👏 (allow the camera and microphone permissions
 [https://hancyhxy.github.io/virtual_band/](https://hancyhxy.github.io/virtual_band/)
 
 
-### Impact, Learning & Future Potential
+### Impact, Learning & Future Potential 
 ![Impact & Next Steps](./public/6-impact.png)

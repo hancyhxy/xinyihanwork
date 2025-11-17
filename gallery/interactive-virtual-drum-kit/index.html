@@ -52,6 +52,12 @@
         .column-title { font-size: var(--font-size-2xl); font-weight: 600; color: var(--primary-color); line-height: 1.2; position: sticky; top: var(--spacing-lg); }
         .column-content { display: flex; flex-direction: column; gap: var(--spacing-lg); }
 
+        /* Bullet point left alignment */
+        ul.content-text { padding-left: 1.2em; }
+
+        /* Reduce spacing for subsection titles that start a content block */
+        .column-content > div > h4.subsection-title:first-child { margin-top: 0; }
+
         @media (min-width: 1200px) {
             .project-content { max-width: 1140px; margin: 180px auto 120px; padding: 0 30px; }
             .two-column-section { gap: calc(var(--spacing-2xl) * 1.5); }
@@ -104,13 +110,17 @@
 <section class="two-column-section">
   <div class="column-title">Concept</div>
   <div class="column-content">
-    <p class="content-text">My project is an Interactive Visual Drum Kit that transforms your webcam into a musical instrument. Instead of using a mouse or keyboard, you play drums by moving your hands through virtual drum pads. The system combines hand tracking with audio-reactive pixel visual effects, creating an immersive experience where every gesture produces both sound and dynamic visuals.</p>
-    <h4 class="subsection-title">Experience Goals</h4>
-    <ul class="content-text">
-      <li>Deliver a playful, performance-ready interface that works anywhere with just a laptop.</li>
-      <li>Fuse motion tracking, percussive audio, and GPU-generated effects so sound and visuals feel inseparable.</li>
-      <li>Offer a production-grade demo that can scale into installations, remote jam sessions, or educational tools.</li>
-    </ul>
+    <div>
+      <p class="content-text">My project is an Interactive Visual Drum Kit that transforms your webcam into a musical instrument. Instead of using a mouse or keyboard, you play drums by moving your hands through virtual drum pads. The system combines hand tracking with audio-reactive pixel visual effects, creating an immersive experience where every gesture produces both sound and dynamic visuals.</p>
+    </div>
+    <div>
+      <h4 class="subsection-title">Experience Goals</h4>
+      <ul class="content-text">
+        <li>Deliver a playful, performance-ready interface that works anywhere with just a laptop.</li>
+        <li>Fuse motion tracking, percussive audio, and GPU-generated effects so sound and visuals feel inseparable.</li>
+        <li>Offer a production-grade demo that can scale into installations, remote jam sessions, or educational tools.</li>
+      </ul>
+    </div>
   </div>
 </section>
 <section class="two-column-section">
@@ -129,19 +139,22 @@
   <div class="column-title">User Journey</div>
   <div class="column-content">
     <img class="project-image" src="./public/4-user.png" alt="Annotated user journey interface">
-    <ul class="content-text">
-      <li>First, you grant webcam and microphone permissions. Immediately, you see your hands tracked in real-time with a blue skeletal overlay your index fingertip becomes your drumstick.</li>
-      <li>As you explore, you can move your hand over the drums without triggering them. To actually play, you need to strike with intent - a fast punching motion.</li>
-      <li>As you build rhythm, the entire scene responds - the background pixelates with the bass, colors shift from cool teals to warm oranges, and the visuals create an immersive musical experience.</li>
-    </ul>
+    <div>
+      <ul class="content-text">
+        <li>First, you grant webcam and microphone permissions. Immediately, you see your hands tracked in real-time with a blue skeletal overlay your index fingertip becomes your drumstick.</li>
+        <li>As you explore, you can move your hand over the drums without triggering them. To actually play, you need to strike with intent - a fast punching motion.</li>
+        <li>As you build rhythm, the entire scene responds - the background pixelates with the bass, colors shift from cool teals to warm oranges, and the visuals create an immersive musical experience.</li>
+      </ul>
+    </div>
   </div>
 </section>
 <section class="two-column-section">
   <div class="column-title">Show Case</div>
   <div class="column-content">
-    <p class="content-text"><a href="https://youtu.be/A7vTR0k6ijA?si=RwsSLF3tCkNWvNvh" target="_blank" rel="noreferrer noopener"></a></p>
-    <p class="content-text">Open the link to experience it 👏 (allow the camera and microphone permissions).</p>
-    <p class="content-text"><a href="https://hancyhxy.github.io/virtual_band/" target="_blank" rel="noreferrer noopener">https://hancyhxy.github.io/virtual_band/</a></p>
+    <div>
+      <p class="content-text"><a href="https://youtu.be/A7vTR0k6ijA?si=RwsSLF3tCkNWvNvh" target="_blank" rel="noreferrer">https://youtu.be/A7vTR0k6ijA?si=RwsSLF3tCkNWvNvh</a></p>
+      <p class="content-text">Open the link to experience it 👏 (allow the camera and microphone permissions). <a href="https://hancyhxy.github.io/virtual_band/" target="_blank" rel="noreferrer">https://hancyhxy.github.io/virtual_band/</a></p>
+    </div>
   </div>
 </section>
 <section class="two-column-section">

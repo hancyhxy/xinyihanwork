@@ -102,33 +102,119 @@ Notes:
 
 ## Content Spacing Rules
 
-### Paragraph and Content Spacing
-- **Manual spacing control**: Set `.column-content { gap: 0; }` and `.content-text { margin-bottom: 0; }` to remove automatic spacing.
-- All spacing between paragraphs, lists, and images is controlled manually in the markdown file.
-- To add spacing, use blank lines in `text.md` or add `<br>` tags in HTML.
+### How Spacing Works
+The gallery templates use a **flexbox gap-based spacing system** to create consistent spacing between content blocks:
+
+```css
+.column-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);  /* 32px spacing between blocks */
+}
+```
+
+This means:
+- Each top-level child inside `.column-content` gets `32px` spacing from its neighbors
+- You control spacing by **grouping related content** in the markdown file
+- Blank lines in `text.md` create **new content blocks** (new flex items)
+
+### Content Grouping in Markdown
+
+**How the sync script groups content:**
+1. **Consecutive paragraphs and lists** → wrapped in a `<div>` (treated as one block)
+2. **H4 subsection titles** → stand alone (separate blocks)
+3. **Images** → stand alone (separate blocks)
+
+**Example markdown:**
+```markdown
+### Section Title
+This is paragraph one.
+This is paragraph two.
+
+This is paragraph three in a new group.
+
+![Image description](./public/image.png)
+
+#### Subsection Title
+- Bullet point one
+- Bullet point two
+```
+
+**Renders as:**
+```html
+<section class="two-column-section">
+  <div class="column-title">Section Title</div>
+  <div class="column-content">
+    <!-- Block 1: two paragraphs grouped -->
+    <div>
+      <p class="content-text">This is paragraph one. This is paragraph two.</p>
+    </div>
+
+    <!-- Block 2: separate paragraph (32px gap above) -->
+    <div>
+      <p class="content-text">This is paragraph three in a new group.</p>
+    </div>
+
+    <!-- Block 3: image (32px gap above) -->
+    <img class="project-image" src="./public/image.png" alt="Image description">
+
+    <!-- Block 4: subsection title (32px gap above) -->
+    <h4 class="subsection-title">Subsection Title</h4>
+
+    <!-- Block 5: list (32px gap above) -->
+    <div>
+      <ul class="content-text">
+        <li>Bullet point one</li>
+        <li>Bullet point two</li>
+      </ul>
+    </div>
+  </div>
+</section>
+```
+
+### Paragraph Spacing Within Groups
+Inside a `<div>` wrapper, paragraphs have their own bottom margin:
+```css
+.content-text {
+    margin-bottom: var(--spacing-md);  /* 24px between paragraphs in same group */
+}
+```
+
+**To control paragraph spacing:**
+- **No blank line** → paragraphs merge into one `<p>` tag (lines joined with spaces)
+- **Blank line** → creates a new content block with 32px gap
 
 ### Subsection Title Spacing (####)
-- Subsection titles (`<h4 class="subsection-title">`) have built-in spacing:
-  ```css
-  .subsection-title {
-      margin: var(--spacing-md) 0 var(--spacing-sm) 0;
-  }
-  ```
-- **Top margin**: 24px (spacing-md) - separates subsection from content above
-- **Bottom margin**: 16px (spacing-sm) - creates space between title and following content
-- This ensures visual hierarchy and readability for section breaks.
+Subsection titles have special spacing rules depending on their position:
+
+**Base spacing:**
+```css
+.subsection-title {
+    margin: var(--spacing-md) 0 var(--spacing-sm) 0;  /* 24px top, 16px bottom */
+}
+```
+
+**When H4 starts a content block (two-column layout):**
+```css
+.column-content > div > h4.subsection-title:first-child {
+    margin-top: 0;  /* Remove top margin, use flexbox gap (32px) instead */
+}
+```
+
+**Result:**
+- H4 at the start of a block → 32px gap from previous block (flexbox gap only)
+- H4 in middle of content → 24px top + 16px bottom margins
+- This creates proper visual hierarchy without excessive spacing
 
 ### Bullet Points Styling
-- Lists should use the `content-text` class: `<ul class="content-text">`.
-- Left alignment: Apply `padding-left: 1.2em;` to align bullet points properly with surrounding text.
-- Example CSS rule:
-  ```css
-  /* Bullet point left alignment fix */
-  ul.content-text {
-      padding-left: 1.2em;
-  }
-  ```
-- This ensures bullet points are visually aligned with paragraph content and don't appear too far left.
+Lists are wrapped in `<div>` elements and use proper alignment:
+```css
+ul.content-text {
+    padding-left: 1.2em;  /* Aligns bullets with paragraph text */
+}
+```
+- This ensures bullet points align visually with surrounding paragraphs
+- Lists inside a `<div>` with paragraphs share the group spacing
 
 ## Video Embeds
 - Embed videos inside a `<div class="video-embed">` wrapper to maintain the responsive 16:9 aspect ratio defined by the global CSS.

@@ -45,14 +45,30 @@ function htmlEscapeAttr(s) {
 function formatInlineText(text) {
   if (text === undefined || text === null) return '';
   const raw = String(text);
+
+  // Use a placeholder system to protect markdown links during processing
+  const linkPlaceholders = [];
+  let workingText = raw;
+
+  // Step 1: Extract and replace markdown links [text](url) with placeholders
+  workingText = workingText.replace(/\[([^\]]*)\]\(([^)]+)\)/g, (match, linkText, url) => {
+    const safeHref = htmlEscapeAttr(url.trim());
+    const displayText = linkText.trim() || url.trim(); // Use URL if linkText is empty
+    const safeText = htmlEscape(displayText);
+    const placeholder = `__LINK_${linkPlaceholders.length}__`;
+    linkPlaceholders.push(`<a href="${safeHref}" target="_blank" rel="noreferrer">${safeText}</a>`);
+    return placeholder;
+  });
+
+  // Step 2: Process standalone URLs in remaining text
   const urlRegex = /(https?:\/\/[\w\-._~:/?#\[\]@!$&'()*+,;=%]+)/g;
   let lastIndex = 0;
   const parts = [];
   let match;
 
-  while ((match = urlRegex.exec(raw)) !== null) {
+  while ((match = urlRegex.exec(workingText)) !== null) {
     if (match.index > lastIndex) {
-      parts.push(htmlEscape(raw.slice(lastIndex, match.index)));
+      parts.push(htmlEscape(workingText.slice(lastIndex, match.index)));
     }
 
     let url = match[0];
@@ -69,14 +85,18 @@ function formatInlineText(text) {
     lastIndex = match.index + match[0].length;
   }
 
-  if (lastIndex < raw.length) {
-    parts.push(htmlEscape(raw.slice(lastIndex)));
+  if (lastIndex < workingText.length) {
+    parts.push(htmlEscape(workingText.slice(lastIndex)));
   }
 
-  if (!parts.length) {
-    return htmlEscape(raw);
-  }
-  return parts.join('');
+  let result = parts.length ? parts.join('') : htmlEscape(workingText);
+
+  // Step 3: Restore markdown links from placeholders
+  linkPlaceholders.forEach((link, index) => {
+    result = result.replace(`__LINK_${index}__`, link);
+  });
+
+  return result;
 }
 
 function normalizeHeaderTitle(title) {
@@ -251,14 +271,17 @@ function renderTwoColumn(sections) {
     out.push('<section class="two-column-section">');
     out.push(`  <div class="column-title">${htmlEscape(title)}</div>`);
     out.push('  <div class="column-content">');
-    for (const item of sec.content) {
-      if (item.type === 'p') out.push(`    <p class="content-text">${formatInlineText(item.text)}</p>`);
-      else if (item.type === 'h4') out.push(`    <h4 class="subsection-title">${formatInlineText(item.text)}</h4>`);
-      else if (item.type === 'ul') {
-        out.push('    <ul class="content-text">');
-        for (const li of item.items) out.push(`      <li>${formatInlineText(li)}</li>`);
-        out.push('    </ul>');
-      } else if (item.type === 'img') {
+
+    // Group content intelligently:
+    // - Images stand alone
+    // - H4 + following content (p/ul) are grouped together
+    // - Consecutive p/ul without H4 are grouped together
+    let i = 0;
+    while (i < sec.content.length) {
+      const item = sec.content[i];
+
+      // Images always stand alone
+      if (item.type === 'img') {
         if (item.scale) {
           const width = formatScalePercent(item.scale);
           const widthAttr = width !== null ? `${width}%` : '100%';
@@ -266,8 +289,34 @@ function renderTwoColumn(sections) {
         } else {
           out.push(`    <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
         }
+        i++;
+      } else {
+        // Start a new group (may include H4 + content, or just content)
+        out.push('    <div>');
+
+        // If this starts with H4, include it in the group
+        if (sec.content[i].type === 'h4') {
+          out.push(`      <h4 class="subsection-title">${formatInlineText(sec.content[i].text)}</h4>`);
+          i++;
+        }
+
+        // Add all following paragraphs and lists to this group
+        while (i < sec.content.length && (sec.content[i].type === 'p' || sec.content[i].type === 'ul')) {
+          const current = sec.content[i];
+          if (current.type === 'p') {
+            out.push(`      <p class="content-text">${formatInlineText(current.text)}</p>`);
+          } else if (current.type === 'ul') {
+            out.push('      <ul class="content-text">');
+            for (const li of current.items) out.push(`        <li>${formatInlineText(li)}</li>`);
+            out.push('      </ul>');
+          }
+          i++;
+        }
+
+        out.push('    </div>');
       }
     }
+
     out.push('  </div>');
     out.push('</section>');
   }
@@ -280,14 +329,14 @@ function renderStacked(sections) {
     const title = normalizeHeaderTitle(sec.title);
     out.push('<section class="content-section">');
     out.push(`  <h2 class="section-title">${htmlEscape(title)}</h2>`);
-    for (const item of sec.content) {
-      if (item.type === 'p') out.push(`  <p class="content-text">${formatInlineText(item.text)}</p>`);
-      else if (item.type === 'h4') out.push(`  <h4 class="subsection-title">${formatInlineText(item.text)}</h4>`);
-      else if (item.type === 'ul') {
-        out.push('  <ul class="content-text">');
-        for (const li of item.items) out.push(`    <li>${formatInlineText(li)}</li>`);
-        out.push('  </ul>');
-      } else if (item.type === 'img') {
+
+    // Group content intelligently (same logic as two-column)
+    let i = 0;
+    while (i < sec.content.length) {
+      const item = sec.content[i];
+
+      // Images always stand alone
+      if (item.type === 'img') {
         if (item.scale) {
           const width = formatScalePercent(item.scale);
           const widthAttr = width !== null ? `${width}%` : '100%';
@@ -295,8 +344,33 @@ function renderStacked(sections) {
         } else {
           out.push(`  <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
         }
+        i++;
+      } else {
+        // H4 + following content grouped together, or just content
+        // Note: For stacked layout, we don't use wrapper divs, just sequence elements
+        // H4's own margins handle spacing
+
+        // If this starts with H4, render it
+        if (sec.content[i].type === 'h4') {
+          out.push(`  <h4 class="subsection-title">${formatInlineText(sec.content[i].text)}</h4>`);
+          i++;
+        }
+
+        // Render all following paragraphs and lists
+        while (i < sec.content.length && (sec.content[i].type === 'p' || sec.content[i].type === 'ul')) {
+          const current = sec.content[i];
+          if (current.type === 'p') {
+            out.push(`  <p class="content-text">${formatInlineText(current.text)}</p>`);
+          } else if (current.type === 'ul') {
+            out.push('  <ul class="content-text">');
+            for (const li of current.items) out.push(`    <li>${formatInlineText(li)}</li>`);
+            out.push('  </ul>');
+          }
+          i++;
+        }
       }
     }
+
     out.push('</section>');
   }
   return out.join('\n');
