@@ -512,6 +512,76 @@ class PortfolioManager {
     }
 }
 
+// Simple image lightbox for project detail pages
+let lightboxOverlay = null;
+let lightboxImage = null;
+let lightboxKeydownHandler = null;
+
+function ensureImageLightbox() {
+    if (lightboxOverlay) return;
+
+    lightboxOverlay = document.createElement('div');
+    lightboxOverlay.className = 'image-lightbox-overlay';
+
+    lightboxImage = document.createElement('img');
+    lightboxOverlay.appendChild(lightboxImage);
+
+    lightboxOverlay.addEventListener('click', (event) => {
+        if (event.target === lightboxOverlay) {
+            closeImageLightbox();
+        }
+    });
+
+    document.body.appendChild(lightboxOverlay);
+    lightboxOverlay.style.display = 'none';
+}
+
+function openImageLightbox(imageElement) {
+    if (!imageElement || !imageElement.src) return;
+
+    ensureImageLightbox();
+
+    lightboxImage.src = imageElement.src;
+    lightboxImage.alt = imageElement.alt || '';
+    lightboxOverlay.style.display = 'flex';
+
+    if (lightboxKeydownHandler) {
+        document.removeEventListener('keydown', lightboxKeydownHandler);
+    }
+
+    lightboxKeydownHandler = (event) => {
+        if (event.key === 'Escape' || event.key === 'Esc') {
+            closeImageLightbox();
+        }
+    };
+
+    document.addEventListener('keydown', lightboxKeydownHandler);
+}
+
+function closeImageLightbox() {
+    if (lightboxOverlay) {
+        lightboxOverlay.style.display = 'none';
+    }
+    if (lightboxKeydownHandler) {
+        document.removeEventListener('keydown', lightboxKeydownHandler);
+        lightboxKeydownHandler = null;
+    }
+}
+
+function setupProjectImageLightbox() {
+    const images = document.querySelectorAll('.project-content img');
+    if (!images.length) return;
+
+    images.forEach((img) => {
+        if (img.dataset.lightboxBound === 'true') return;
+
+        img.dataset.lightboxBound = 'true';
+        img.addEventListener('click', () => {
+            openImageLightbox(img);
+        });
+    });
+}
+
 // Performance optimization: Use requestAnimationFrame for smooth animations
 class AnimationManager {
     constructor() {
@@ -582,6 +652,7 @@ function initializePortfolio() {
 
 // Listen for components loaded event
 document.addEventListener('componentsLoaded', initializePortfolio);
+document.addEventListener('componentsLoaded', setupProjectImageLightbox);
 
 // Fallback: Initialize when DOM is loaded if components are already loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -591,6 +662,10 @@ document.addEventListener('DOMContentLoaded', () => {
             initializePortfolio();
         }
     }, 100);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    setupProjectImageLightbox();
 });
 
 // Global utility functions
