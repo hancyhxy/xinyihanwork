@@ -22,7 +22,6 @@ The research revealed five main concepts: difficulties in keeping friends, worri
 Students face significant challenges in sustaining meaningful friendships beyond classroom interactions. While most students can initiate conversations during class or projects, these relationships often fade due to tight schedules or social anxiety.
 
 #### Key findings from our research:
-
 - **Privacy Concerns**: Students prefer to connect in protected settings rather than engaging on mainstream social media platforms like Instagram or WeChat, demonstrating the need for a platform where users control information disclosure
 - **Social Isolation**: Many introverted students suffer from loneliness and isolation, with traditional coping strategies like calling family proving insufficient
 - **Time Constraints**: Students struggle to balance social life with employment and academic commitments, leaving little time or energy for socializing
