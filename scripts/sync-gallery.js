@@ -60,15 +60,35 @@ function formatInlineText(text) {
     return placeholder;
   });
 
+  // Step 1.5: Process bold and italic markdown before escaping
+  // **bold** or __bold__ -> <strong>bold</strong>
+  workingText = workingText.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  workingText = workingText.replace(/__(.+?)__/g, '<strong>$1</strong>');
+
+  // *italic* or _italic_ -> <em>italic</em> (but don't match __)
+  workingText = workingText.replace(/\*([^*]+?)\*/g, '<em>$1</em>');
+  workingText = workingText.replace(/\b_([^_]+?)_\b/g, '<em>$1</em>');
+
   // Step 2: Process standalone URLs in remaining text
   const urlRegex = /(https?:\/\/[\w\-._~:/?#\[\]@!$&'()*+,;=%]+)/g;
   let lastIndex = 0;
   const parts = [];
   let match;
 
+  // Helper function to escape text while preserving <strong>, <em> tags
+  function escapePreservingTags(text) {
+    const tagRegex = /(<\/?(?:strong|em)>)/g;
+    const segments = text.split(tagRegex);
+    return segments.map((seg, i) => {
+      // Odd indices are the captured tags
+      if (i % 2 === 1) return seg;
+      return htmlEscape(seg);
+    }).join('');
+  }
+
   while ((match = urlRegex.exec(workingText)) !== null) {
     if (match.index > lastIndex) {
-      parts.push(htmlEscape(workingText.slice(lastIndex, match.index)));
+      parts.push(escapePreservingTags(workingText.slice(lastIndex, match.index)));
     }
 
     let url = match[0];
@@ -86,10 +106,10 @@ function formatInlineText(text) {
   }
 
   if (lastIndex < workingText.length) {
-    parts.push(htmlEscape(workingText.slice(lastIndex)));
+    parts.push(escapePreservingTags(workingText.slice(lastIndex)));
   }
 
-  let result = parts.length ? parts.join('') : htmlEscape(workingText);
+  let result = parts.length ? parts.join('') : escapePreservingTags(workingText);
 
   // Step 3: Restore markdown links from placeholders
   linkPlaceholders.forEach((link, index) => {

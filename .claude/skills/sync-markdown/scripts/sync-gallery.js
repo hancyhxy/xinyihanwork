@@ -44,7 +44,18 @@ function htmlEscapeAttr(s) {
 
 function formatInlineText(text) {
   if (text === undefined || text === null) return '';
-  const raw = String(text);
+  let raw = String(text);
+
+  // First, handle bold and italic markdown
+  // **bold** or __bold__ -> <strong>bold</strong>
+  raw = raw.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  raw = raw.replace(/__(.+?)__/g, '<strong>$1</strong>');
+
+  // *italic* or _italic_ -> <em>italic</em>
+  raw = raw.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  raw = raw.replace(/_(.+?)_/g, '<em>$1</em>');
+
+  // Now handle URLs and escape remaining text
   const urlRegex = /(https?:\/\/[\w\-._~:/?#\[\]@!$&'()*+,;=%]+)/g;
   let lastIndex = 0;
   const parts = [];
@@ -52,7 +63,9 @@ function formatInlineText(text) {
 
   while ((match = urlRegex.exec(raw)) !== null) {
     if (match.index > lastIndex) {
-      parts.push(htmlEscape(raw.slice(lastIndex, match.index)));
+      // Don't escape HTML tags we just added (strong, em)
+      const chunk = raw.slice(lastIndex, match.index);
+      parts.push(escapeTextPreservingTags(chunk));
     }
 
     let url = match[0];
@@ -70,13 +83,25 @@ function formatInlineText(text) {
   }
 
   if (lastIndex < raw.length) {
-    parts.push(htmlEscape(raw.slice(lastIndex)));
+    const chunk = raw.slice(lastIndex);
+    parts.push(escapeTextPreservingTags(chunk));
   }
 
   if (!parts.length) {
-    return htmlEscape(raw);
+    return escapeTextPreservingTags(raw);
   }
   return parts.join('');
+}
+
+function escapeTextPreservingTags(text) {
+  // Escape text but preserve <strong>, </strong>, <em>, </em> tags
+  const tagRegex = /(<\/?(?:strong|em)>)/g;
+  const parts = text.split(tagRegex);
+  return parts.map((part, i) => {
+    // Odd indices are the captured tags
+    if (i % 2 === 1) return part;
+    return htmlEscape(part);
+  }).join('');
 }
 
 function normalizeHeaderTitle(title) {
