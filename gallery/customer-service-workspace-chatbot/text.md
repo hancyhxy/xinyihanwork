@@ -40,6 +40,12 @@ Message components, reply buttons, action shortcuts for faster task completion
 ![chatbot conversation flow](./public/bot1.png)
 ![chatbot UI details](./public/bot3.png)
 ![chatbot interaction patterns](./public/2-8.png)
+#### Innovation Patent: Plugin for a Tone-Customization Chatbot
+As a self-initiated exploration, I collaborated with a designer friend, a product friend, and an algorithm friend to prototype a lightweight tone-customization plugin for the Chatbot, aiming to let NLP and CS operations teams adjust the AI assistant’s communication style for different merchant profiles and service scenarios. The concept centered on two simple but high-impact ideas —
+- quick tone switching with clear, instant previews
+- direct application of tone presets to AI-generated replies for brand-consistent responses
+creating an experience that felt intuitive, controllable, and easy to operationalize. The prototype was well-received by the NLP team and later informed broader discussions around personalized AI response generation.\
+![plugin](./public/plugin.png)
 
 ### Agent Workspace: Core Modules I Owned
 *Agent Workspace is a large mission-critical internal tool. I contributed to several high-impact modules that directly shape the daily workflow of customer service agents.*   
