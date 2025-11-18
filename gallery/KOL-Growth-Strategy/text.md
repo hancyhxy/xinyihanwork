@@ -9,7 +9,7 @@
 ### Project Brief
 - Date: 2021-11-01
 - Project Name: KOL Growth Strategy
-- Tag: Social Media, User Growth
+- Tag: Social Media, User Growth, Content Strategy, Brand Collaboration
 - Company: Red Note
 
 ---

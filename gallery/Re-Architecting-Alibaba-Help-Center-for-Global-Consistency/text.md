@@ -4,7 +4,7 @@
 ### Project Brief
 - Date: 2022.02
 - Project Name: Re-Architecting Alibaba Help Center for Global Consistency
-- Tag: Localization Strategy, Information Architecture
+- Tag: Web Design, Localization Strategy, Information Architecture
 - Company: Alibaba
 
 
