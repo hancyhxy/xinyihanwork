@@ -4,7 +4,7 @@
 ### Project Brief
 - Date: 2023
 - Project Name: Content-Driven Food Delivery Experience
-- Tag: Content Commerce, UX Flow, Incentive Design
+- Tag: Short-Video Commerce, End-to-End, Low-Friction Usability
 - Company: TikTok, Local Life
 
 ### Introduction
