@@ -55,7 +55,7 @@ function formatInlineText(text) {
     const safeHref = htmlEscapeAttr(url.trim());
     const displayText = linkText.trim() || url.trim(); // Use URL if linkText is empty
     const safeText = htmlEscape(displayText);
-    const placeholder = `__LINK_${linkPlaceholders.length}__`;
+    const placeholder = `%%%LINK_${linkPlaceholders.length}%%%`;
     linkPlaceholders.push(`<a href="${safeHref}" target="_blank" rel="noreferrer">${safeText}</a>`);
     return placeholder;
   });
@@ -113,7 +113,7 @@ function formatInlineText(text) {
 
   // Step 3: Restore markdown links from placeholders
   linkPlaceholders.forEach((link, index) => {
-    result = result.replace(`__LINK_${index}__`, link);
+    result = result.replace(`%%%LINK_${index}%%%`, link);
   });
 
   return result;
@@ -293,23 +293,46 @@ function renderTwoColumn(sections) {
     out.push('  <div class="column-content">');
 
     // Group content intelligently:
-    // - Images stand alone
+    // - Images followed by a single paragraph (no blank line) are grouped together
+    // - Images alone stand alone
     // - H4 + following content (p/ul) are grouped together
     // - Consecutive p/ul without H4 are grouped together
     let i = 0;
     while (i < sec.content.length) {
       const item = sec.content[i];
 
-      // Images always stand alone
+      // Check if image is followed immediately by a paragraph (caption/link case)
+      // Only group if the paragraph is NOT followed by a list (which would indicate the paragraph introduces the list)
       if (item.type === 'img') {
-        if (item.scale) {
-          const width = formatScalePercent(item.scale);
-          const widthAttr = width !== null ? `${width}%` : '100%';
-          out.push(`    <img class="project-image-scaled" style="width: ${widthAttr}" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+        const nextItem = sec.content[i + 1];
+        const itemAfterNext = sec.content[i + 2];
+        const hasFollowingParagraph = nextItem && nextItem.type === 'p';
+        const paragraphFollowedByList = itemAfterNext && itemAfterNext.type === 'ul';
+
+        if (hasFollowingParagraph && !paragraphFollowedByList) {
+          // Wrap image + paragraph together in a div with reduced spacing between them
+          out.push('    <div>');
+          if (item.scale) {
+            const width = formatScalePercent(item.scale);
+            const widthAttr = width !== null ? `${width}%` : '100%';
+            out.push(`      <img class="project-image-scaled" style="width: ${widthAttr}; margin-bottom: var(--spacing-xs);" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          } else {
+            out.push(`      <img class="project-image" style="margin-bottom: var(--spacing-xs);" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          }
+          out.push(`      <p class="content-text">${formatInlineText(nextItem.text)}</p>`);
+          out.push('    </div>');
+          i += 2; // Skip both image and paragraph
         } else {
-          out.push(`    <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          // Image stands alone
+          if (item.scale) {
+            const width = formatScalePercent(item.scale);
+            const widthAttr = width !== null ? `${width}%` : '100%';
+            out.push(`    <img class="project-image-scaled" style="width: ${widthAttr}" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          } else {
+            out.push(`    <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          }
+          i++;
         }
-        i++;
       } else {
         // Start a new group (may include H4 + content, or just content)
         out.push('    <div>');
@@ -355,16 +378,36 @@ function renderStacked(sections) {
     while (i < sec.content.length) {
       const item = sec.content[i];
 
-      // Images always stand alone
+      // Check if image is followed immediately by a paragraph (caption/link case)
+      // Only group if the paragraph is NOT followed by a list (which would indicate the paragraph introduces the list)
       if (item.type === 'img') {
-        if (item.scale) {
-          const width = formatScalePercent(item.scale);
-          const widthAttr = width !== null ? `${width}%` : '100%';
-          out.push(`  <img class="project-image-scaled" style="width: ${widthAttr}" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+        const nextItem = sec.content[i + 1];
+        const itemAfterNext = sec.content[i + 2];
+        const hasFollowingParagraph = nextItem && nextItem.type === 'p';
+        const paragraphFollowedByList = itemAfterNext && itemAfterNext.type === 'ul';
+
+        if (hasFollowingParagraph && !paragraphFollowedByList) {
+          // Render image + paragraph with reduced spacing (paragraph margin applies)
+          if (item.scale) {
+            const width = formatScalePercent(item.scale);
+            const widthAttr = width !== null ? `${width}%` : '100%';
+            out.push(`  <img class="project-image-scaled" style="width: ${widthAttr}; margin-bottom: var(--spacing-xs);" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          } else {
+            out.push(`  <img class="project-image" style="margin-bottom: var(--spacing-xs);" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          }
+          out.push(`  <p class="content-text">${formatInlineText(nextItem.text)}</p>`);
+          i += 2; // Skip both image and paragraph
         } else {
-          out.push(`  <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          // Image stands alone
+          if (item.scale) {
+            const width = formatScalePercent(item.scale);
+            const widthAttr = width !== null ? `${width}%` : '100%';
+            out.push(`  <img class="project-image-scaled" style="width: ${widthAttr}" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          } else {
+            out.push(`  <img class="project-image" src="${item.src}" alt="${htmlEscape(item.alt)}">`);
+          }
+          i++;
         }
-        i++;
       } else {
         // H4 + following content grouped together, or just content
         // Note: For stacked layout, we don't use wrapper divs, just sequence elements

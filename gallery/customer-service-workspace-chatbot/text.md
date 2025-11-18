@@ -1,6 +1,6 @@
 ![cover](./public/cover.png)
 
-# Customer Service Workspace & AI Chatbot
+# Customer Service Workspace & AI Chatbot for Taobao
 
 ### Project Brief
 - Date: 2021.06
@@ -9,85 +9,79 @@
 - Company: Alibaba
 
 ### Overview
+**Chatbot, Help Center, and Agent Workspace Modules**
 ![overview](./public/overview.png)
-Designed a comprehensive customer service solution for Taobao, China's largest e-commerce platform, handling 200,000 daily inquiries from sellers and buyers. The project encompassed two interconnected systems: an agent workspace for the platform CS team and a customer-facing AI chatbot for self-service support.
-
-The dual-system approach addressed the needs of two distinct user groups while maintaining seamless integration. The agent workspace provided CS representatives with case management tools, a centralized knowledge base, and AI-assisted features to handle complex inquiries efficiently. The customer-facing chatbot enabled users to resolve common issues independently through an intelligent conversational interface.
-
-### Challenge
-![approach](./public/approach.png)
+I designed key components of Taobao’s merchant-facing customer service ecosystem, supporting 200,000 daily inquiries on China’s largest e-commerce platform.
 ![challengeandrole](./public/challengeandrole.png)
-The scale of customer service operations on Taobao presented significant challenges:
-- **Volume**: Managing 200,000 daily inquiries across diverse user segments (sellers and buyers) with varying needs and complexity levels
-- **Dual User Groups**: Balancing the requirements of professional CS agents who needed powerful tools with customers who wanted simple, quick solutions
-- **Efficiency vs. Quality**: Maintaining high-quality support while reducing operational costs and response times
-- **Context Awareness**: Ensuring the AI system could understand nuanced customer issues and respond appropriately across different scenarios
+The project consists of two major product surfaces:
+- Merchant Self-Service (Chatbot + Help Center) — fully designed by me
+- Agent Workspace (Internal Customer Service Platform) — I owned several core modules
+The shared goal was to reduce support load while helping merchants resolve operational issues quickly and accurately.
 
-### Process
-
-#### Agent Workspace Design
+### Merchant Self-Service: Chatbot & Help Center
+![appinall](./public/appinall.png)
+![approach](./public/approach.png)
+**Role: Lead Designer (sole designer responsible for this entire track)**
+Merchants often face operational, policy, and fulfillment questions that are more complex than consumer inquiries. I designed a complete self-service experience that allows sellers to diagnose and resolve issues without relying on human agents.
+#### Chatbot System (End-to-End)
+I independently designed the full Chatbot solution, including:
+- **Conversation Architecture:** Multi-layer decision tree tailored to merchant workflows (orders, fulfillment, promotions, rules, seller tools, etc.)
+- **Interaction Flow Design:** Guided questioning, context-aware branching, and progressive disclosure to prevent overload
+- **Smart Linking with Help Center:**Bot automatically surfaces relevant help articles based on intent
+- **UI Patterns & Quick Actions:** Message components, reply buttons, action shortcuts for faster task completion
+Message components, reply buttons, action shortcuts for faster task completion
 ![workspace interface](./public/1.png)
 ![workspace dashboard](./public/2.png)
-
-Built an integrated workspace combining case management, knowledge base access, and AI-assisted tools. The interface prioritized quick information retrieval and streamlined workflows to help agents resolve cases faster while maintaining service quality.
-
-The workspace system, now part of Alibaba's 悉犀服务OS platform ([xixikf.com](https://xixikf.com/)), provides enterprise-grade customer service infrastructure with:
-
-**Core Capabilities:**
-- **Unified Case Dashboard**: Smart prioritization system that surfaces urgent inquiries and routes cases to specialized agents based on issue type and complexity
-- **Contextual Knowledge Base**: AI-powered suggestions that automatically surface relevant help articles and solutions based on inquiry content
-- **AI-Powered Response Recommendations**: Real-time suggestions for agent responses, drawing from successful resolution patterns and best practices
-- **Real-time Analytics**: Performance metrics and operational insights to track team efficiency, customer satisfaction, and service quality
-
-The workspace design focused on reducing cognitive load for agents handling high volumes while maintaining service quality through intelligent automation and decision support.
-
-#### Customer-Facing Chatbot
-
-![chatbot conversation flow](./public/bot1.png)
-
-Created a tree-based conversational flow system that guided customers through self-service support. The chatbot design focused on natural language understanding and progressive disclosure of information to prevent overwhelming users.
-
-**Conversation Flow & Tree Structure**
-
-The chatbot architecture uses a multi-level decision tree that adapts based on user intent and context:
-
 ![chatbot interface examples](./public/bot2.png)
-
-- **Intent Recognition**: Natural language processing to quickly identify the customer's issue category (order problems, payment issues, account questions, etc.)
-- **Progressive Questioning**: Step-by-step guided flow that narrows down the specific issue without overwhelming users with too many options at once
-- **Dynamic Branching**: Conversation paths that adapt based on previous responses and user behavior patterns
-- **Contextual Memory**: System remembers previous interactions and order history to provide personalized assistance
-
-**UI/UX Interface Design**
-
+#### Help Center Information Architecture
+- Rebuilt the entire IA based on merchant journeys
+- Standardized article structures for clarity
+- Designed linking logic between articles and Chatbot pathways
+![chatbot conversation flow](./public/bot1.png)
 ![chatbot UI details](./public/bot3.png)
 ![chatbot interaction patterns](./public/2-8.png)
 
-The interface design prioritized clarity and ease of use:
-
-- **Visual Clarity**: Clean, minimal interface with clear message bubbles, icons, and quick-reply buttons to guide user actions
-- **Progressive Disclosure**: Information revealed gradually to prevent overwhelming users, showing only relevant options at each step
-- **Quick Actions**: Pre-defined response buttons for common scenarios, reducing typing effort and speeding up resolution
-- **Visual Feedback**: Loading states, confirmation messages, and status indicators to keep users informed of system activity
-- **Mobile-First Design**: Optimized for Taobao's mobile app with touch-friendly buttons and responsive layouts
-
-**NLP & Personalization**
-
-Worked closely with the NLP engineering team to develop tone customization and context-aware response systems. This collaboration ensured the chatbot could adapt its communication style based on:
-
-- **Customer Sentiment Analysis**: Detecting frustration, urgency, or confusion and adjusting response tone accordingly
-- **Issue Urgency Detection**: Prioritizing and escalating time-sensitive problems automatically
-- **Conversation Context**: Understanding conversation history to provide coherent, contextual responses
-- **Personality Adaptation**: Adjusting language formality and friendliness based on customer preferences (patent filed for this technology)
+### Agent Workspace: Core Modules I Owned
+*Agent Workspace is a large mission-critical internal tool. I contributed to several high-impact modules that directly shape the daily workflow of customer service agents.*   
+#### Intelligent Reply Module (Real-time Assistance)
+I designed the intelligent features inside the chat handling area:
+- **AI-Powered Reply Suggestions** triggered by real-time agent typing
+- **Unified Reply Panel** combining AI suggestions, knowledge-base search, and quick phrases
+- **Quick Phrase System** including categorization, search, and insert patterns
+This module reduces response time and improves consistency across agents.
+#### Ticketing System (Forms & Details)
+I owned key flows within the ticketing system:
+- Ticket creation forms
+- Ticket detail pages
+- Information layout, state transitions, escalation logic
+#### Merchant Onboarding & Back-Office Configuration
+- Designed several foundational configuration pages
+- Included field management, permission toggles, and operational setup workflows
+![xixikf](./public/xixikf.png)
+[Xixi Service OS](https://xixikf.com/)
 
 ### Outcome
-![appinall](./public/appinall.png)
+- Chatbot achieved high self-service resolution and became the default first step for merchant troubleshooting
+- Workspace intelligent features reduced agent workload and improved handling efficiency
+- Components from this project were later integrated into Alibaba’s enterprise customer service platform
+- Strengthened alignment between self-service and human-assisted service, improving end-to-end support experience for merchants
 
-The integrated customer service system delivered measurable impact:
+### Contribution Summary
+- Sole designer for the entire merchant-facing Chatbot & Help Center system, including end-to-end conversation architecture, IA redesign, and UI patterns.
+- Designed core intelligent modules within the Agent Workspace, such as AI reply suggestions, unified reply panel, quick phrases, and key ticketing flows.
+- Delivered interaction models that balanced high-volume operational demands with clarity, speed, and scalability.
+- Collaborated with PMs, NLP engineers, and service operations teams to ensure real-world feasibility, accuracy, and performance in production.
 
-- **80% Resolution Rate**: The majority of customer inquiries were successfully resolved through the chatbot's self-service capabilities
-- **Cost Savings**: Millions saved annually in customer support operational costs through automation and improved agent efficiency
-- **Innovation Recognition**: Filed patent for AI agent with personalized tone adjustment technology
-- **User Satisfaction**: Improved response times and 24/7 availability enhanced overall customer experience on the platform
-
-The project demonstrated how thoughtful UX design combined with AI technology can transform large-scale customer service operations while maintaining the human touch essential for quality support.
+### Design Reflection
+My design approach focused on balancing complexity, scalability, and clarity within a high-volume customer service environment.
+I grounded the work in three principles:
+#### 1. System Thinking for Multi-Endpoint Consistency
+I treated the merchant Chatbot, Help Center, and Agent Workspace as a unified service ecosystem rather than isolated features.
+Every design decision—IA, flows, response logic, or UI patterns—was evaluated for cross-end consistency and long-term scalability.
+#### 2. Progressive Disclosure for Cognitive Load Reduction
+Merchant issues can involve tools, policies, logistics, and platform rules.
+I designed both the Chatbot and Workspace flows around progressive disclosure, revealing information step-by-step to keep users focused and avoid overwhelming them.
+#### 3. Human–AI Collaboration as a Core Interaction Model
+Whether on the merchant side or agent side, automation and AI suggestions were intentionally embedded as supportive guidance, not as disruptive intervention.
+The goal was to empower users—merchants and agents—to act more confidently and faster with context-aware assistance.
+This approach enabled the entire service system to feel coherent, intuitive, and operationally efficient across very different user groups.
