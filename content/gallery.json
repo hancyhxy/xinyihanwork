@@ -1,5 +1,14 @@
 [
   {
+    "date": "2026-02-28",
+    "project name": "Claude Code ↔ Figma: Building an AI-Powered Portfolio Assistant",
+    "tag": "AI, MCP, Product Design",
+    "classification": "UX/Product",
+    "coverImageUrl": "gallery/portfolio-ai-assistant/public/cover.png",
+    "projectUrl": "gallery/portfolio-ai-assistant/index.html",
+    "company": "Personal"
+  },
+  {
     "date": "2025-11-01",
     "project name": "Interactive Virtual Drum Kit",
     "tag": "Media pipe, HTML/CSS, P5js, Interactive Music",
