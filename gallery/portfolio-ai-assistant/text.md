@@ -8,26 +8,18 @@
 - Tag: AI, MCP, Product Design
 - Company: Personal
 
-> "I didn't just build an AI product. I used AI to build it—Claude Code to prototype, Figma MCP to design, and back to Claude Code to ship. The workflow *is* the work."
-
 ### Overview
-- **Time to Prototype**: [1 days]
-- **Demo**: [Screen recording link]
-- **Product**: A personal AI assistant embedded in my portfolio website
-
 A personal AI assistant embedded in my portfolio website (bottom-right chat) that helps hiring teams explore my work through conversation—then routes them to verifiable evidence (projects, artifacts, and pages).
-放一个动图
-- I built a **portfolio-native AI assistant** designed for the hiring-team workflow: ask a question, get a concise answer, and jump directly to proof.
-- I ran a full **Claude Code → Figma → Claude Code** loop—starting with a working prototype, translating it into an editable design system, then implementing it back into production UI.
-- I designed the assistant around real evaluation scenarios using guided interaction patterns like **cards, curated paths, and keyword/hashtag exploration**, reducing "blank prompt" friction.
+ - Local Server: Python built-in HTTP Server (zero dependencies, no need for load balancer or complex infrastructure for local demo)                             
+ - AI Model: OpenAI gpt-4o-mini (fast response, low cost, suitable for demo)       
+ - Frontend: Vanilla HTML / CSS / JS (no framework, lightweight, consistent with existing portfolio)                                                               
+ - Security: API Key stored in local .env, proxied via Python server (prevents key exposure in frontend)  
 
 
 ### The Problem
-Hiring teams evaluate portfolios under time pressure. Even strong candidates can be hard to assess because evidence is scattered, navigation is slow, and different interviewers care about different questions.
+A portfolio is a one-way presentation. A hiring team can scroll through it, but they can't ask follow-up questions, dig into a specific decision, or understand the person behind the work — not without scheduling a call.
 
-I wanted to redesign the portfolio experience around a single loop:
-
-**Ask → understand → verify → continue.**
+I wanted to close that gap: let anyone visiting my portfolio have a real conversation with it, the same way they would with me.
 
 ### The Approach
 
@@ -40,47 +32,39 @@ I wanted to redesign the portfolio experience around a single loop:
 
 ### 1. AI-native workflow: Claude Code → Figma → Claude Code
 
-I intentionally built this project to demonstrate how I work in AI-native teams—fast, iterative, and shippable.
+I used a Claude Code → Figma → Claude Code loop to go from idea to working demo in one day. The screen recording below shows how this works in practice.
+0.7 ![mcp](./public/mcp.gif)
 
-**Prototype in code (Claude Code)**
 
-I vibe-coded a functioning chat experience to validate feasibility and the core interaction flow inside my existing portfolio.
+The key was the Figma MCP integration with Claude Code. Through MCP, code and design stay connected — and as a designer, I maintained proper design variables and tokens throughout the process, so the output isn't a rough sketch. It's a pixel-perfect Figma file, generated seamlessly from the working codebase.
 
-**Translate into editable design (Figma)**
-
-I rebuilt the working UI in Figma as an editable system (not just static mock screens), defining:
-
-- Component structure and interaction states
-- Patterns for links, evidence, and "next step" actions
-- Responsive behaviour and edge cases (loading, errors, retries)
-
-**Implement back into production (Claude Code)**
-
-I re-applied the Figma decisions to the codebase to ship a polished, production-ready experience.
-
-This loop demonstrates a key AI experience design skill: **bridging prototypes, design craft, and production constraints without losing speed.**
+This workflow meant I could prototype in code, refine in design, and ship back to production without handoff delays.
 
 ---
 
-### 2. AI-native product design: Guided Discovery, Not Generic Chat
+### 2. AI-native product design: A Structured Self-Narrative System
+I prototyped a working chatbot quickly — a general assistant scoped to my portfolio, where hiring teams could ask anything about my work.
+0.7 ![texttoanswer](./public/texttoanswer.gif)
 
-Rather than letting the assistant behave like a general chatbot, I designed it around hiring-team intents, such as:
+But a general chatbot — like ChatGPT or Grok — is built for open-ended conversation. That works for broad tasks, but not here. In this specific scenario, the goal is much narrower: help a hiring team understand one person quickly.
 
-- "Give me a 60-second overview of you."
-- "Show me your most relevant AI/agentic work."
-- "How do you think about trust, uncertainty, and transparency?"
-- "How do you collaborate with engineers?"
+So beyond the free-form chat, I needed an **information system** — one designed around how I want to present myself, not just what someone happens to ask.
+0.7 ![qucikbar](./public/qucikbar.gif)
 
-To reduce blank-prompt friction and speed up time-to-proof, I explored interaction patterns including:
+For the interaction design, I started from the hiring team's perspective: what does someone actually do when they open this chatbot? They're trying to understand a person — their background, their experience, their work. So I structured the entry points around those three scenarios (Career Path / Projects / Design Thinking) rather than leaving the prompt fully open.
 
-- **Cards** that surface recommended projects and "proof bundles" (problem → approach → artifact)
-- **Keyword / hashtag exploration** that reflects key themes and routes users to curated evidence
-- **Planned guided pathways** (next iteration): shortcut bubbles, tabbed modes (e.g., About / AI Projects / Process / Contact), and scenario categories (Recruiter / Design Lead / Engineer)
+Within that, Projects was the hardest to get right — and the most important to get right quickly. With many projects across different domains, the real question for a recruiter isn't "what kind of work did she do?" — it's "has she worked on something like mine?" Organising by job category (UX / Social Media) doesn't answer that. Organising by industry keyword does.
 
-**Screen recording**: [link]
+So instead of content-type labels, I organised Projects around industry keywords — the same tags already maintained in `gallery.json` for each project. The AI reads these directly, so there's no separate taxonomy to maintain. Each tag was written from the recruiter's vocabulary, not mine:
+- **B2B / Operations** → Rider Dispatch, Customer Service Workspace
+- **AI & Chatbot** → Customer Service Chatbot, E-commerce Replies (NLP)
+- **Consumer App** → FriendUp, Content-Driven Food Delivery
+- **Content & Growth** → KOL Growth Strategy, Global 1M Audition
+0.7 ![projectguide](./public/projectguide.gif)
 
 
-### Outcomes
-- A portfolio that becomes **interactive and faster to evaluate**, aligned with real interviewer questions.
-- Clear evidence of how I design AI experiences: **prototype → systemise → ship → iterate**.
-- A demonstration of **brand expression through agent behaviour**: tone, UI polish, and interaction design are intentional—not accidental.
+### Summary
+
+This project started as a one-day concept: could I build a working AI assistant for my portfolio, and could the workflow itself demonstrate how I work?
+
+The answer was yes — on both counts. I prototyped an interactive AI assistant using a Claude Code → Figma → Claude Code loop, proving that code-first design iteration can go from idea to shippable product in a single session. At the same time, I designed a structured self-narrative system — guided entry points, industry-keyword navigation, and recruiter-first interaction patterns — that turns a portfolio from a static showcase into an evaluable conversation.
