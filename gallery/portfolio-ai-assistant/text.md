@@ -46,14 +46,14 @@ This workflow meant I could prototype in code, refine in design, and ship back t
 I prototyped a working chatbot quickly — a general assistant scoped to my portfolio, where hiring teams could ask anything about my work.
 0.7 ![texttoanswer](./public/texttoanswer.gif)
 
-But a general chatbot — like ChatGPT or Grok — is built for open-ended conversation. That works for broad tasks, but not here. In this specific scenario, the goal is much narrower: help a hiring team understand one person quickly.
+But a general chatbot — like ChatGPT or Gemini — is built for open-ended conversation. That works for broad tasks, but not here. In this specific scenario, the goal is much narrower: help a hiring team understand one person quickly.
 
 So beyond the free-form chat, I needed an **information system** — one designed around how I want to present myself, not just what someone happens to ask.
 
 0.7 ![qucikbar](./public/qucikbar.gif)
 For the interaction design, I started from the hiring team's perspective: what does someone actually do when they open this chatbot? They're trying to understand a person — their background, their experience, their work. So I structured the entry points around those three scenarios (Career Path / Projects / Design Thinking) rather than leaving the prompt fully open.
 
-Within that, Projects was the hardest to get right — and the most important to get right quickly. With many projects across different domains, the real question for a recruiter isn't "what kind of work did she do?" — it's "has she worked on something like mine?" Organising by job category (UX / Social Media) doesn't answer that. Organising by industry keyword does.
+Within that, Projects was the hardest to get right — and the most important to get right quickly. With many projects across different domains, the real question for a recruiter isn't "what kind of work did she do?" — it's "has she worked on something like mine?" Organising by job category (UX / Visual / Strategy) doesn't answer that. Organising by industry keyword does.
 
 0.7 ![projectguide](./public/projectguide.gif)
 So instead of content-type labels, I organised Projects around industry keywords — the same tags already maintained in `gallery.json` for each project. The AI reads these directly, so there's no separate taxonomy to maintain. Each tag was written from the recruiter's vocabulary, not mine:
