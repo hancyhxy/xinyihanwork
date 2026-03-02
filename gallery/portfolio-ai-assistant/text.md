@@ -56,11 +56,7 @@ For the interaction design, I started from the hiring team's perspective: what d
 Within that, Projects was the hardest to get right — and the most important to get right quickly. With many projects across different domains, the real question for a recruiter isn't "what kind of work did she do?" — it's "has she worked on something like mine?" Organising by job category (UX / Visual / Strategy) doesn't answer that. Organising by industry keyword does.
 
 0.7 ![projectguide](./public/projectguide.gif)
-So instead of content-type labels, I organised Projects around industry keywords — the same tags already maintained in `gallery.json` for each project. The AI reads these directly, so there's no separate taxonomy to maintain. Each tag was written from the recruiter's vocabulary, not mine:
-- **B2B / Operations** → Rider Dispatch, Customer Service Workspace
-- **AI & Chatbot** → Customer Service Chatbot, E-commerce Replies (NLP)
-- **Consumer App** → FriendUp, Content-Driven Food Delivery
-- **Content & Growth** → KOL Growth Strategy, Global 1M Audition
+So instead of job-type labels, I organised Projects around four industry keywords — B2B / Operations, AI & Chatbot, Consumer App, and Content & Growth — pulled directly from `gallery.json`, so there's no separate taxonomy to maintain.
 
 
 ### Summary
@@ -68,3 +64,18 @@ So instead of content-type labels, I organised Projects around industry keywords
 This project started as a one-day concept: could I build a working AI assistant for my portfolio, and could the workflow itself demonstrate how I work?
 
 The answer was yes — on both counts. I prototyped an interactive AI assistant using a Claude Code → Figma → Claude Code loop, proving that code-first design iteration can go from idea to shippable product in a single session. At the same time, I designed a structured self-narrative system — guided entry points, industry-keyword navigation, and recruiter-first interaction patterns — that turns a portfolio from a static showcase into an evaluable conversation.
+
+### Design Reflection
+We moved from designing rule-based conversational flows to designing LLM-powered behavior systems.
+
+Before:
+Input → Intent → Fixed response (deterministic, structured, manually maintained).
+
+Now:
+Input → Context → Language reasoning → Probabilistic generation (generative, adaptive, constraint-shaped).
+0.7 ![difference](./public/difference.png)
+
+
+So, what we design today?
+0.7 ![llmbaseddesign](./public/llmbaseddesign.png)
+
